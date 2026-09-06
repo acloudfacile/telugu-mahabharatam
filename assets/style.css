@@ -123,6 +123,25 @@ table.counts td.diff{color:var(--madder)}
 table.counts.chain td{white-space:normal}
 p.note{color:var(--muted);font-size:.95rem;line-height:1.8;margin:14px 0 0}
 
+/* వంశ వృక్షము — generations down the page, the direct line marked */
+.vamsha{list-style:none;padding:0;margin:0}
+.vamsha>li{position:relative;padding:0 0 8px 0}
+.vamsha h2.gen{font-family:var(--display);color:var(--muted);font-size:1rem;font-weight:400;margin:26px 0 12px;
+  padding-bottom:6px;border-bottom:1px solid var(--line)}
+.vamsha .row{display:flex;flex-wrap:wrap;gap:10px}
+.pcard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;
+  width:9.5rem;padding:12px 10px;border:1px solid var(--line);border-radius:3px;background:var(--cloth-2);
+  text-decoration:none;color:var(--ink)}
+a.pcard:hover{border-color:var(--madder)}
+.pcard.line{border-color:var(--turmeric);border-width:2px;background:#F7F0DC}
+.pcard.spouse{background:transparent;border-style:dashed}
+.pcard .av{border-radius:50%}
+.pcard .av.blank{width:46px;height:46px;border-radius:50%;background:var(--cloth);border:1px dashed var(--line)}
+.pcard .pn{font-family:var(--display);font-size:1.02rem;line-height:1.3}
+.pcard .pnote{color:var(--muted);font-size:.78rem;line-height:1.5}
+.pcard .pep{color:var(--madder);font-size:.74rem}
+@media(max-width:640px){.pcard{width:calc(50% - 5px)}}
+
 .pager{display:flex;justify-content:space-between;gap:20px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line)}
 .pager a{font-family:var(--display);font-size:1.1rem;max-width:48%}
 .pager a small{display:block;font-family:var(--body);color:var(--muted);font-size:.85rem}

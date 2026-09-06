@@ -2,6 +2,7 @@
   const P = window.MB_PARVAS, C = window.MB_CONTENT || {}, CH = window.MB_CHARS || [], G = window.MB_GURUS || {gurus:[]};
   const IMG = window.MB_IMG || 'img/', ICO = window.MB_ICO || 'icons/', EV = window.MB_EVOLUTION || null;
   const ML = window.MB_MOOLAM || null;
+  const VM = window.MB_VAMSHA || null;
   const TN = ['౦','౧','౨','౩','౪','౫','౬','౭','౮','౯'];
   const tnum = n => String(n).split('').map(d => TN[+d]).join('');
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
@@ -279,6 +280,35 @@
       </div>`;
   }
 
+  // వంశ వృక్షము — the spine of the family, generation by generation. The people
+  // on the direct line down to Janamejaya are marked; spouses sit alongside.
+  function vamsha(){
+    if(!VM) return notfound();
+    document.title = `${VM.title} — ${P.site.title}`;
+    const card = pr => {
+      const c = pr.id ? findCharById(pr.id) : null;
+      const cls = ['pcard', pr.line ? 'line' : '', pr.spouse ? 'spouse' : ''].filter(Boolean).join(' ');
+      const inner = `${c ? avatar(c, 46) : '<span class="av blank"></span>'}
+        <span class="pn">${esc(pr.te)}</span>
+        <span class="pnote">${esc(pr.note)}</span>
+        ${pr.ep ? `<span class="pep">కథ ${tnum(pr.ep)}</span>` : ''}`;
+      return c ? `<a class="${cls}" href="#/patra/${c.id}">${inner}</a>`
+               : `<span class="${cls}">${inner}</span>`;
+    };
+    $.innerHTML = `
+      <div class="measure">
+        <div class="page-head"><h1>${esc(VM.title)}</h1>${VM.intro.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+        <ol class="vamsha">
+          ${VM.gens.map(g => `
+            <li>
+              <h2 class="gen">${esc(g.label)}</h2>
+              <div class="row">${g.people.map(card).join('')}</div>
+            </li>`).join('')}
+        </ol>
+        <p class="note">${esc(VM.note)}</p>
+      </div>`;
+  }
+
   function route(){
     const h = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
     if(h[0] === 'parva' && h[1] && h[2]) episode(h[1], h[2]);
@@ -289,6 +319,7 @@
     else if(h[0] === 'vetuku') search(h[1]);
     else if(h[0] === 'parinamam') evolution();
     else if(h[0] === 'moolam') moolam();
+    else if(h[0] === 'vamsham') vamsha();
     else home();
     window.scrollTo(0,0);
   }
