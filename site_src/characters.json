@@ -39,6 +39,48 @@
   "side": "guru"
  },
  {
+  "id": "dushyanta",
+  "name": "దుష్యంతుడు",
+  "aliases": [],
+  "role": "పౌరవ వంశ రాజు, భరతుని తండ్రి",
+  "side": "kuru"
+ },
+ {
+  "id": "shakuntala",
+  "name": "శకుంతల",
+  "aliases": [],
+  "role": "మేనక విశ్వామిత్రుల కుమార్తె, కణ్వుని పెంపుడు కూతురు",
+  "side": "kuru"
+ },
+ {
+  "id": "kanva",
+  "name": "కణ్వుడు",
+  "aliases": [],
+  "role": "శకుంతలను పెంచిన మహర్షి",
+  "side": "guru"
+ },
+ {
+  "id": "menaka",
+  "name": "మేనక",
+  "aliases": [],
+  "role": "అప్సరస, శకుంతల తల్లి",
+  "side": "deva"
+ },
+ {
+  "id": "vishvamitra",
+  "name": "విశ్వామిత్రుడు",
+  "aliases": [],
+  "role": "రాజర్షి, శకుంతల తండ్రి",
+  "side": "guru"
+ },
+ {
+  "id": "vasishtha",
+  "name": "వసిష్ఠుడు",
+  "aliases": [],
+  "role": "బ్రహ్మర్షి, అష్ట వసువులను శపించినవాడు",
+  "side": "guru"
+ },
+ {
   "id": "uparichara",
   "name": "ఉపరిచర వసువు",
   "aliases": [
