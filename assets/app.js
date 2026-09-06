@@ -388,6 +388,14 @@
 
 
 
+
+  // offline: register the worker once the page is up, so it never delays first paint
+  if('serviceWorker' in navigator && location.protocol !== 'file:'){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+
   // mobile menu: collapsed by default, closes on choosing a destination
   (function nav(){
     const btn = document.getElementById('navbtn'), el = document.getElementById('sitenav');

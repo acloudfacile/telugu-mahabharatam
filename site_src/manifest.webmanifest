@@ -1,0 +1,19 @@
+{
+  "name": "సంపూర్ణ మహాభారతము",
+  "short_name": "మహాభారతము",
+  "description": "పద్దెనిమిది పర్వాల మహా కథ — నేటి, రేపటి తెలుగు పిల్లల కోసం సరళ వచనంలో, చిత్రాలతో",
+  "lang": "te",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F3EDDF",
+  "theme_color": "#1B2540",
+  "categories": ["books", "education"],
+  "icons": [
+    { "src": "appicons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "appicons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "appicons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

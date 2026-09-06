@@ -42,6 +42,13 @@ def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" 
 <meta name="description" content="{parvas['site']['tagline']}">
 {FONTS}
 {favicon}
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2540" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1626" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="మహాభారతము">
+<link rel="apple-touch-icon" href="appicons/apple-touch-icon.png">
 {NOFLASH}
 {head}
 </head>
@@ -70,6 +77,9 @@ for d in GENERATED:
     shutil.rmtree(os.path.join(OUT, d), ignore_errors=True)
 os.makedirs(f'{OUT}/data'); os.makedirs(f'{OUT}/assets')
 shutil.copyfile(f'{SRC}/favicon.svg', f'{OUT}/favicon.svg')
+shutil.copyfile(f'{SRC}/manifest.webmanifest', f'{OUT}/manifest.webmanifest')
+shutil.rmtree(f'{OUT}/appicons', ignore_errors=True)
+shutil.copytree(f'{SRC}/appicons', f'{OUT}/appicons')
 shutil.copytree(f'{SRC}/img', f'{OUT}/img'); shutil.copytree(f'{SRC}/icons', f'{OUT}/icons')
 open(f'{OUT}/assets/style.css', 'w', encoding='utf8').write(css)
 open(f'{OUT}/assets/app.js', 'w', encoding='utf8').write(js)
@@ -81,6 +91,24 @@ open(f'{OUT}/index.html', 'w', encoding='utf8').write(shell(
     '<script src="data/parvas.js"></script><script src="data/content.js"></script><script src="data/characters.js"></script><script src="assets/app.js"></script>',
     'img/'))
 # README.md is hand-maintained in the repo; the build never overwrites it.
+
+
+# --- offline: stamp the service worker with a build id and the file list ---
+import hashlib, time
+build = hashlib.sha1(
+    (css + js + json.dumps(parvas, ensure_ascii=False) + json.dumps(content, ensure_ascii=False)
+     ).encode('utf8')).hexdigest()[:12]
+assets = ['./', './index.html', './assets/style.css', './assets/app.js',
+          './data/parvas.js', './data/content.js', './data/characters.js',
+          './favicon.svg', './manifest.webmanifest',
+          './appicons/icon-192.png', './appicons/icon-512.png',
+          './appicons/icon-maskable-512.png', './appicons/apple-touch-icon.png']
+assets += sorted('./img/' + f for f in os.listdir(f'{OUT}/img'))
+assets += sorted('./icons/' + f for f in os.listdir(f'{OUT}/icons'))
+sw = open(f'{SRC}/sw.js', encoding='utf8').read()
+sw = sw.replace('__BUILD__', build).replace('__ASSETS__', json.dumps(assets, indent=0))
+open(f'{OUT}/sw.js', 'w', encoding='utf8').write(sw)
+print(f'offline: {len(assets)} files precached, build {build}')
 
 # --- single-file preview ---
 images = {}
