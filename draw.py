@@ -478,22 +478,35 @@ def pauloma():
 # 7. Ruru — the lifted stick, and the snake that spoke
 def ruru():
     img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
-    gradient(d, (200, 220, 175), (150, 175, 120), 0, int(H * 0.60))
-    d.rectangle([0, H * 0.60, W, H], fill=(120, 150, 95))
-    for x, hh in [(0.05, 430), (0.16, 350), (0.88, 420), (0.97, 340)]:
-        tree(d, W * x, H * 0.66, hh)
-    # Ruru, stick raised — then held
-    figure(d, W * 0.32, H * 0.86, 250, robe=CREAM, skin=(200, 150, 100))
-    d.line([(W * 0.36, H * 0.70), (W * 0.46, H * 0.44)], fill=BROWN, width=13)
-    # the dundubha, harmless, speaking
-    pts = [(W * (0.56 + i * 0.011), H * 0.80 + 40 * math.sin(i * 0.55)) for i in range(28)]
-    d.line(pts, fill=(120, 155, 85), width=22)
-    hx, hy = pts[-1]
-    d.ellipse([hx - 30, hy - 20, hx + 30, hy + 20], fill=(120, 155, 85))
-    d.ellipse([hx + 6, hy - 9, hx + 16, hy + 1], fill=CREAM)
-    d.ellipse([hx + 9, hy - 7, hx + 14, hy - 2], fill=INK)
-    # a small flower for Pramadvara, alive again
-    lotus(d, W * 0.20, H * 0.90, 34)
+    gradient(d, (206, 226, 182), (156, 182, 126), 0, int(H * 0.58))
+    sun(d, W * 0.50, H * 0.16, 84, (238, 214, 130))
+    d.rectangle([0, H * 0.58, W, H], fill=(126, 156, 98))
+    d.rectangle([0, H * 0.58, W, H * 0.62], fill=(100, 133, 82))
+    for x, hh in [(0.04, 470), (0.15, 380), (0.87, 460), (0.98, 370)]:
+        tree(d, W * x, H * 0.64, hh)
+    # Ruru, large, the stick raised and then held
+    figure(d, W * 0.30, H * 0.94, 400, robe=CREAM, skin=(200, 150, 100))
+    d.line([(W * 0.355, H * 0.72), (W * 0.475, H * 0.33)], fill=BROWN, width=20)
+    d.ellipse([W * 0.470, H * 0.31, W * 0.492, H * 0.35], fill=(120, 85, 50))
+    # the dundubha: coiled, head raised, meeting him at eye level
+    ccx, ccy = W * 0.70, H * 0.80
+    # coils, drawn widest-first so each sits in front of the one behind it
+    for k, rr in enumerate([232, 186, 142, 100]):
+        d.ellipse([ccx - rr, ccy - rr * 0.40, ccx + rr, ccy + rr * 0.40],
+                  fill=(96, 132, 66) if k % 2 else (132, 168, 92),
+                  outline=(70, 100, 50), width=3)
+    neck = [(ccx - 40 + 26 * math.sin(i * 0.34), ccy - 22 - i * 15) for i in range(15)]
+    d.line(neck, fill=(132, 168, 92), width=32)
+    hx, hy = neck[-1]
+    d.ellipse([hx - 52, hy - 32, hx + 52, hy + 32], fill=(132, 168, 92))
+    d.polygon([(hx - 52, hy), (hx - 96, hy - 10), (hx - 96, hy + 10)], fill=(132, 168, 92))
+    d.ellipse([hx + 2, hy - 20, hx + 26, hy + 4], fill=CREAM)      # one eye — head in profile
+    d.ellipse([hx + 10, hy - 15, hx + 22, hy - 3], fill=INK)
+    d.line([(hx - 96, hy), (hx - 132, hy - 14)], fill=RED, width=6)
+    d.line([(hx - 96, hy), (hx - 132, hy + 14)], fill=RED, width=6)
+    # Pramadvara, alive again, at the edge of the clearing
+    figure(d, W * 0.10, H * 0.96, 300, robe=(198, 84, 118), skin=(210, 160, 110))
+    lotus(d, W * 0.20, H * 0.94, 40)
     save(img, "07_ruru")
 
 
