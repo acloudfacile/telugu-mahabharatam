@@ -15,10 +15,10 @@ copy sits on the family shelf. It does not claim to replace any of them.
 
 | | |
 |---|---|
-| **Published** | ఆది పర్వము — 18 episodes |
-| **Next** | సభా పర్వము |
-| **Characters** | 70, each with a portrait, a role and a list of appearances |
-| **Also** | గురు పరంపర (teacher lineage), పరిణామం (how the text grew) |
+| **Published** | ఆది పర్వము — 20 episodes |
+| **Next** | ఆది పర్వము batch two (Śakuntalā, Yayāti) |
+| **Characters** | 76, each with a portrait, a role and a list of appearances |
+| **Also** | మూల నిర్మాణము (the 100 upa-parvas and the source's own count tables), గురు పరంపర, పరిణామం |
 
 Every episode carries two things besides the story itself:
 
@@ -28,6 +28,23 @@ Every episode carries two things besides the story itself:
   this prose to the verse without getting lost.
 - **నేర్చుకున్నది** — a short reflection at the end, written for a child who
   has just finished the story.
+
+## The source
+
+The primary source is **శ్రీమదాంధ్ర మహాభారతము** — the Kavitrayam's Andhra
+Mahabharatam rendered into modern Telugu prose — read directly, page by page.
+It is the Telugu tradition's own text, and its structure is what this site's
+`మూలంలో` notes point at.
+
+The site is an **independent retelling**, not a transcription: the prose here
+is written fresh for children, and no passage is reproduced from that book.
+What is taken from it is what belongs to the tradition rather than to any
+publisher — the sequence of episodes, the names, the details of who did what,
+and the source's own reference tables.
+
+Its structure corroborates the references: Adi Parvam has eight āśvāsas there,
+exactly as the `మూలంలో` notes claim, and its list of the hundred upa-parvas
+groups onto its own per-parva counts without a discrepancy.
 
 ### A note on adhyāya numbers
 
@@ -164,12 +181,16 @@ tell and children later go looking for, so they belong in. Roughly 45 episodes
 for Adi Parva and around 350 across all eighteen — a year-scale project, done
 in batches, right rather than fast.
 
-- [x] **Adi Parva, batch one** — Anukramanika through Astika (episodes ౧–౧౧)
+- [x] **Adi Parva, batch one** — Paushya, Pauloma and Astika (episodes ౧–౧౩),
+      including the Andhra Mahabharatam's own Nannaya frame and the Sarama
+      curse that opens the hundred upa-parvas
+- [x] **మూల నిర్మాణము** — the 100 upa-parvas and the source's count tables
 - [ ] **Adi Parva, batch two** — Adivamshavatarana and Sambhava in full:
       Dushyanta and Shakuntala, Yayati and Puru, Vasishtha, Kacha and
-      Devayani. These currently sit compressed inside episode ౧౨.
+      Devayani. These currently sit compressed inside episode ౧౪.
+      Source pages 25–109 of the PDF (āśvāsas 2–3).
 - [ ] **Adi Parva, batch three** — Sambhava through Khandava expanded;
-      episodes ౧౩–౧౮ rewritten at the same density as batch one
+      episodes ౧౫–౨౦ rewritten at the same density as batch one
 - [ ] Sabha Parva
 - [ ] A glossary of names and terms
 - [ ] A family tree that grows as characters appear
@@ -186,7 +207,8 @@ This retelling follows the Vyasa order as the Kavitrayam rendered it. It is a
 starting point, not a substitute. Go on to:
 
 - **నన్నయ, తిక్కన, ఎర్రన** — the Andhra Mahabharatam. The Telugu the whole
-  tradition is built on, and the reason this site marks āśvāsas.
+  tradition is built on, the reason this site marks āśvāsas, and the primary
+  source read for this retelling.
 - **BORI critical edition** (Bhandarkar Oriental Research Institute, Pune) —
   the scholarly reconstruction, and the reference point for chapter numbering.
 - **Kisari Mohan Ganguli's English translation** — complete and public domain.

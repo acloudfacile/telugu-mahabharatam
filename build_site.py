@@ -18,9 +18,10 @@ content = {}
 chars = json.load(open(f'{SRC}/characters.json', encoding='utf8'))
 gurus = json.load(open(f'{SRC}/gurus.json', encoding='utf8'))
 evolution = json.load(open(f'{SRC}/evolution.json', encoding='utf8'))
+moolam = json.load(open(f'{SRC}/moolam.json', encoding='utf8'))
 for f in glob.glob(f'{SRC}/*.json'):
     name = os.path.basename(f)[:-5]
-    if name not in ('parvas','characters','gurus','evolution'):
+    if name not in ('parvas','characters','gurus','evolution','moolam'):
         content[name] = json.load(open(f, encoding='utf8'))
 
 css = open(f'{SRC}/style.css', encoding='utf8').read()
@@ -43,7 +44,7 @@ def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" 
 <header class="top">
   <div class="bar">
     <a class="brand" href="#/">{parvas['site']['title']}</a>
-    <nav><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/parinamam">పరిణామం</a></nav>
+    <nav><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/moolam">మూల నిర్మాణము</a><a href="#/parinamam">పరిణామం</a></nav>
     <form id="hsearch" role="search"><input name="q" type="search" placeholder="వెతుకు…" aria-label="వెతుకు"></form>
   </div>
   <div class="frieze"></div>
@@ -65,7 +66,7 @@ open(f'{OUT}/assets/style.css', 'w', encoding='utf8').write(css)
 open(f'{OUT}/assets/app.js', 'w', encoding='utf8').write(js)
 open(f'{OUT}/data/parvas.js', 'w', encoding='utf8').write('window.MB_PARVAS=' + json.dumps(parvas, ensure_ascii=False) + ';')
 open(f'{OUT}/data/content.js', 'w', encoding='utf8').write('window.MB_CONTENT=' + json.dumps(content, ensure_ascii=False) + ';')
-open(f'{OUT}/data/characters.js', 'w', encoding='utf8').write('window.MB_CHARS=' + json.dumps(chars, ensure_ascii=False) + ';window.MB_GURUS=' + json.dumps(gurus, ensure_ascii=False) + ';window.MB_EVOLUTION=' + json.dumps(evolution, ensure_ascii=False) + ';')
+open(f'{OUT}/data/characters.js', 'w', encoding='utf8').write('window.MB_CHARS=' + json.dumps(chars, ensure_ascii=False) + ';window.MB_GURUS=' + json.dumps(gurus, ensure_ascii=False) + ';window.MB_EVOLUTION=' + json.dumps(evolution, ensure_ascii=False) + ';window.MB_MOOLAM=' + json.dumps(moolam, ensure_ascii=False) + ';')
 open(f'{OUT}/index.html', 'w', encoding='utf8').write(shell(
     '<link rel="stylesheet" href="assets/style.css">',
     '<script src="data/parvas.js"></script><script src="data/content.js"></script><script src="data/characters.js"></script><script src="assets/app.js"></script>',
@@ -79,7 +80,7 @@ for f in sorted(os.listdir(f'{SRC}/img')):
 icons = {}
 for f in sorted(os.listdir(f'{SRC}/icons')):
     icons[f] = 'data:image/png;base64,' + base64.b64encode(open(f'{SRC}/icons/{f}', 'rb').read()).decode()
-inline = (f'<script>window.MB_PARVAS={json.dumps(parvas, ensure_ascii=False)};window.MB_CHARS={json.dumps(chars, ensure_ascii=False)};window.MB_GURUS={json.dumps(gurus, ensure_ascii=False)};window.MB_EVOLUTION={json.dumps(evolution, ensure_ascii=False)};window.MB_ICONS={json.dumps(icons)};'
+inline = (f'<script>window.MB_PARVAS={json.dumps(parvas, ensure_ascii=False)};window.MB_CHARS={json.dumps(chars, ensure_ascii=False)};window.MB_GURUS={json.dumps(gurus, ensure_ascii=False)};window.MB_EVOLUTION={json.dumps(evolution, ensure_ascii=False)};window.MB_MOOLAM={json.dumps(moolam, ensure_ascii=False)};window.MB_ICONS={json.dumps(icons)};'
           f'window.MB_CONTENT={json.dumps(content, ensure_ascii=False)};'
           f'window.MB_IMAGES={json.dumps(images)};</script><script>{js}</script>')
 fav_inline = ('<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,'

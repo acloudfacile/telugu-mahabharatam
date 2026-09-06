@@ -135,7 +135,7 @@ def cover():
     flame(d, W * 0.5, H * 0.74, 60, 22)
     for x in [W * 0.12, W * 0.88]:
         lotus(d, x, H * 0.9, 40)
-    save(img, "02_vyasa_ganapati")
+    save(img, "03_vyasa_ganapati")
 
 
 # 2. Sarpa yagna — great fire altar with serpents drawn into it
@@ -163,7 +163,7 @@ def sarpa():
     # priests
     for x in [W * 0.2, W * 0.8]:
         figure(d, x, H * 0.78, 200, robe=CREAM, seated=True)
-    save(img, "11_sarpa_yagna")
+    save(img, "13_sarpa_yagna")
 
 
 # 3. Ganga & Shantanu — moonlit river with royal figure on the bank
@@ -189,7 +189,7 @@ def ganga():
         d.ellipse([gx - r, gy - r * 0.6, gx + r, gy + r * 0.6], fill=(160 + a // 3, 200 + a // 4, 240))
     figure(d, gx, gy + 40, 220, robe=WHITE, skin=(225, 200, 180))
     lotus(d, gx - 190, gy + 60, 34); lotus(d, gx + 200, gy + 70, 30)
-    save(img, "12_ganga_shantanu")
+    save(img, "14_ganga_shantanu")
 
 
 # 4. Bhishma's vow — lone warrior raising bow to the sky, flowers falling
@@ -210,7 +210,7 @@ def bhishma():
         x, y = random.randint(60, W - 60), random.randint(60, int(H * 0.7))
         c = random.choice([(255, 180, 190), (255, 230, 120), (250, 250, 250)])
         d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=c)
-    save(img, "13_bhishma_pratigna")
+    save(img, "15_bhishma_pratigna")
 
 
 # 5. Birth of the Pandavas — forest ashram, five stars, mountains
@@ -238,7 +238,7 @@ def pandava_birth():
     figure(d, W * 0.3, H * 0.82, 230, robe=(200, 80, 90), skin=(215, 170, 120))
     d.ellipse([W * 0.66, H * 0.76, W * 0.66 + 120, H * 0.76 + 50], fill=(230, 200, 150), outline=BROWN, width=4)
     lotus(d, W * 0.2, H * 0.92, 30); lotus(d, W * 0.8, H * 0.93, 30)
-    save(img, "14_pandava_janana")
+    save(img, "16_pandava_janana")
 
 
 # 6. Gurukulam — archery training, target on tree, teacher & pupils
@@ -258,7 +258,7 @@ def gurukulam():
         bow(d, W * x + 40, H * 0.62, 55, DGOLD, arrow=(i == 1))
     # arrow in flight to target
     d.line([(W * 0.46, H * 0.55), (W * 0.76, H * 0.7 - 420 * 0.75)], fill=INK, width=5)
-    save(img, "15_gurukulam")
+    save(img, "17_gurukulam")
 
 
 # 7. Lakshagriha — palace burning at night, tunnel escape
@@ -282,7 +282,7 @@ def lakshagriha():
     d.arc([W * 0.55, H * 0.78, W * 0.95, H * 1.1], 180, 360, fill=(30, 25, 25), width=60)
     for i, x in enumerate([0.86, 0.9, 0.94]):
         figure(d, W * x, H * 0.95 - i * 8, 140, robe=[SAFF, RED, (60, 90, 170)][i])
-    save(img, "16_lakshagriha")
+    save(img, "18_lakshagriha")
 
 
 # 8. Draupadi swayamvara — revolving fish target above water pool, bow drawn
@@ -316,7 +316,7 @@ def swayamvara():
     figure(d, W * 0.62, H * 0.78, 250, robe=(180, 30, 60), skin=(215, 170, 120))
     d.arc([W * 0.62 - 60, H * 0.6, W * 0.62 + 60, H * 0.72], 0, 180, fill=(255, 180, 60), width=14)
     d.rectangle([0, H * 0.78, W, H], fill=(215, 185, 140))
-    save(img, "17_swayamvara")
+    save(img, "19_swayamvara")
 
 
 # 9. Khandava dahana — forest fire, chariot, rain deflected, Maya sabha silhouette
@@ -345,7 +345,65 @@ def khandava():
     figure(d, W * 0.47, H * 0.62, 190, robe=(60, 90, 170))
     figure(d, W * 0.53, H * 0.62, 190, robe=(30, 60, 140), skin=(90, 120, 200))
     bow(d, W * 0.47 + 30, H * 0.45, 60, DGOLD)
-    save(img, "18_khandava_dahanam")
+    save(img, "20_khandava_dahanam")
+
+
+# 1. Nannaya at Rajamahendravaram — the king's request, the Telugu link in the chain
+def nannaya():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 212, 140), (238, 216, 172), 0, int(H * 0.70))
+    d.rectangle([0, H * 0.70, W, H], fill=(178, 140, 96))
+    sun(d, W * 0.50, H * 0.17, 96, (244, 200, 100))
+    # the hall: two pillars framing the meeting
+    for x in [0.10, 0.90]:
+        d.rectangle([W * x - 30, H * 0.20, W * x + 30, H * 0.70], fill=(158, 124, 86), outline=INK, width=3)
+        d.rectangle([W * x - 44, H * 0.16, W * x + 44, H * 0.22], fill=GOLD, outline=DGOLD, width=3)
+    # the king, on a low seat, asking
+    d.rectangle([W * 0.20, H * 0.60, W * 0.34, H * 0.78], fill=MAROON, outline=DGOLD, width=4)
+    figure(d, W * 0.27, H * 0.74, 250, robe=RED, skin=(205, 155, 105), seated=True)
+    d.polygon([(W * 0.245, H * 0.615), (W * 0.27, H * 0.575), (W * 0.295, H * 0.615)], fill=GOLD, outline=DGOLD)
+    # the poet, seated with palm leaf and stylus
+    figure(d, W * 0.72, H * 0.74, 250, robe=CREAM, skin=(200, 150, 100), seated=True)
+    d.rounded_rectangle([W * 0.60, H * 0.655, W * 0.84, H * 0.715], 10,
+                        fill=(246, 230, 182), outline=BROWN, width=4)
+    for k in range(3):
+        d.line([(W * 0.625, H * 0.668 + k * 18), (W * 0.815 - random.randint(0, 60), H * 0.668 + k * 18)],
+               fill=(140, 105, 60), width=3)
+    d.line([(W * 0.865, H * 0.70), (W * 0.905, H * 0.63)], fill=INK, width=7)
+    # the lamp between them — the work about to begin
+    d.polygon([(W * 0.485, H * 0.78), (W * 0.515, H * 0.78), (W * 0.508, H * 0.735), (W * 0.492, H * 0.735)], fill=DGOLD)
+    flame(d, W * 0.50, H * 0.735, 120, 42)
+    for x in [W * 0.06, W * 0.94]:
+        lotus(d, x, H * 0.90, 38)
+    save(img, "01_nannaya")
+
+
+# 5. Sarama — the pup at the sacrifice, and the first curse in the epic
+def sarama():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (60, 46, 86), (150, 96, 70))
+    d.rectangle([0, H * 0.74, W, H], fill=(122, 88, 66))
+    # the sacrificial enclosure
+    for x in [0.16, 0.84]:
+        d.rectangle([W * x - 22, H * 0.26, W * x + 22, H * 0.74], fill=(152, 118, 82), outline=INK, width=3)
+    d.rectangle([W * 0.40, H * 0.56, W * 0.60, H * 0.74], fill=(128, 94, 70), outline=INK, width=4)
+    flame(d, W * 0.50, H * 0.56, 260, 92)
+    # the king's brothers, turned toward the pup
+    figure(d, W * 0.28, H * 0.86, 235, robe=(150, 45, 40), skin=(205, 155, 105))
+    figure(d, W * 0.38, H * 0.87, 225, robe=(120, 60, 110), skin=(205, 155, 105))
+    # the pup, small, alone, between them and the fire
+    px, py = W * 0.62, H * 0.855
+    d.ellipse([px - 62, py - 34, px + 46, py + 26], fill=(226, 214, 196))
+    d.ellipse([px + 30, py - 62, px + 92, py - 4], fill=(226, 214, 196))
+    d.polygon([(px + 40, py - 58), (px + 32, py - 96), (px + 62, py - 70)], fill=(196, 182, 162))
+    d.polygon([(px + 74, py - 60), (px + 88, py - 96), (px + 92, py - 58)], fill=(196, 182, 162))
+    d.ellipse([px + 62, py - 42, px + 76, py - 28], fill=INK)
+    d.ellipse([px + 84, py - 26, px + 96, py - 14], fill=(90, 70, 60))
+    d.line([(px - 58, py - 24), (px - 96, py - 62)], fill=(226, 214, 196), width=13)
+    # the mother, standing apart, luminous — the curse about to be spoken
+    d.ellipse([W * 0.90 - 92, H * 0.50 - 92, W * 0.90 + 92, H * 0.50 + 92], fill=(60, 46, 86))
+    sun(d, W * 0.90, H * 0.50, 46, (238, 232, 224), rays=True)
+    save(img, "05_sarama")
 
 
 # ---------------------------------------------------------------------------
@@ -377,7 +435,7 @@ def naimisharanya():
     _sage_circle(d, W * 0.5, H * 0.86, W * 0.30, 7, 150)
     # Sauti, standing, telling
     figure(d, W * 0.5, H * 0.70, 235, robe=SAFF, skin=(205, 155, 105))
-    save(img, "01_naimisharanya")
+    save(img, "02_naimisharanya")
 
 
 # 3. Parvasangraha — eighteen palm-leaf bundles, the whole work seen at once
@@ -398,11 +456,11 @@ def parva_sangraha():
     d.rectangle([0, H * 0.06, W, H * 0.14], fill=None)
     for x in [W * 0.5]:
         lotus(d, x, H * 0.13, 44)
-    save(img, "03_parva_sangraha")
+    save(img, "04_parva_sangraha")
 
 
-# 4. Utanka — the nagaloka descent, the horse of fire, the stolen earrings
-def uttanka():
+# 6. Udanka — the nagaloka descent, the horse of fire, the stolen earrings
+def udanka():
     img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
     gradient(d, (35, 25, 55), (70, 45, 40))
     # the cleft in the earth, opening downward
@@ -428,7 +486,7 @@ def uttanka():
     # the recovered earrings
     for ex in [W * 0.80, W * 0.86]:
         d.ellipse([ex - 26, H * 0.80 - 26, ex + 26, H * 0.80 + 26], outline=GOLD, width=9)
-    save(img, "04_uttanka")
+    save(img, "06_udanka")
 
 
 # 5. Janamejaya — the court, the vow, the throne
@@ -450,7 +508,7 @@ def janamejaya():
     figure(d, W * 0.16, H * 0.86, 215, robe=SAFF)
     # a raised hand's vow, read as a lamp above the throne
     flame(d, W * 0.50, H * 0.32, 150, 52)
-    save(img, "05_janamejaya")
+    save(img, "07_janamejaya")
 
 
 # 6. Pauloma — the asked fire, the ashram, the child who blazed
@@ -472,7 +530,7 @@ def pauloma():
     d.polygon([(W * 0.80, H * 0.86), (W * 0.86, H * 0.70), (W * 0.92, H * 0.86)], fill=(85, 75, 80))
     for k in range(5):
         d.line([(W * (0.80 + k * 0.03), H * 0.86), (W * (0.80 + k * 0.03), H * 0.78)], fill=SMOKE, width=6)
-    save(img, "06_pauloma")
+    save(img, "08_pauloma")
 
 
 # 7. Ruru — the lifted stick, and the snake that spoke
@@ -507,7 +565,7 @@ def ruru():
     # Pramadvara, alive again, at the edge of the clearing
     figure(d, W * 0.10, H * 0.96, 300, robe=(198, 84, 118), skin=(210, 160, 110))
     lotus(d, W * 0.20, H * 0.94, 40)
-    save(img, "07_ruru")
+    save(img, "09_ruru")
 
 
 # 8. Kadru and Vinata — the white horse and the wager on its tail
@@ -536,7 +594,7 @@ def kadru_vinata():
     # the two sisters, watching from the shore
     figure(d, W * 0.10, H * 0.92, 240, robe=(60, 90, 60), skin=(180, 130, 90))
     figure(d, W * 0.90, H * 0.92, 240, robe=GOLD, skin=(210, 160, 110))
-    save(img, "08_kadru_vinata")
+    save(img, "10_kadru_vinata")
 
 
 # 9. Garuda — the flight, the wheel, the pot of amrita
@@ -570,7 +628,7 @@ def garuda():
         a = k * math.pi / 5
         d.line([(W * 0.83, H * 0.30), (W * 0.83 + 92 * math.cos(a), H * 0.30 + 92 * math.sin(a))],
                fill=(200, 205, 215), width=6)
-    save(img, "09_garuda")
+    save(img, "11_garuda")
 
 
 # 10. Parikshit — the seated silence, and the dead snake laid on it
@@ -595,12 +653,12 @@ def parikshit():
     for k in range(7):
         d.ellipse([W * (0.34 + k * 0.038) - 11, H * 0.14 - 11, W * (0.34 + k * 0.038) + 11, H * 0.14 + 11],
                   fill=MAROON if k == 6 else (200, 170, 120), outline=DGOLD, width=3)
-    save(img, "10_parikshit")
+    save(img, "12_parikshit")
 
 
-SCENES = [naimisharanya, cover, parva_sangraha, uttanka, janamejaya, pauloma, ruru,
-          kadru_vinata, garuda, parikshit, sarpa, ganga, bhishma, pandava_birth,
-          gurukulam, lakshagriha, swayamvara, khandava]
+SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamejaya,
+          pauloma, ruru, kadru_vinata, garuda, parikshit, sarpa, ganga, bhishma,
+          pandava_birth, gurukulam, lakshagriha, swayamvara, khandava]
 for f in SCENES:
     f()
 print(len(SCENES), 'illustrations ->', OUT)

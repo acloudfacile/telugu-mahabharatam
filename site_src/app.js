@@ -1,6 +1,7 @@
 (function(){
   const P = window.MB_PARVAS, C = window.MB_CONTENT || {}, CH = window.MB_CHARS || [], G = window.MB_GURUS || {gurus:[]};
   const IMG = window.MB_IMG || 'img/', ICO = window.MB_ICO || 'icons/', EV = window.MB_EVOLUTION || null;
+  const ML = window.MB_MOOLAM || null;
   const TN = ['౦','౧','౨','౩','౪','౫','౬','౭','౮','౯'];
   const tnum = n => String(n).split('').map(d => TN[+d]).join('');
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
@@ -217,6 +218,67 @@
 
   function notfound(){ $.innerHTML = `<p class="empty">ఈ పేజీ దొరకలేదు. <a href="#/">హోమ్ పేజీకి వెళ్లండి</a>.</p>`; }
 
+  // మూల నిర్మాణము — the hundred upa-parvas and the source's own count tables,
+  // transcribed from the Andhra Mahabharatam's first ashwasa. Reference, not story.
+  function moolam(){
+    if(!ML) return notfound();
+    document.title = `${ML.title} — ${P.site.title}`;
+    const t = ML.totals, same = (a,b) => a === b;
+    const row = p => `
+      <tr>
+        <td class="pn"><span class="num sm">${tnum(p.num)}</span> ${p.status === 'published'
+            ? `<a href="#/parva/${p.id}">${esc(p.te)}</a>` : esc(p.te)}</td>
+        <td class="n">${tnum(p.upa.length)}</td>
+        <td class="n">${p.shlokas.toLocaleString('en-IN')}</td>
+        <td class="n">${tnum(p.ashvasas)}</td>
+        <td class="n">${p.padya.toLocaleString('en-IN')}</td>
+      </tr>`;
+    const pub = {}; P.parvas.forEach(x => pub[x.num] = x.status);
+    $.innerHTML = `
+      <div class="measure">
+        <div class="page-head"><h1>${esc(ML.title)}</h1>${ML.intro.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+
+        <h2 class="sec">నూరు ఉప పర్వములు</h2>
+        <ol class="upa">
+          ${ML.parvas.map(p => `
+            <li>
+              <div class="ph">${emblem(P.parvas.find(x => x.num === p.num), 'emblem sm')}
+                <span class="num sm">${tnum(p.num)}</span>
+                ${pub[p.num] === 'published' ? `<a href="#/parva/${p.id}">${esc(p.te)}</a>` : esc(p.te)}
+                <span class="en">${esc(p.en)}</span></div>
+              <ol class="sub">${p.upa.map(u => `<li>${esc(u)}</li>`).join('')}</ol>
+            </li>`).join('')}
+          <li class="khila">
+            <div class="ph">${esc(ML.khila.te)}</div>
+            <ol class="sub">${ML.khila.upa.map(u => `<li>${esc(u)}</li>`).join('')}</ol>
+          </li>
+        </ol>
+
+        <h2 class="sec">పర్వముల వారీ లెక్క</h2>
+        <div class="tblwrap"><table class="counts">
+          <thead><tr>${ML.columns.map((c,i) => `<th class="${i?'n':''}">${esc(c)}</th>`).join('')}</tr></thead>
+          <tbody>${ML.parvas.map(p => row({...p, status: pub[p.num]})).join('')}</tbody>
+          <tfoot>
+            <tr><td class="pn">మొత్తం (మూల గ్రంథము ప్రకారము)</td>
+              <td class="n">${tnum(t.stated.upa)}</td><td class="n">${t.stated.shlokas.toLocaleString('en-IN')}</td>
+              <td class="n">${tnum(t.stated.ashvasas)}</td><td class="n">${t.stated.padya.toLocaleString('en-IN')}</td></tr>
+            <tr class="sum"><td class="pn">వరుసల కూడిక</td>
+              <td class="n">${tnum(t.summed.upa)}</td>
+              <td class="n ${same(t.summed.shlokas,t.stated.shlokas)?'':'diff'}">${t.summed.shlokas.toLocaleString('en-IN')}</td>
+              <td class="n">${tnum(t.summed.ashvasas)}</td>
+              <td class="n ${same(t.summed.padya,t.stated.padya)?'':'diff'}">${t.summed.padya.toLocaleString('en-IN')}</td></tr>
+          </tfoot>
+        </table></div>
+        <p class="note">${esc(t.note)}</p>
+
+        <h2 class="sec">${esc(ML.chain.title)}</h2>
+        <p class="note">${esc(ML.chain.note)}</p>
+        <div class="tblwrap"><table class="counts chain">
+          <tbody>${ML.chain.rows.map(([a,b]) => `<tr><td class="pn">${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody>
+        </table></div>
+      </div>`;
+  }
+
   function route(){
     const h = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
     if(h[0] === 'parva' && h[1] && h[2]) episode(h[1], h[2]);
@@ -226,6 +288,7 @@
     else if(h[0] === 'guruvulu') gurus();
     else if(h[0] === 'vetuku') search(h[1]);
     else if(h[0] === 'parinamam') evolution();
+    else if(h[0] === 'moolam') moolam();
     else home();
     window.scrollTo(0,0);
   }
