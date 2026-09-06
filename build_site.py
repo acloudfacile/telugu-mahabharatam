@@ -47,9 +47,13 @@ def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" 
 <body>
 <header class="top">
   <div class="bar">
-    <a class="brand" href="#/">{parvas['site']['title']}</a>
-    <nav><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/vamsham">వంశ వృక్షము</a><a href="#/moolam">మూల నిర్మాణము</a><a href="#/parinamam">పరిణామం</a></nav>
-    <form id="hsearch" role="search"><input name="q" type="search" placeholder="వెతుకు…" aria-label="వెతుకు"><button type="button" id="themebtn" class="theme-btn" aria-label="రాత్రి రూపము" title="రాత్రి రూపము"></button></form>
+    <a class="brand" href="#/"><span class="mark" aria-hidden="true"></span><span>{parvas['site']['title']}</span></a>
+    <div class="tools">
+      <form id="hsearch" role="search"><input name="q" type="search" placeholder="వెతుకు…" aria-label="వెతుకు"></form>
+      <button type="button" id="themebtn" class="theme-btn" aria-label="రాత్రి రూపము" title="రాత్రి రూపము"></button>
+      <button type="button" id="navbtn" class="nav-btn" aria-expanded="false" aria-controls="sitenav" aria-label="మెనూ">☰</button>
+    </div>
+    <nav id="sitenav"><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/padakosham">పదకోశము</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/vamsham">వంశ వృక్షము</a><a href="#/moolam">మూల నిర్మాణము</a><a href="#/parinamam">పరిణామం</a></nav>
   </div>
   <div class="frieze"></div>
 </header>

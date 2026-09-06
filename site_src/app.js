@@ -323,6 +323,17 @@
   }
 
 
+
+  // mobile menu: collapsed by default, closes on choosing a destination
+  (function nav(){
+    const btn = document.getElementById('navbtn'), el = document.getElementById('sitenav');
+    if(!btn || !el) return;
+    const set = open => { el.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', () => set(!el.classList.contains('open')));
+    el.addEventListener('click', e => { if(e.target.tagName === 'A') set(false); });
+    window.addEventListener('hashchange', () => set(false));
+  })();
+
   // ── night mode ──────────────────────────────────────────────────────────
   // Three states, in this order of authority: what the reader chose here,
   // then what their device asks for, then daylight.

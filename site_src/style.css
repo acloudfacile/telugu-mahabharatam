@@ -300,3 +300,128 @@ figure:hover img,figure img:focus{filter:none}
   display:inline-flex;align-items:center;justify-content:center;padding:0;flex:0 0 auto}
 .theme-btn:hover{border-color:var(--turmeric);color:var(--turmeric)}
 header.top .bar form{display:flex;align-items:center;gap:10px}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   మహాభారత రూపము — the manuscript layer
+   Restraint is what ages well. Everything below is CSS only: no images, no
+   libraries, no effects that will look dated. The references are the palm
+   leaf, the kalamkari border and the printed Telugu book.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* a fluid type scale, so one rule serves phone through desktop */
+  --step--1:clamp(.82rem,.78rem + .18vw,.92rem);
+  --step-0 :clamp(1rem,.96rem + .2vw,1.09rem);
+  --step-1 :clamp(1.18rem,1.1rem + .38vw,1.4rem);
+  --step-2 :clamp(1.42rem,1.28rem + .68vw,1.85rem);
+  --step-3 :clamp(1.7rem,1.45rem + 1.2vw,2.6rem);
+  --step-4 :clamp(2.05rem,1.6rem + 2.1vw,3.6rem);
+  --rule:linear-gradient(90deg,transparent,var(--line) 12%,var(--line) 88%,transparent);
+}
+
+/* Palm-leaf grain. Two hairline gradients at a few percent opacity — enough
+   that the page is not a flat slab, faint enough that it never competes. */
+body{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(140,110,60,.030) 0 1px,transparent 1px 4px),
+    radial-gradient(1200px 620px at 50% -8%,rgba(217,162,27,.055),transparent 70%);
+  background-attachment:fixed;
+}
+:root[data-theme="dark"] body,
+:root:not([data-theme="light"]) body{background-attachment:fixed}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) body{
+    background-image:
+      repeating-linear-gradient(0deg,rgba(233,220,192,.022) 0 1px,transparent 1px 4px),
+      radial-gradient(1200px 620px at 50% -8%,rgba(227,178,74,.055),transparent 70%);
+  }
+}
+:root[data-theme="dark"] body{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(233,220,192,.022) 0 1px,transparent 1px 4px),
+    radial-gradient(1200px 620px at 50% -8%,rgba(227,178,74,.055),transparent 70%);
+}
+
+/* ── header: a title page, and a menu that works on a phone ───────────── */
+header.top .bar{padding:14px 20px;gap:14px;align-items:center}
+header.top .brand{display:inline-flex;align-items:center;gap:12px;font-size:var(--step-2);line-height:1.2}
+header.top .brand .mark{
+  width:30px;height:30px;flex:0 0 30px;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,var(--turmeric) 0 30%,transparent 31%),
+             conic-gradient(from 0deg,var(--turmeric) 0 12.5%,transparent 0 25%,var(--turmeric) 0 37.5%,transparent 0 50%,
+                            var(--turmeric) 0 62.5%,transparent 0 75%,var(--turmeric) 0 87.5%,transparent 0);
+  -webkit-mask:radial-gradient(circle at 50% 50%,#000 0 48%,transparent 49%);
+          mask:radial-gradient(circle at 50% 50%,#000 0 48%,transparent 49%);
+}
+header.top .tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+header.top nav{gap:20px;font-size:var(--step--1);letter-spacing:.01em}
+header.top nav a{padding:4px 0;border-bottom:1px solid transparent}
+header.top nav a:hover{text-decoration:none;border-bottom-color:var(--turmeric)}
+.nav-btn{display:none;background:var(--indigo-2);color:var(--on-dark);border:1px solid var(--indigo-2);
+  border-radius:999px;width:38px;height:38px;font-size:1.05rem;line-height:1;cursor:pointer;
+  align-items:center;justify-content:center;padding:0;flex:0 0 auto}
+.nav-btn:hover{border-color:var(--turmeric);color:var(--turmeric)}
+header.top input{width:min(190px,32vw)}
+
+@media(max-width:900px){
+  header.top .bar{flex-wrap:wrap}
+  header.top .brand{font-size:var(--step-1)}
+  .nav-btn{display:inline-flex}
+  header.top nav{
+    flex-basis:100%;display:grid;grid-template-columns:1fr 1fr;gap:0;
+    max-height:0;overflow:hidden;transition:max-height .28s ease;
+  }
+  header.top nav.open{max-height:22rem}
+  header.top nav a{padding:11px 2px;border-bottom:1px solid rgba(243,237,223,.12)}
+  header.top input{width:100%}
+  header.top #hsearch{flex:1 1 auto}
+  header.top .tools{width:auto;flex:1 1 auto}
+}
+@media(max-width:420px){
+  header.top .brand span:last-child{font-size:var(--step-0)}
+  header.top nav{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){header.top nav{transition:none}}
+
+/* ── reading measure and rhythm ───────────────────────────────────────── */
+.story p{font-size:var(--step-0);line-height:1.95}
+.measure{max-width:38rem}
+@media(min-width:1100px){.measure{max-width:40rem}}
+
+/* ── manuscript ornament: a divider that is a motif, not a line ───────── */
+.orn{display:flex;align-items:center;gap:14px;margin:52px 0;color:var(--turmeric)}
+.orn::before,.orn::after{content:"";flex:1;height:1px;background:var(--rule)}
+.orn span{width:9px;height:9px;background:var(--turmeric);transform:rotate(45deg);flex:0 0 9px}
+.orn span:nth-child(2){width:5px;height:5px;flex:0 0 5px;opacity:.7}
+
+/* the frieze reads as woven cloth rather than a plain sawtooth */
+.frieze{height:12px;background:
+  linear-gradient(135deg,var(--turmeric) 50%,transparent 50%) 0 0/12px 12px repeat-x,
+  linear-gradient(225deg,var(--turmeric) 50%,transparent 50%) 0 0/12px 12px repeat-x,
+  linear-gradient(90deg,var(--madder),#A5432E 50%,var(--madder))}
+
+/* ── episode opening: give the story a title-page feel ────────────────── */
+.ep-head{position:relative;padding-top:8px}
+.ep-head h1{font-size:var(--step-3)}
+figure figcaption{font-size:var(--step--1)}
+
+/* panels get a hairline gold key line — the manuscript's ruled border */
+.padyam,.closing{box-shadow:inset 0 0 0 1px rgba(217,162,27,.34)}
+.learn{border-left-width:3px}
+
+/* ── touch targets and tap behaviour on phones and tablets ────────────── */
+a,button{-webkit-tap-highlight-color:rgba(217,162,27,.2)}
+@media(max-width:900px){
+  .chip,.filters a,.pager a{min-height:44px;display:inline-flex;align-items:center}
+  .pager{flex-direction:column;gap:14px}
+  .pager a{width:100%}
+  .pager a.next{text-align:right}
+  main{padding:0 18px 56px}
+  .hero{padding:40px 0 28px}
+  figure img{border-radius:2px}
+}
+/* iPad and other tablets: two comfortable columns rather than a stretched one */
+@media(min-width:901px) and (max-width:1180px){
+  main{padding:0 28px 64px}
+  .parvas{column-gap:36px}
+}
