@@ -189,7 +189,7 @@ def ganga():
         d.ellipse([gx - r, gy - r * 0.6, gx + r, gy + r * 0.6], fill=(160 + a // 3, 200 + a // 4, 240))
     figure(d, gx, gy + 40, 220, robe=WHITE, skin=(225, 200, 180))
     lotus(d, gx - 190, gy + 60, 34); lotus(d, gx + 200, gy + 70, 30)
-    save(img, "14_ganga_shantanu")
+    save(img, "20_ganga_shantanu")
 
 
 # 4. Bhishma's vow — lone warrior raising bow to the sky, flowers falling
@@ -210,7 +210,7 @@ def bhishma():
         x, y = random.randint(60, W - 60), random.randint(60, int(H * 0.7))
         c = random.choice([(255, 180, 190), (255, 230, 120), (250, 250, 250)])
         d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=c)
-    save(img, "15_bhishma_pratigna")
+    save(img, "21_bhishma_pratigna")
 
 
 # 5. Birth of the Pandavas — forest ashram, five stars, mountains
@@ -238,7 +238,7 @@ def pandava_birth():
     figure(d, W * 0.3, H * 0.82, 230, robe=(200, 80, 90), skin=(215, 170, 120))
     d.ellipse([W * 0.66, H * 0.76, W * 0.66 + 120, H * 0.76 + 50], fill=(230, 200, 150), outline=BROWN, width=4)
     lotus(d, W * 0.2, H * 0.92, 30); lotus(d, W * 0.8, H * 0.93, 30)
-    save(img, "16_pandava_janana")
+    save(img, "22_pandava_janana")
 
 
 # 6. Gurukulam — archery training, target on tree, teacher & pupils
@@ -258,7 +258,7 @@ def gurukulam():
         bow(d, W * x + 40, H * 0.62, 55, DGOLD, arrow=(i == 1))
     # arrow in flight to target
     d.line([(W * 0.46, H * 0.55), (W * 0.76, H * 0.7 - 420 * 0.75)], fill=INK, width=5)
-    save(img, "17_gurukulam")
+    save(img, "23_gurukulam")
 
 
 # 7. Lakshagriha — palace burning at night, tunnel escape
@@ -282,7 +282,7 @@ def lakshagriha():
     d.arc([W * 0.55, H * 0.78, W * 0.95, H * 1.1], 180, 360, fill=(30, 25, 25), width=60)
     for i, x in enumerate([0.86, 0.9, 0.94]):
         figure(d, W * x, H * 0.95 - i * 8, 140, robe=[SAFF, RED, (60, 90, 170)][i])
-    save(img, "18_lakshagriha")
+    save(img, "24_lakshagriha")
 
 
 # 8. Draupadi swayamvara — revolving fish target above water pool, bow drawn
@@ -316,7 +316,7 @@ def swayamvara():
     figure(d, W * 0.62, H * 0.78, 250, robe=(180, 30, 60), skin=(215, 170, 120))
     d.arc([W * 0.62 - 60, H * 0.6, W * 0.62 + 60, H * 0.72], 0, 180, fill=(255, 180, 60), width=14)
     d.rectangle([0, H * 0.78, W, H], fill=(215, 185, 140))
-    save(img, "19_swayamvara")
+    save(img, "25_swayamvara")
 
 
 # 9. Khandava dahana — forest fire, chariot, rain deflected, Maya sabha silhouette
@@ -345,7 +345,7 @@ def khandava():
     figure(d, W * 0.47, H * 0.62, 190, robe=(60, 90, 170))
     figure(d, W * 0.53, H * 0.62, 190, robe=(30, 60, 140), skin=(90, 120, 200))
     bow(d, W * 0.47 + 30, H * 0.45, 60, DGOLD)
-    save(img, "20_khandava_dahanam")
+    save(img, "26_khandava_dahanam")
 
 
 # 1. Nannaya at Rajamahendravaram — the king's request, the Telugu link in the chain
@@ -404,6 +404,160 @@ def sarama():
     d.ellipse([W * 0.90 - 92, H * 0.50 - 92, W * 0.90 + 92, H * 0.50 + 92], fill=(60, 46, 86))
     sun(d, W * 0.90, H * 0.50, 46, (238, 232, 224), rays=True)
     save(img, "05_sarama")
+
+
+# ---------------------------------------------------------------------------
+# Batch two — Adivamshavatarana: the dynasties begin.
+# ---------------------------------------------------------------------------
+
+# 14. Uparichara Vasu — the ferry on the Yamuna, and how Vyasa came to be
+def uparichara():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 205, 130), (238, 220, 180), 0, int(H * 0.52))
+    sun(d, W * 0.80, H * 0.18, 92, (245, 200, 100))
+    gradient(d, (86, 132, 168), (46, 92, 138), int(H * 0.52), H)
+    for i in range(8):
+        y = H * (0.56 + i * 0.052)
+        d.arc([W * 0.02, y, W * 0.98, y + H * 0.09], 190, 350, fill=(120, 168, 200), width=5)
+    for x, hh in [(0.05, 360), (0.95, 340)]:
+        tree(d, W * x, H * 0.54, hh)
+    # the boat
+    bx, by = W * 0.50, H * 0.72
+    d.polygon([(bx - 250, by), (bx + 250, by), (bx + 175, by + 78), (bx - 175, by + 78)],
+              fill=(126, 84, 50), outline=INK, width=5)
+    d.line([(bx - 250, by), (bx + 250, by)], fill=(160, 115, 70), width=9)
+    figure(d, bx - 105, by, 235, robe=(196, 82, 116), skin=(206, 156, 106))   # the ferry girl
+    d.line([(bx - 60, by - 130), (bx + 40, by + 40)], fill=(150, 108, 62), width=11)  # her pole
+    figure(d, bx + 120, by, 235, robe=SAFF, skin=(200, 150, 100))             # the rishi
+    # the leaf-cup and the two eagles, high above
+    for ex, ey, fl in [(W * 0.30, H * 0.24, 1), (W * 0.42, H * 0.20, -1)]:
+        d.polygon([(ex - 60 * fl, ey), (ex + 30 * fl, ey - 26), (ex + 46 * fl, ey + 8), (ex + 12 * fl, ey + 22)],
+                  fill=(88, 74, 62))
+        d.polygon([(ex, ey - 6), (ex + 54 * fl, ey - 42), (ex + 30 * fl, ey + 2)], fill=(64, 54, 46))
+    d.ellipse([W * 0.365 - 17, H * 0.245 - 12, W * 0.365 + 17, H * 0.245 + 12], fill=(238, 214, 150))
+    save(img, "14_uparichara")
+
+
+# 15. Bhu-bharam — the earth asking that her burden be eased
+def bhubharam():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (30, 34, 72), (108, 74, 108))
+    stars(d, 130, H * 0.55)
+    # the three, as three lamps of light above
+    for x, col in [(0.30, (250, 236, 190)), (0.50, (206, 226, 250)), (0.70, (250, 210, 160))]:
+        sun(d, W * x, H * 0.26, 62, col)
+        figure(d, W * x, H * 0.46, 190, robe=CREAM, skin=(214, 176, 130), seated=True)
+    # the earth, a heavy globe, and the small figure kneeling before it
+    ex, ey, r = W * 0.50, H * 0.86, 250
+    d.ellipse([ex - r, ey - r * 0.72, ex + r, ey + r * 0.72], fill=(58, 96, 66), outline=(38, 66, 46), width=5)
+    for k, (dx, dy, rr) in enumerate([(-0.42, -0.20, 0.22), (0.28, -0.32, 0.26), (0.10, 0.18, 0.20), (-0.20, 0.26, 0.16)]):
+        d.ellipse([ex + dx * r - rr * r, ey + dy * r * 0.72 - rr * r * 0.6,
+                   ex + dx * r + rr * r, ey + dy * r * 0.72 + rr * r * 0.6], fill=(92, 126, 84))
+    # the weight pressing down on it
+    for k in range(9):
+        px = W * (0.20 + k * 0.075)
+        d.line([(px, H * 0.60), (px, H * 0.68)], fill=(210, 200, 190), width=5)
+        d.polygon([(px, H * 0.70), (px - 11, H * 0.655), (px + 11, H * 0.655)], fill=(210, 200, 190))
+    figure(d, W * 0.16, H * 0.70, 210, robe=(150, 45, 40), skin=(206, 156, 106), seated=True)
+    save(img, "15_bhubharam")
+
+
+# 16. Kacha — the teaching given from inside, at the cost of the teacher
+def kacha():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (238, 216, 172), (206, 178, 132), 0, int(H * 0.68))
+    d.rectangle([0, H * 0.68, W, H], fill=(150, 120, 82))
+    for x in [0.08, 0.92]:
+        tree(d, W * x, H * 0.72, 400)
+    # the fire between teacher and student
+    d.rectangle([W * 0.455, H * 0.62, W * 0.545, H * 0.70], fill=(126, 92, 70), outline=INK, width=4)
+    flame(d, W * 0.50, H * 0.62, 210, 72)
+    # the teacher, seated, with the student's life held inside him
+    figure(d, W * 0.26, H * 0.84, 300, robe=(196, 76, 70), skin=(198, 148, 98), seated=True)
+    d.ellipse([W * 0.26 - 62, H * 0.72, W * 0.26 + 62, H * 0.80], fill=(232, 168, 78), outline=DGOLD, width=3)
+    sun(d, W * 0.26, H * 0.76, 26, (252, 240, 196), rays=False)
+    # the student, restored, standing
+    figure(d, W * 0.74, H * 0.86, 285, robe=CREAM, skin=(206, 156, 106))
+    # the daughter, apart, watching
+    figure(d, W * 0.92, H * 0.90, 230, robe=(198, 84, 118), skin=(210, 160, 110))
+    save(img, "16_kacha")
+
+
+# 17. Devayani in the well — and the hand that reached in
+def devayani():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (198, 220, 174), (150, 178, 118), 0, int(H * 0.56))
+    d.rectangle([0, H * 0.56, W, H], fill=(132, 158, 100))
+    for x, hh in [(0.06, 400), (0.94, 380)]:
+        tree(d, W * x, H * 0.62, hh)
+    # the disused well
+    wx, wy, wr = W * 0.56, H * 0.74, 250
+    d.ellipse([wx - wr, wy - wr * 0.34, wx + wr, wy + wr * 0.34], fill=(112, 96, 78), outline=INK, width=6)
+    d.ellipse([wx - wr * 0.78, wy - wr * 0.26, wx + wr * 0.78, wy + wr * 0.26], fill=(38, 44, 46))
+    for k in range(14):   # the coping stones
+        a = k * math.pi / 7
+        sx, sy = wx + wr * 0.90 * math.cos(a), wy + wr * 0.30 * math.sin(a)
+        d.ellipse([sx - 22, sy - 13, sx + 22, sy + 13], fill=(140, 120, 96), outline=INK, width=2)
+    # her, down inside, looking up
+    d.ellipse([wx - 34, wy - 30, wx + 34, wy + 38], fill=(198, 84, 118))
+    d.ellipse([wx - 20, wy - 58, wx + 20, wy - 18], fill=(210, 160, 110))
+    d.line([(wx - 22, wy - 34), (wx - 96, wy - 84)], fill=(210, 160, 110), width=15)
+    # the king, kneeling, arm reaching in
+    figure(d, W * 0.22, H * 0.90, 300, robe=(150, 45, 40), skin=(206, 156, 106))
+    d.line([(W * 0.255, H * 0.70), (wx - 104, wy - 88)], fill=(206, 156, 106), width=17)
+    # the other girl, walking away at the edge
+    figure(d, W * 0.90, H * 0.66, 190, robe=(92, 72, 142), skin=(198, 148, 98))
+    save(img, "17_devayani")
+
+
+# 18. Yayati — old in a single moment
+def yayati():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (86, 62, 96), (170, 118, 86))
+    d.rectangle([0, H * 0.76, W, H], fill=(128, 96, 74))
+    for x in [0.08, 0.92]:
+        d.rectangle([W * x - 26, H * 0.20, W * x + 26, H * 0.76], fill=(152, 120, 84), outline=INK, width=3)
+        d.rectangle([W * x - 40, H * 0.16, W * x + 40, H * 0.22], fill=GOLD, outline=DGOLD, width=3)
+    # the sage, arm raised, the curse just spoken
+    figure(d, W * 0.24, H * 0.88, 320, robe=(196, 76, 70), skin=(198, 148, 98))
+    d.line([(W * 0.275, H * 0.70), (W * 0.36, H * 0.44)], fill=(198, 148, 98), width=16)
+    beard = [(W * 0.24 - 34, H * 0.665), (W * 0.24 + 34, H * 0.665), (W * 0.24, H * 0.735)]
+    d.polygon(beard, fill=(238, 234, 226))
+    # the king, bent, white-haired, hands on knees
+    kx = W * 0.62
+    d.polygon([(kx - 74, H * 0.90), (kx + 74, H * 0.90), (kx + 44, H * 0.60), (kx - 30, H * 0.60)], fill=(150, 45, 40))
+    d.ellipse([kx - 26, H * 0.535, kx + 30, H * 0.605], fill=(198, 156, 118))
+    d.chord([kx - 30, H * 0.515, kx + 34, H * 0.585], 180, 360, fill=(240, 238, 232))
+    d.polygon([(kx - 18, H * 0.585), (kx + 22, H * 0.585), (kx + 2, H * 0.655)], fill=(240, 238, 232))
+    d.line([(kx + 74, H * 0.90), (kx + 116, H * 0.60)], fill=(120, 86, 52), width=13)   # his stick
+    # the youngest son, stepping forward
+    figure(d, W * 0.88, H * 0.90, 250, robe=GOLD, skin=(206, 156, 106))
+    save(img, "18_yayati")
+
+
+# 19. Puru — the youth handed back, and the crown handed on
+def puru():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 212, 142), (232, 206, 158), 0, int(H * 0.70))
+    d.rectangle([0, H * 0.70, W, H], fill=(176, 138, 94))
+    sun(d, W * 0.50, H * 0.20, 108, (246, 202, 104))
+    for x in [0.08, 0.92]:
+        d.rectangle([W * x - 28, H * 0.22, W * x + 28, H * 0.70], fill=(158, 124, 86), outline=INK, width=3)
+        d.rectangle([W * x - 42, H * 0.18, W * x + 42, H * 0.24], fill=GOLD, outline=DGOLD, width=3)
+    # the father, old again, seated, at peace
+    figure(d, W * 0.28, H * 0.86, 290, robe=(150, 45, 40), skin=(198, 156, 118), seated=True)
+    d.chord([W * 0.28 - 30, H * 0.60, W * 0.28 + 30, H * 0.665], 180, 360, fill=(240, 238, 232))
+    # the son, young, crowned
+    figure(d, W * 0.70, H * 0.88, 320, robe=MAROON, skin=(206, 156, 106))
+    cx, cy = W * 0.70, H * 0.575
+    d.polygon([(cx - 46, cy + 20), (cx - 38, cy - 22), (cx - 16, cy - 2), (cx, cy - 32),
+               (cx + 16, cy - 2), (cx + 38, cy - 22), (cx + 46, cy + 20)], fill=GOLD, outline=DGOLD)
+    # the thousand years, marked out as a row of lamps burning down
+    for k in range(11):
+        lx = W * (0.14 + k * 0.072)
+        d.polygon([(lx - 15, H * 0.955), (lx + 15, H * 0.955), (lx + 10, H * 0.925), (lx - 10, H * 0.925)], fill=DGOLD)
+        flame(d, lx, H * 0.925, 46 - k * 3, 17)
+    save(img, "19_puru")
 
 
 # ---------------------------------------------------------------------------
@@ -657,8 +811,9 @@ def parikshit():
 
 
 SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamejaya,
-          pauloma, ruru, kadru_vinata, garuda, parikshit, sarpa, ganga, bhishma,
-          pandava_birth, gurukulam, lakshagriha, swayamvara, khandava]
+          pauloma, ruru, kadru_vinata, garuda, parikshit, sarpa,
+          uparichara, bhubharam, kacha, devayani, yayati, puru,
+          ganga, bhishma, pandava_birth, gurukulam, lakshagriha, swayamvara, khandava]
 for f in SCENES:
     f()
 print(len(SCENES), 'illustrations ->', OUT)
