@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 site/
 Mahabharatam_preview.html
+
+# The source book is copyrighted; it stays out of the repo.
+*.pdf
