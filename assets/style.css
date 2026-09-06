@@ -1,6 +1,12 @@
 :root{
-  --indigo:#1B2540; --indigo-2:#243252; --madder:#8E2B1E; --turmeric:#D9A21B;
+  /* --indigo is the dark PANEL colour; --heading is the heading TEXT colour.
+     They happen to be the same in daylight and must not be in the dark. */
+  --indigo:#1B2540; --indigo-2:#243252; --heading:#1B2540;
+  --madder:#8E2B1E; --turmeric:#D9A21B;
   --cloth:#F3EDDF; --cloth-2:#EAE2CF; --ink:#2A2420; --muted:#6B6259; --line:#D8CEB7;
+  /* text that sits ON a dark panel — stays light in both themes */
+  --on-dark:#F3EDDF; --card-hl:#F7F0DC; --img-dim:none;
+  color-scheme:light;
   --display:"Tiro Telugu","Noto Serif Telugu",Georgia,serif;
   --body:"Noto Sans Telugu","Gautami",system-ui,sans-serif;
 }
@@ -19,12 +25,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.3;margin:0}
   linear-gradient(225deg,var(--turmeric) 50%,transparent 50%) 0 0/14px 14px repeat-x,
   var(--madder)}
 
-header.top{background:var(--indigo);color:var(--cloth)}
+header.top{background:var(--indigo);color:var(--on-dark)}
 header.top .bar{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap}
-header.top .brand{font-family:var(--display);font-size:1.55rem;color:var(--cloth);letter-spacing:.01em}
+header.top .brand{font-family:var(--display);font-size:1.55rem;color:var(--on-dark);letter-spacing:.01em}
 header.top .brand:hover{text-decoration:none;color:var(--turmeric)}
 header.top nav{display:flex;gap:22px;font-size:1rem}
-header.top nav a{color:var(--cloth-2)}
+header.top nav a{color:var(--on-dark)}
 header.top nav a:hover{color:var(--turmeric)}
 
 main{max-width:1080px;margin:0 auto;padding:0 24px 72px}
@@ -37,12 +43,12 @@ main{max-width:1080px;margin:0 auto;padding:0 24px 72px}
 
 /* Home */
 .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end}
-.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);color:var(--indigo)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);color:var(--heading)}
 .hero p.tag{font-size:1.15rem;color:var(--muted);margin:18px 0 0;max-width:34rem}
-.hero .progress{font-family:var(--display);color:var(--indigo);text-align:right}
+.hero .progress{font-family:var(--display);color:var(--heading);text-align:right}
 .hero .progress .count{font-size:4rem;line-height:1;color:var(--madder)}
 .hero .progress .label{display:block;color:var(--muted);font-family:var(--body);font-size:.95rem;margin-top:8px}
-.hero .progress a{display:inline-block;margin-top:14px;background:var(--madder);color:var(--cloth);padding:10px 20px;border-radius:2px}
+.hero .progress a{display:inline-block;margin-top:14px;background:var(--madder);color:var(--on-dark);padding:10px 20px;border-radius:2px}
 .hero .progress a:hover{background:var(--indigo);text-decoration:none}
 
 .about{border-left:4px solid var(--turmeric);padding:6px 0 6px 22px;margin:24px 0 56px;max-width:44rem;color:var(--muted)}
@@ -50,26 +56,26 @@ main{max-width:1080px;margin:0 auto;padding:0 24px 72px}
 .parvas{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
 .parvas li{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
 .parvas li:nth-last-child(-n+2){border-bottom:0}
-.parvas .name{font-family:var(--display);font-size:1.45rem;color:var(--indigo)}
-.parvas .name a{color:var(--indigo)}
+.parvas .name{font-family:var(--display);font-size:1.45rem;color:var(--heading)}
+.parvas .name a{color:var(--heading)}
 .parvas .en{color:var(--muted);font-size:.9rem;margin-left:8px}
 .parvas .sum{color:var(--muted);font-size:.95rem;line-height:1.7;margin:4px 0 8px}
 .pill{display:inline-block;font-size:.8rem;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
-.pill.published{background:var(--madder);border-color:var(--madder);color:var(--cloth)}
+.pill.published{background:var(--madder);border-color:var(--madder);color:var(--on-dark)}
 .pill.next{border-color:var(--turmeric);color:#7A5A00;background:#FBF1D2}
 .coming .name,.coming .num{opacity:.55}
 
 /* Parva page */
 .parva-head{padding:56px 0 24px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
-.parva-head h1{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--indigo)}
+.parva-head h1{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--heading)}
 .parva-head .en{color:var(--muted);font-size:1rem;margin-top:4px}
 .intro p{color:var(--ink);margin:0 0 1.1em}
 .episodes{list-style:none;padding:0;margin:40px 0 0}
 .episodes li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:center}
 .episodes li:last-child{border-bottom:0}
 .episodes img{aspect-ratio:16/9;object-fit:cover;border-radius:2px}
-.episodes .t{font-family:var(--display);font-size:1.35rem;color:var(--indigo)}
-.episodes .t a{color:var(--indigo)}
+.episodes .t{font-family:var(--display);font-size:1.35rem;color:var(--heading)}
+.episodes .t a{color:var(--heading)}
 .episodes .chars{color:var(--muted);font-size:.92rem;margin-top:6px}
 .episodes .n{color:var(--madder);font-family:var(--display);font-size:1.1rem;margin-right:10px}
 
@@ -77,7 +83,7 @@ main{max-width:1080px;margin:0 auto;padding:0 24px 72px}
 .crumbs{padding:28px 0 0;color:var(--muted);font-size:.95rem}
 .ep-head{padding:36px 0 28px;text-align:center}
 .ep-head .num{display:block;margin-bottom:6px}
-.ep-head h1{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--indigo)}
+.ep-head h1{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--heading)}
 .ep-head .pos{color:var(--muted);font-size:.95rem;margin-top:12px}
 figure{margin:0 0 36px}
 figure img{border-radius:3px;box-shadow:0 1px 0 var(--line)}
@@ -88,7 +94,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.92rem;margin-top:12px
 .story p:first-of-type{text-indent:0}
 .story p:first-of-type::first-letter{font-family:var(--display);font-size:2.4em;color:var(--madder);float:left;line-height:.9;padding:6px 8px 0 0}
 /* మూల పద్యము — the Kavitrayam's verse itself, set apart from the prose */
-.padyam{margin:44px 0 0;padding:24px 28px;background:var(--indigo);color:var(--cloth);border-radius:3px}
+.padyam{margin:44px 0 0;padding:24px 28px;background:var(--indigo);color:var(--on-dark);border-radius:3px}
 .padyam b{display:block;font-family:var(--display);color:var(--turmeric);font-size:1.05rem;margin-bottom:14px}
 .padyam blockquote{margin:0;font-family:var(--display);font-size:1.22rem;line-height:2.05}
 .padyam blockquote span{display:block}
@@ -104,7 +110,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.92rem;margin-top:12px
 
 /* మూలంలో — the source chain, quiet enough to skip, precise enough to follow */
 .source{margin:24px 0 0;padding:18px 24px;border:1px solid var(--line);border-radius:3px;font-size:.92rem;color:var(--muted)}
-.source b{display:block;font-family:var(--display);color:var(--indigo);font-size:1rem;margin-bottom:10px}
+.source b{display:block;font-family:var(--display);color:var(--heading);font-size:1rem;margin-bottom:10px}
 .source dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0}
 .source dt{font-weight:600;color:var(--ink)}
 .source dd{margin:0}
@@ -124,7 +130,7 @@ h2.sec{font-family:var(--display);color:var(--madder);font-size:1.5rem;margin:56
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table.counts{border-collapse:collapse;width:100%;min-width:34rem;font-size:.95rem}
 table.counts th,table.counts td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-table.counts th{font-family:var(--display);color:var(--indigo);font-weight:400;border-bottom:2px solid var(--turmeric)}
+table.counts th{font-family:var(--display);color:var(--heading);font-weight:400;border-bottom:2px solid var(--turmeric)}
 table.counts td.n,table.counts th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 table.counts td.pn{white-space:nowrap}
 table.counts tfoot td{border-top:2px solid var(--line);border-bottom:none;font-weight:600}
@@ -143,7 +149,7 @@ p.note{color:var(--muted);font-size:.95rem;line-height:1.8;margin:14px 0 0}
   width:9.5rem;padding:12px 10px;border:1px solid var(--line);border-radius:3px;background:var(--cloth-2);
   text-decoration:none;color:var(--ink)}
 a.pcard:hover{border-color:var(--madder)}
-.pcard.line{border-color:var(--turmeric);border-width:2px;background:#F7F0DC}
+.pcard.line{border-color:var(--turmeric);border-width:2px;background:var(--card-hl)}
 .pcard.spouse{background:transparent;border-style:dashed}
 .pcard .av{border-radius:50%}
 .pcard .av.blank{width:46px;height:46px;border-radius:50%;background:var(--cloth);border:1px dashed var(--line)}
@@ -156,11 +162,11 @@ a.pcard:hover{border-color:var(--madder)}
 .pager a{font-family:var(--display);font-size:1.1rem;max-width:48%}
 .pager a small{display:block;font-family:var(--body);color:var(--muted);font-size:.85rem}
 .pager .next{text-align:right;margin-left:auto}
-.closing{margin-top:56px;padding:28px;background:var(--indigo);color:var(--cloth);border-radius:3px;text-align:center}
+.closing{margin-top:56px;padding:28px;background:var(--indigo);color:var(--on-dark);border-radius:3px;text-align:center}
 .closing p{margin:0 0 10px}
 .closing a{color:var(--turmeric)}
 
-footer{background:var(--indigo);color:var(--cloth-2);padding:32px 24px;font-size:.9rem}
+footer{background:var(--indigo);color:var(--on-dark);padding:32px 24px;font-size:.9rem}
 footer .in{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--turmeric)}
 
@@ -189,7 +195,7 @@ footer a{color:var(--turmeric)}
 .num.sm{font-size:1.1rem;margin-right:10px;vertical-align:baseline}
 .parvas li{grid-template-columns:56px 1fr}
 .quick{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap}
-.quick a{display:flex;align-items:center;gap:10px;color:var(--indigo);background:var(--cloth-2);padding:6px 16px 6px 6px;border-radius:999px}
+.quick a{display:flex;align-items:center;gap:10px;color:var(--heading);background:var(--cloth-2);padding:6px 16px 6px 6px;border-radius:999px}
 .quick a:hover{text-decoration:none;background:#E2D8C1}
 .avs{display:flex}.avs .av{margin-right:-10px;border:2px solid var(--cloth-2)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
@@ -199,30 +205,30 @@ span.chip{padding-left:10px}
 .chars-box .chips{margin-top:8px}
 .chips .lbl{align-self:center;color:var(--muted);font-size:.9rem;margin-right:4px}
 header.top form{display:flex;margin-left:auto}
-header.top input{border:1px solid var(--indigo-2);background:var(--indigo-2);color:var(--cloth);border-radius:999px;padding:6px 14px;font:inherit;font-size:.95rem;width:190px}
+header.top input{border:1px solid var(--indigo-2);background:var(--indigo-2);color:var(--on-dark);border-radius:999px;padding:6px 14px;font:inherit;font-size:.95rem;width:190px}
 header.top input::placeholder{color:#9AA3BC}
 header.top input:focus{outline:2px solid var(--turmeric);border-color:var(--turmeric)}
 header.top nav{align-items:center}
 .page-head{padding:56px 0 20px;max-width:46rem}
-.page-head h1{font-size:clamp(2.2rem,5vw,3.2rem);color:var(--indigo)}
+.page-head h1{font-size:clamp(2.2rem,5vw,3.2rem);color:var(--heading)}
 .page-head p{color:var(--muted);margin:14px 0 0}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px}
 .filters a{border:1px solid var(--line);border-radius:999px;padding:4px 14px;color:var(--muted);font-size:.92rem}
-.filters a.on{background:var(--indigo);border-color:var(--indigo);color:var(--cloth)}
+.filters a.on{background:var(--indigo);border-color:var(--indigo);color:var(--on-dark)}
 .filters a:hover{text-decoration:none;border-color:var(--madder);color:var(--madder)}
 .char-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
 .char-grid.small{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 .char-grid a{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 12px;background:var(--cloth-2);border-radius:6px;color:var(--ink);height:100%}
 .char-grid a:hover{text-decoration:none;background:#E2D8C1}
-.char-grid .cn{font-family:var(--display);font-size:1.15rem;color:var(--indigo);margin-top:10px}
+.char-grid .cn{font-family:var(--display);font-size:1.15rem;color:var(--heading);margin-top:10px}
 .char-grid .cr{font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:4px}
 .char-grid .cc{font-size:.8rem;color:var(--madder);margin-top:6px}
 .char-head{display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:center;padding:36px 0 28px}
-.char-head h1{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--indigo)}
+.char-head h1{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--heading)}
 .char-head p{color:var(--muted);margin:8px 0 10px}
 .char-head .al{color:var(--muted);font-size:.9rem;margin-top:10px}
-.pill.side-pandava{background:var(--indigo);color:var(--cloth);border-color:var(--indigo)}
-.pill.side-kaurava{background:var(--madder);color:var(--cloth);border-color:var(--madder)}
+.pill.side-pandava{background:var(--indigo);color:var(--on-dark);border-color:var(--indigo)}
+.pill.side-kaurava{background:var(--madder);color:var(--on-dark);border-color:var(--madder)}
 .pill.side-guru{background:var(--turmeric);color:var(--indigo);border-color:var(--turmeric)}
 .pill.side-deva{background:#E6B43C;color:var(--indigo);border-color:#E6B43C}
 .pill.side-kuru{background:#6E5078;color:var(--cloth);border-color:#6E5078}
@@ -264,3 +270,33 @@ mark{background:#FBE7A1;color:var(--ink);padding:0 2px}
 .evo p{text-align:justify;line-height:1.95;margin:0 0 1.2em}
 .sources{padding-left:1.3em;color:var(--muted);font-size:.92rem;line-height:1.8}
 @media (max-width:820px){.timeline{grid-template-columns:1fr 1fr}.timeline li:nth-child(2n){border-right:0}.timeline li{border-right:1px solid var(--line)}}
+
+/* ── night mode ──────────────────────────────────────────────────────────
+   A warm dark, like palm leaf read by lamplight — not a cold grey. The
+   illustrations are bright cream and would glare, so they are dimmed a
+   little; hovering or focusing one restores it. */
+:root[data-theme="dark"]{
+  --indigo:#0E1626; --indigo-2:#182238; --heading:#E9DCC0;
+  --madder:#D9765C; --turmeric:#E3B24A;
+  --cloth:#15120E; --cloth-2:#201B14; --ink:#EDE4D2; --muted:#A2957F; --line:#3B3327;
+  --card-hl:#2A2317; --img-dim:brightness(.86) saturate(.94);
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --indigo:#0E1626; --indigo-2:#182238; --heading:#E9DCC0;
+    --madder:#D9765C; --turmeric:#E3B24A;
+    --cloth:#15120E; --cloth-2:#201B14; --ink:#EDE4D2; --muted:#A2957F; --line:#3B3327;
+    --card-hl:#2A2317; --img-dim:brightness(.86) saturate(.94);
+    color-scheme:dark;
+  }
+}
+figure img,.episodes img{filter:var(--img-dim);transition:filter .25s}
+figure:hover img,figure img:focus{filter:none}
+
+/* the toggle itself */
+.theme-btn{background:var(--indigo-2);color:var(--on-dark);border:1px solid var(--indigo-2);
+  border-radius:999px;width:38px;height:38px;font-size:1.05rem;line-height:1;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;padding:0;flex:0 0 auto}
+.theme-btn:hover{border-color:var(--turmeric);color:var(--turmeric)}
+header.top .bar form{display:flex;align-items:center;gap:10px}

@@ -27,6 +27,8 @@ for f in glob.glob(f'{SRC}/*.json'):
 
 css = open(f'{SRC}/style.css', encoding='utf8').read()
 js = open(f'{SRC}/app.js', encoding='utf8').read()
+# Applied before first paint so a night reader never gets a white flash.
+NOFLASH = "<script>(function(){try{var t=localStorage.getItem('mb-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Tiro+Telugu&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">'
 
 def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" type="image/svg+xml">'):
@@ -39,6 +41,7 @@ def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" 
 <meta name="description" content="{parvas['site']['tagline']}">
 {FONTS}
 {favicon}
+{NOFLASH}
 {head}
 </head>
 <body>
@@ -46,7 +49,7 @@ def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" 
   <div class="bar">
     <a class="brand" href="#/">{parvas['site']['title']}</a>
     <nav><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/vamsham">వంశ వృక్షము</a><a href="#/moolam">మూల నిర్మాణము</a><a href="#/parinamam">పరిణామం</a></nav>
-    <form id="hsearch" role="search"><input name="q" type="search" placeholder="వెతుకు…" aria-label="వెతుకు"></form>
+    <form id="hsearch" role="search"><input name="q" type="search" placeholder="వెతుకు…" aria-label="వెతుకు"><button type="button" id="themebtn" class="theme-btn" aria-label="రాత్రి రూపము" title="రాత్రి రూపము"></button></form>
   </div>
   <div class="frieze"></div>
 </header>

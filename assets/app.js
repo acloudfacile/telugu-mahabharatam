@@ -322,6 +322,30 @@
       </div>`;
   }
 
+
+  // ── night mode ──────────────────────────────────────────────────────────
+  // Three states, in this order of authority: what the reader chose here,
+  // then what their device asks for, then daylight.
+  (function theme(){
+    const btn = document.getElementById('themebtn');
+    const root = document.documentElement;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const stored = () => { try { return localStorage.getItem('mb-theme'); } catch(e){ return null; } };
+    const isDark = () => { const t = root.getAttribute('data-theme'); return t ? t === 'dark' : media.matches; };
+    const paint = () => { if(btn){ const d = isDark(); btn.textContent = d ? '☀' : '☾';
+      btn.setAttribute('aria-label', d ? 'పగటి రూపము' : 'రాత్రి రూపము');
+      btn.setAttribute('title', d ? 'పగటి రూపము' : 'రాత్రి రూపము'); } };
+    if(btn) btn.addEventListener('click', () => {
+      const next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('mb-theme', next); } catch(e){}
+      paint();
+    });
+    // follow the device only while the reader has not chosen for themselves
+    if(media.addEventListener) media.addEventListener('change', () => { if(!stored()) paint(); });
+    paint();
+  })();
+
   function route(){
     const h = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
     if(h[0] === 'parva' && h[1] && h[2]) episode(h[1], h[2]);
