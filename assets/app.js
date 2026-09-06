@@ -79,6 +79,27 @@
       </ol>`;
   }
 
+  // నేర్చుకున్నది — a short reflection for a child finishing the story.
+  function learnBox(e){
+    if(!e.learning) return '';
+    return `<aside class="learn"><b>నేర్చుకున్నది</b><p>${esc(e.learning)}</p></aside>`;
+  }
+
+  // మూలంలో — where this episode sits in Vyasa's text, and where to find it in
+  // the Kavitrayam's Telugu verse, so a reader can move from this prose to the source.
+  function sourceBox(e){
+    const s = e.source; if(!s) return '';
+    const rows = [
+      ['మూల ఘట్టము', s.ref],
+      ['అధ్యాయములు', s.adhyaya],
+      ['కవిత్రయ ఆంధ్ర మహాభారతము', s.kavitrayam]
+    ].filter(r => r[1]);
+    if(!rows.length) return '';
+    return `<aside class="source"><b>మూలంలో</b><dl>${
+      rows.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')
+    }</dl>${s.note ? `<p class="note">${esc(s.note)}</p>` : ''}</aside>`;
+  }
+
   function episode(id, n){
     const p = P.parvas.find(x => x.id === id), c = C[id];
     if(!p || !c) return notfound();
@@ -97,6 +118,8 @@
         <figure><img src="${img(e.image)}" alt="${esc(e.caption)}"><figcaption>${esc(e.caption)}</figcaption></figure>
         <div class="chars-box"><b>ముఖ్య పాత్రలు</b><div class="chips">${e.characters.map(charChip).join('')}</div></div>
         <div class="story">${e.paras.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+        ${learnBox(e)}
+        ${sourceBox(e)}
         <nav class="pager">
           ${prev ? `<a href="#/parva/${id}/${prev.num}"><small>మునుపటి కథ</small>${esc(prev.title)}</a>` : ''}
           ${next ? `<a class="next" href="#/parva/${id}/${next.num}"><small>తరువాతి కథ</small>${esc(next.title)}</a>` : ''}
@@ -162,7 +185,7 @@
     const chars = q ? CH.filter(c => (c.name + ' ' + c.aliases.join(' ') + ' ' + c.role).includes(q)) : [];
     const eps = [];
     if(q) Object.keys(C).forEach(pid => C[pid].episodes.forEach(e => {
-      const hay = e.title + ' · ' + e.characters.join(', ') + ' · ' + e.paras.join(' ');
+      const hay = e.title + ' · ' + e.characters.join(', ') + ' · ' + e.paras.join(' ') + ' · ' + (e.learning || '');
       const at = hay.indexOf(q); if(at < 0) return;
       const s = Math.max(0, at - 60); eps.push({pid, e, snip: (s?'…':'') + hay.slice(s, at+120) + '…'});
     }));
