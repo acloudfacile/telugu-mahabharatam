@@ -28,12 +28,24 @@ Episodes ౧౪–౨౦ are the old compressed chapters and are being replaced
 | two | ౩ | ౧౪–౧౯ | done |
 | three | ౪ | ౨౦–౨౬ | done |
 | four | ౫ + start of ౬ | ౨౭–౩౩ | done |
-| five | ౬ | ~5 | Drupada's defeat · Yudhishthira made yuvaraja · Varanavata and the lac house · Hidimba · Baka. Replaces episode ౩౪. |
-| six | ౭ | ~6 | Angaraparna · Tapati · Vasishtha & Vishvamitra · Draupadi's svayamvara · the marriage · the five Indras. Replaces episode ౩౫. |
-| seven | ౮ | ~6 | Viduragamana · Indraprastha · Sunda–Upasunda · Arjuna's tirthayatra · Subhadra · Khandava. Replaces episode ౩౬. |
+| five | ౬ | ౩౪–౩౯ | done |
+| six | ౭ | ~6 | Angaraparna · Tapati · Vasishtha & Vishvamitra · Draupadi's svayamvara · the marriage · the five Indras. Replaces episode ౪౦. Carries the second padyam (p288). |
+| seven | ౮ | ~6 | Viduragamana · Indraprastha · Sunda–Upasunda · Arjuna's tirthayatra · Subhadra · Khandava. Replaces episode ౪౧. |
 
-Episodes ౩౪–౩౬ are the last of the old compressed chapters, each still
-standing in for a whole āśvāsa. They are what batches five to seven replace.
+Episodes ౪౦ and ౪౧ are the last two old compressed chapters, each still
+standing in for a whole āśvāsa. They are what batches six and seven replace.
+
+## Padyams
+
+The adapter stops four times to quote Nannaya's own verse. Found by searching
+the legacy text layer for the byte-form of "నన్నయ" alongside a smart quote —
+punctuation survives the encoding even though the Telugu does not. Pages 222
+and 232 are references without a quotation; 231 and 288 carry actual verse.
+
+| page | verse | episode |
+|---|---|---|
+| ౨౩౧ | పతిస్నేహము కామినులకు బలవంతము… | ౩౮ హిడింబి |
+| ౨౮౮ | ఆ లలితాంగి యందు హృదయంబులు దృష్టులు నిల్పి… | batch six, the svayamvara |
 
 ## Working method
 
