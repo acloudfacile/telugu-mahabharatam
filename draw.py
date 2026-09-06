@@ -1,0 +1,349 @@
+from PIL import Image, ImageDraw, ImageFilter
+import math, random, os
+
+W, H = 1600, 900
+os.makedirs("img", exist_ok=True)
+random.seed(7)
+
+# Palette
+GOLD = (212, 160, 60); DGOLD = (150, 105, 30); CREAM = (250, 240, 215)
+SAFF = (232, 120, 40); RED = (170, 40, 30); MAROON = (100, 20, 25)
+NIGHT = (20, 25, 60); DUSK = (60, 40, 90); SKYB = (120, 170, 210)
+WATER = (40, 90, 140); WATER2 = (80, 140, 190); GREEN = (40, 95, 55)
+DGREEN = (25, 60, 40); BROWN = (95, 60, 35); SAND = (225, 195, 140)
+INK = (35, 25, 20); WHITE = (255, 252, 240); SMOKE = (70, 60, 70)
+
+
+def gradient(draw, top, bottom, y0=0, y1=H):
+    for y in range(y0, y1):
+        t = (y - y0) / max(1, (y1 - y0))
+        c = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3))
+        draw.line([(0, y), (W, y)], fill=c)
+
+
+def border(img):
+    d = ImageDraw.Draw(img)
+    for i, c in enumerate([DGOLD, GOLD, DGOLD]):
+        d.rectangle([14 + i * 6, 14 + i * 6, W - 15 - i * 6, H - 15 - i * 6], outline=c, width=4)
+    # corner lotus motifs
+    for cx, cy in [(45, 45), (W - 45, 45), (45, H - 45), (W - 45, H - 45)]:
+        for k in range(8):
+            a = k * math.pi / 4
+            d.ellipse([cx + 14 * math.cos(a) - 9, cy + 14 * math.sin(a) - 9,
+                       cx + 14 * math.cos(a) + 9, cy + 14 * math.sin(a) + 9], fill=GOLD, outline=DGOLD)
+        d.ellipse([cx - 8, cy - 8, cx + 8, cy + 8], fill=RED)
+    return img
+
+
+def sun(d, cx, cy, r, color=GOLD, rays=True):
+    if rays:
+        for k in range(24):
+            a = k * math.pi / 12
+            d.line([(cx + r * 1.15 * math.cos(a), cy + r * 1.15 * math.sin(a)),
+                    (cx + r * 1.6 * math.cos(a), cy + r * 1.6 * math.sin(a))], fill=color, width=6)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=color)
+
+
+def tree(d, x, base, h, canopy=GREEN):
+    d.rectangle([x - h * 0.05, base - h * 0.55, x + h * 0.05, base], fill=BROWN)
+    for i, (dx, dy, rr) in enumerate([(0, -0.75, 0.35), (-0.28, -0.55, 0.26), (0.28, -0.55, 0.26), (0, -0.5, 0.3)]):
+        cx, cy, r = x + dx * h, base + dy * h, rr * h
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=canopy if i % 2 == 0 else DGREEN)
+
+
+def lotus(d, cx, cy, s, fill=(240, 120, 150), outline=RED):
+    for k in range(-3, 4):
+        a = math.pi / 2 + k * 0.32
+        px, py = cx + s * 1.6 * math.cos(a), cy - s * 1.6 * math.sin(a)
+        d.polygon([(cx, cy), (cx + s * 0.55 * math.cos(a - 0.5), cy - s * 0.55 * math.sin(a - 0.5) - s * 0.5),
+                   (px, py), (cx + s * 0.55 * math.cos(a + 0.5), cy - s * 0.55 * math.sin(a + 0.5) - s * 0.5)],
+                  fill=fill, outline=outline)
+    d.ellipse([cx - s * 0.35, cy - s * 0.35, cx + s * 0.35, cy + s * 0.35], fill=GOLD)
+
+
+def flame(d, cx, base, h, w):
+    for i, (c, f) in enumerate([(RED, 1.0), (SAFF, 0.75), (GOLD, 0.5), (CREAM, 0.25)]):
+        hh, ww = h * f, w * f
+        pts = []
+        for k in range(21):
+            t = k / 20
+            y = base - hh * t
+            xw = ww * math.sin(math.pi * t) * (1 - t * 0.5) + ww * 0.15 * (1 - t)
+            pts.append((cx - xw * (1 - t) - ww * 0.05 * math.sin(t * 9), y))
+        for k in range(20, -1, -1):
+            t = k / 20
+            y = base - hh * t
+            xw = ww * math.sin(math.pi * t) * (1 - t * 0.5) + ww * 0.15 * (1 - t)
+            pts.append((cx + xw * (1 - t) + ww * 0.05 * math.sin(t * 7), y))
+        d.polygon(pts, fill=c)
+
+
+def stars(d, n=120, ymax=H * 0.6):
+    for _ in range(n):
+        x, y = random.randint(40, W - 40), random.randint(40, int(ymax))
+        r = random.choice([1, 1, 2, 2, 3])
+        d.ellipse([x - r, y - r, x + r, y + r], fill=WHITE)
+
+
+def figure(d, cx, base, h, robe=SAFF, skin=(200, 150, 100), seated=False):
+    """Simple stylised silhouette figure."""
+    if seated:
+        d.ellipse([cx - h * 0.45, base - h * 0.35, cx + h * 0.45, base + h * 0.05], fill=robe)
+        d.rectangle([cx - h * 0.28, base - h * 0.65, cx + h * 0.28, base - h * 0.2], fill=robe)
+        d.ellipse([cx - h * 0.13, base - h * 0.92, cx + h * 0.13, base - h * 0.66], fill=skin)
+    else:
+        d.polygon([(cx - h * 0.22, base), (cx + h * 0.22, base), (cx + h * 0.16, base - h * 0.62), (cx - h * 0.16, base - h * 0.62)], fill=robe)
+        d.ellipse([cx - h * 0.11, base - h * 0.86, cx + h * 0.11, base - h * 0.64], fill=skin)
+
+
+def bow(d, cx, cy, r, color=DGOLD, arrow=True):
+    d.arc([cx - r, cy - r, cx + r, cy + r], 200, 340, fill=color, width=12)
+    ax1 = cx + r * math.cos(math.radians(200)); ay1 = cy + r * math.sin(math.radians(200))
+    ax2 = cx + r * math.cos(math.radians(340)); ay2 = cy + r * math.sin(math.radians(340))
+    d.line([(ax1, ay1), (cx, cy + r * 0.25), (ax2, ay2)], fill=CREAM, width=3)
+    if arrow:
+        d.line([(cx, cy + r * 0.25), (cx, cy - r * 1.3)], fill=INK, width=6)
+        d.polygon([(cx, cy - r * 1.45), (cx - 14, cy - r * 1.2), (cx + 14, cy - r * 1.2)], fill=(170, 170, 180))
+        d.polygon([(cx, cy + r * 0.25), (cx - 18, cy + r * 0.45), (cx, cy + r * 0.38), (cx + 18, cy + r * 0.45)], fill=RED)
+
+
+def save(img, name):
+    border(img).save(f"img/{name}.png", optimize=True)
+
+
+# 1. Cover — Vyasa dictating under banyan; Ganesha as symbolic Om-lamp; palm-leaf manuscript
+def cover():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 205, 130), CREAM, 0, int(H * 0.7)); gradient(d, SAND, (200, 165, 110), int(H * 0.7), H)
+    sun(d, W * 0.5, H * 0.33, 150, (240, 190, 90))
+    d.rectangle([0, H * 0.7, W, H], fill=(200, 165, 110))
+    tree(d, W * 0.2, H * 0.72, 420); tree(d, W * 0.82, H * 0.72, 380)
+    # manuscript scroll
+    d.rounded_rectangle([W * 0.3, H * 0.52, W * 0.7, H * 0.66], 20, fill=(245, 225, 175), outline=BROWN, width=5)
+    for i in range(5):
+        y = H * 0.55 + i * 22
+        d.line([(W * 0.33, y), (W * 0.67 - random.randint(0, 120), y)], fill=BROWN, width=4)
+    # seated sage and scribe
+    figure(d, W * 0.36, H * 0.79, 220, robe=SAFF, seated=True)
+    figure(d, W * 0.64, H * 0.79, 230, robe=RED, skin=(215, 170, 120), seated=True)
+    # lamp between
+    d.polygon([(W * 0.48, H * 0.79), (W * 0.52, H * 0.79), (W * 0.51, H * 0.74), (W * 0.49, H * 0.74)], fill=DGOLD)
+    flame(d, W * 0.5, H * 0.74, 60, 22)
+    for x in [W * 0.12, W * 0.88]:
+        lotus(d, x, H * 0.9, 40)
+    save(img, "01_cover")
+
+
+# 2. Sarpa yagna — great fire altar with serpents drawn into it
+def sarpa():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, NIGHT, (90, 40, 40)); stars(d)
+    d.rectangle([0, H * 0.78, W, H], fill=(60, 40, 35))
+    # altar
+    d.rectangle([W * 0.35, H * 0.62, W * 0.65, H * 0.78], fill=(120, 90, 70), outline=INK, width=4)
+    d.rectangle([W * 0.3, H * 0.74, W * 0.7, H * 0.78], fill=(140, 105, 80), outline=INK, width=3)
+    flame(d, W * 0.5, H * 0.62, 400, 150)
+    flame(d, W * 0.44, H * 0.62, 280, 90); flame(d, W * 0.56, H * 0.62, 300, 95)
+    # serpents spiralling in
+    for k, (sx, sy, dirn) in enumerate([(W * 0.08, H * 0.2, 1), (W * 0.92, H * 0.15, -1), (W * 0.1, H * 0.5, 1), (W * 0.9, H * 0.45, -1)]):
+        pts = []
+        for i in range(40):
+            t = i / 39
+            x = sx + (W * 0.5 - sx) * t
+            y = sy + (H * 0.55 - sy) * t + 40 * math.sin(t * 12)
+            pts.append((x, y))
+        d.line(pts, fill=(60, 140, 90) if k % 2 else (150, 120, 60), width=14 - int(8 * (k % 2)) + 6)
+        hx, hy = pts[0]
+        d.ellipse([hx - 20, hy - 14, hx + 20, hy + 14], fill=(60, 140, 90) if k % 2 else (150, 120, 60))
+        d.ellipse([hx - 4 + 8 * dirn, hy - 6, hx + 4 + 8 * dirn, hy - 2], fill=RED)
+    # priests
+    for x in [W * 0.2, W * 0.8]:
+        figure(d, x, H * 0.78, 200, robe=CREAM, seated=True)
+    save(img, "02_sarpa_yagna")
+
+
+# 3. Ganga & Shantanu — moonlit river with royal figure on the bank
+def ganga():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, NIGHT, DUSK, 0, int(H * 0.5)); stars(d, 90, H * 0.45)
+    d.ellipse([W * 0.7 - 70, H * 0.15 - 70, W * 0.7 + 70, H * 0.15 + 70], fill=(245, 240, 210))
+    gradient(d, WATER, WATER2, int(H * 0.5), H)
+    for i in range(30):
+        y = H * 0.55 + i * 12 + random.randint(0, 8)
+        x0 = random.randint(0, W // 2)
+        d.line([(x0, y), (x0 + random.randint(80, 300), y)], fill=(160, 200, 230), width=2)
+    # distant far bank
+    d.polygon([(0, H * 0.5), (W * 0.3, H * 0.44), (W * 0.6, H * 0.47), (W, H * 0.42), (W, H * 0.52), (0, H * 0.52)], fill=DGREEN)
+    # near bank
+    d.polygon([(0, H), (0, H * 0.82), (W * 0.42, H * 0.78), (W * 0.5, H)], fill=(50, 70, 45))
+    tree(d, W * 0.12, H * 0.82, 300, (50, 110, 70))
+    figure(d, W * 0.36, H * 0.8, 240, robe=(200, 60, 60))
+    d.ellipse([W * 0.36 - 30, H * 0.8 - 240 * 0.9 - 30, W * 0.36 + 30, H * 0.8 - 240 * 0.9 + 6], outline=GOLD, width=5)
+    # river goddess as luminous form on the water
+    gx, gy = W * 0.72, H * 0.72
+    for r, a in [(140, 30), (110, 70), (80, 130)]:
+        d.ellipse([gx - r, gy - r * 0.6, gx + r, gy + r * 0.6], fill=(160 + a // 3, 200 + a // 4, 240))
+    figure(d, gx, gy + 40, 220, robe=WHITE, skin=(225, 200, 180))
+    lotus(d, gx - 190, gy + 60, 34); lotus(d, gx + 200, gy + 70, 30)
+    save(img, "03_ganga_shantanu")
+
+
+# 4. Bhishma's vow — lone warrior raising bow to the sky, flowers falling
+def bhishma():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 170, 90), (255, 220, 160), 0, int(H * 0.72)); sun(d, W * 0.5, H * 0.3, 130, (255, 210, 110))
+    gradient(d, (200, 165, 110), SAND, int(H * 0.72), H)
+    # chariot silhouette hint: wheel
+    d.ellipse([W * 0.7, H * 0.55, W * 0.7 + 200, H * 0.55 + 200], outline=INK, width=10)
+    for k in range(8):
+        a = k * math.pi / 4
+        d.line([(W * 0.7 + 100, H * 0.55 + 100), (W * 0.7 + 100 + 95 * math.cos(a), H * 0.55 + 100 + 95 * math.sin(a))], fill=INK, width=6)
+    figure(d, W * 0.35, H * 0.74, 330, robe=(210, 200, 190), skin=(190, 140, 95))
+    bow(d, W * 0.35, H * 0.44, 110, DGOLD, arrow=False)
+    d.line([(W * 0.35, H * 0.56), (W * 0.35, H * 0.74 - 330 * 0.55)], fill=(190, 140, 95), width=18)
+    # falling flowers
+    for _ in range(60):
+        x, y = random.randint(60, W - 60), random.randint(60, int(H * 0.7))
+        c = random.choice([(255, 180, 190), (255, 230, 120), (250, 250, 250)])
+        d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=c)
+    save(img, "04_bhishma_pratigna")
+
+
+# 5. Birth of the Pandavas — forest ashram, five stars, mountains
+def pandava_birth():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (30, 40, 90), (150, 120, 170), 0, int(H * 0.6)); stars(d, 60, H * 0.35)
+    # five bright stars
+    for i, x in enumerate([0.25, 0.37, 0.5, 0.63, 0.75]):
+        cx, cy = W * x, H * (0.14 + 0.05 * math.sin(i * 1.3))
+        for k in range(8):
+            a = k * math.pi / 4
+            d.line([(cx, cy), (cx + 34 * math.cos(a), cy + 34 * math.sin(a))], fill=(255, 240, 180), width=4)
+        d.ellipse([cx - 14, cy - 14, cx + 14, cy + 14], fill=WHITE)
+    # mountains
+    d.polygon([(0, H * 0.6), (W * 0.2, H * 0.3), (W * 0.35, H * 0.5), (W * 0.55, H * 0.25), (W * 0.75, H * 0.48), (W * 0.9, H * 0.35), (W, H * 0.55), (W, H * 0.6)], fill=(90, 80, 120))
+    d.polygon([(W * 0.55, H * 0.25), (W * 0.5, H * 0.34), (W * 0.6, H * 0.34)], fill=WHITE)
+    gradient(d, DGREEN, GREEN, int(H * 0.6), H)
+    for x in [0.08, 0.9]:
+        tree(d, W * x, H * 0.72, 330)
+    # hut
+    d.polygon([(W * 0.38, H * 0.66), (W * 0.5, H * 0.5), (W * 0.62, H * 0.66)], fill=(160, 120, 70))
+    d.rectangle([W * 0.41, H * 0.66, W * 0.59, H * 0.8], fill=(200, 170, 120), outline=BROWN, width=4)
+    d.rectangle([W * 0.47, H * 0.7, W * 0.53, H * 0.8], fill=(80, 55, 35))
+    # mother figure and child cradle
+    figure(d, W * 0.3, H * 0.82, 230, robe=(200, 80, 90), skin=(215, 170, 120))
+    d.ellipse([W * 0.66, H * 0.76, W * 0.66 + 120, H * 0.76 + 50], fill=(230, 200, 150), outline=BROWN, width=4)
+    lotus(d, W * 0.2, H * 0.92, 30); lotus(d, W * 0.8, H * 0.93, 30)
+    save(img, "05_pandava_janana")
+
+
+# 6. Gurukulam — archery training, target on tree, teacher & pupils
+def gurukulam():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, SKYB, (215, 235, 245), 0, int(H * 0.65)); sun(d, W * 0.85, H * 0.15, 70, (255, 230, 150))
+    gradient(d, (110, 150, 80), (150, 180, 100), int(H * 0.65), H)
+    tree(d, W * 0.8, H * 0.7, 420)
+    # bird target
+    d.ellipse([W * 0.8 - 40, H * 0.7 - 420 * 0.75 - 22, W * 0.8 + 40, H * 0.7 - 420 * 0.75 + 22], fill=(220, 220, 230), outline=INK, width=3)
+    d.polygon([(W * 0.8 + 40, H * 0.7 - 420 * 0.75), (W * 0.8 + 70, H * 0.7 - 420 * 0.75 - 6), (W * 0.8 + 70, H * 0.7 - 420 * 0.75 + 6)], fill=SAFF)
+    # teacher
+    figure(d, W * 0.15, H * 0.72, 300, robe=CREAM, skin=(190, 140, 95))
+    # pupils with bows
+    for i, x in enumerate([0.3, 0.42, 0.54]):
+        figure(d, W * x, H * 0.76, 230, robe=[SAFF, (60, 90, 170), (200, 60, 60)][i])
+        bow(d, W * x + 40, H * 0.62, 55, DGOLD, arrow=(i == 1))
+    # arrow in flight to target
+    d.line([(W * 0.46, H * 0.55), (W * 0.76, H * 0.7 - 420 * 0.75)], fill=INK, width=5)
+    save(img, "06_gurukulam")
+
+
+# 7. Lakshagriha — palace burning at night, tunnel escape
+def lakshagriha():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, NIGHT, (110, 40, 30)); stars(d, 50, H * 0.3)
+    d.rectangle([0, H * 0.78, W, H], fill=(45, 35, 35))
+    # palace
+    d.rectangle([W * 0.3, H * 0.45, W * 0.7, H * 0.78], fill=(120, 80, 60), outline=INK, width=4)
+    d.polygon([(W * 0.28, H * 0.45), (W * 0.5, H * 0.3), (W * 0.72, H * 0.45)], fill=(90, 55, 45), outline=INK)
+    for i in range(3):
+        x = W * (0.36 + i * 0.12)
+        d.rounded_rectangle([x, H * 0.55, x + 70, H * 0.7], 30, fill=(255, 150, 40))
+    for cx, h, w in [(W * 0.36, 330, 100), (W * 0.5, 460, 150), (W * 0.64, 340, 110), (W * 0.43, 250, 80), (W * 0.57, 270, 85)]:
+        flame(d, cx, H * 0.45, h, w)
+    # smoke
+    for _ in range(25):
+        x, y, r = random.randint(int(W * 0.25), int(W * 0.75)), random.randint(40, int(H * 0.3)), random.randint(25, 60)
+        d.ellipse([x - r, y - r, x + r, y + r], fill=SMOKE)
+    # tunnel
+    d.arc([W * 0.55, H * 0.78, W * 0.95, H * 1.1], 180, 360, fill=(30, 25, 25), width=60)
+    for i, x in enumerate([0.86, 0.9, 0.94]):
+        figure(d, W * x, H * 0.95 - i * 8, 140, robe=[SAFF, RED, (60, 90, 170)][i])
+    save(img, "07_lakshagriha")
+
+
+# 8. Draupadi swayamvara — revolving fish target above water pool, bow drawn
+def swayamvara():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 235, 200), (245, 215, 170), 0, int(H * 0.7))
+    # pillars & canopy
+    for x in [0.06, 0.94]:
+        d.rectangle([W * x - 30, H * 0.15, W * x + 30, H * 0.78], fill=(200, 160, 110), outline=DGOLD, width=4)
+    d.rectangle([0, H * 0.1, W, H * 0.16], fill=RED)
+    for i in range(18):
+        d.polygon([(i * W / 18, H * 0.16), ((i + 1) * W / 18, H * 0.16), ((i + 0.5) * W / 18, H * 0.21)], fill=GOLD)
+    # wheel with fish
+    wx, wy = W * 0.5, H * 0.3
+    d.ellipse([wx - 110, wy - 110, wx + 110, wy + 110], outline=DGOLD, width=12)
+    for k in range(8):
+        a = k * math.pi / 4
+        d.line([(wx, wy), (wx + 105 * math.cos(a), wy + 105 * math.sin(a))], fill=DGOLD, width=5)
+    d.polygon([(wx - 60, wy), (wx - 10, wy - 30), (wx + 40, wy - 10), (wx + 70, wy - 30), (wx + 70, wy + 30), (wx + 40, wy + 10), (wx - 10, wy + 30)], fill=(230, 180, 60), outline=INK)
+    d.ellipse([wx - 45, wy - 8, wx - 35, wy + 2], fill=INK)
+    # pool
+    d.ellipse([W * 0.3, H * 0.62, W * 0.7, H * 0.8], fill=WATER2, outline=(60, 110, 150), width=6)
+    d.ellipse([wx - 60, H * 0.685, wx + 60, H * 0.735], fill=(200, 220, 240))
+    # archer
+    figure(d, W * 0.22, H * 0.78, 330, robe=(60, 90, 170), skin=(190, 140, 95))
+    bow(d, W * 0.24, H * 0.5, 120, DGOLD, arrow=True)
+    # court spectators
+    for i, x in enumerate([0.72, 0.8, 0.88]):
+        figure(d, W * x, H * 0.76, 200, robe=[GOLD, (200, 60, 60), (120, 60, 140)][i])
+    # Draupadi with garland
+    figure(d, W * 0.62, H * 0.78, 250, robe=(180, 30, 60), skin=(215, 170, 120))
+    d.arc([W * 0.62 - 60, H * 0.6, W * 0.62 + 60, H * 0.72], 0, 180, fill=(255, 180, 60), width=14)
+    d.rectangle([0, H * 0.78, W, H], fill=(215, 185, 140))
+    save(img, "08_swayamvara")
+
+
+# 9. Khandava dahana — forest fire, chariot, rain deflected, Maya sabha silhouette
+def khandava():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (60, 50, 90), (200, 90, 50), 0, int(H * 0.55))
+    # rain streaks
+    for _ in range(200):
+        x, y = random.randint(0, W), random.randint(0, int(H * 0.35))
+        d.line([(x, y), (x - 6, y + 30)], fill=(150, 170, 210), width=2)
+    # arrow canopy shield arc
+    d.arc([W * 0.05, H * 0.2, W * 0.95, H * 1.3], 190, 350, fill=GOLD, width=10)
+    for k in range(20):
+        a = math.radians(190 + k * 8)
+        cx, cy = W * 0.5 + W * 0.45 * math.cos(a), H * 0.75 + H * 0.55 * math.sin(a)
+        d.line([(cx, cy), (cx + 22 * math.cos(a), cy + 22 * math.sin(a))], fill=INK, width=4)
+    gradient(d, (80, 40, 30), (40, 25, 20), int(H * 0.55), H)
+    # burning trees
+    for x in [0.08, 0.2, 0.32, 0.68, 0.8, 0.92]:
+        tree(d, W * x, H * 0.75, 260, (70, 60, 40))
+        flame(d, W * x, H * 0.75 - 260 * 0.5, 240, 70)
+    # chariot in centre
+    d.rectangle([W * 0.42, H * 0.6, W * 0.58, H * 0.7], fill=RED, outline=DGOLD, width=4)
+    for wx in [W * 0.44, W * 0.56]:
+        d.ellipse([wx - 40, H * 0.66, wx + 40, H * 0.66 + 80], outline=INK, width=8)
+    figure(d, W * 0.47, H * 0.62, 190, robe=(60, 90, 170))
+    figure(d, W * 0.53, H * 0.62, 190, robe=(30, 60, 140), skin=(90, 120, 200))
+    bow(d, W * 0.47 + 30, H * 0.45, 60, DGOLD)
+    save(img, "09_khandava_dahanam")
+
+
+for f in [cover, sarpa, ganga, bhishma, pandava_birth, gurukulam, lakshagriha, swayamvara, khandava]:
+    f()
+print(os.listdir("img"))
