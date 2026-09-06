@@ -3,6 +3,7 @@
   const IMG = window.MB_IMG || 'img/', ICO = window.MB_ICO || 'icons/', EV = window.MB_EVOLUTION || null;
   const ML = window.MB_MOOLAM || null;
   const VM = window.MB_VAMSHA || null;
+  const GL = window.MB_GLOSSARY || null;
   const TN = ['౦','౧','౨','౩','౪','౫','౬','౭','౮','౯'];
   const tnum = n => String(n).split('').map(d => TN[+d]).join('');
   const esc = s => String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
@@ -81,6 +82,69 @@
       </ol>`;
   }
 
+  // ── పదకోశము ────────────────────────────────────────────────────────────
+  // Glossary terms are marked in the prose automatically: longest first, so
+  // "ఉప పర్వము" wins over "పర్వము"; once per episode, so the page is marked
+  // rather than speckled; and never mid-word, so అధర్మము is not read as ధర్మము.
+  const GTERMS = GL ? GL.terms.map(t => t.te).sort((a,b) => b.length - a.length) : [];
+  const GDEF = {}; if(GL) GL.terms.forEach(t => GDEF[t.te] = t);
+  const TEL = 'ఀ-౿';
+
+  function glossify(html, used){
+    GTERMS.forEach(t => {
+      if(used.has(t)) return;
+      const re = new RegExp('(^|[^' + TEL + '])(' + t + ')');
+      if(!re.test(html)) return;
+      used.add(t);
+      html = html.replace(re, (m, pre, w) => pre + '<button type="button" class="gl" data-t="' + w + '">' + w + '</button>');
+    });
+    return html;
+  }
+
+  // one panel, reused — a sheet on a phone, a card on a desk
+  function glossPanel(){
+    let el = document.getElementById('glosspanel');
+    if(el) return el;
+    el = document.createElement('div');
+    el.id = 'glosspanel'; el.className = 'gpanel'; el.hidden = true;
+    el.setAttribute('role','dialog'); el.setAttribute('aria-live','polite');
+    document.body.appendChild(el);
+    el.addEventListener('click', e => { if(e.target.dataset.close !== undefined) el.hidden = true; });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') el.hidden = true; });
+    return el;
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('button.gl');
+    if(!b){ const p = document.getElementById('glosspanel');
+            if(p && !p.hidden && !(e.target.closest && e.target.closest('#glosspanel'))) p.hidden = true;
+            return; }
+    const t = GDEF[b.dataset.t]; if(!t) return;
+    const el = glossPanel();
+    el.innerHTML = `<button class="x" data-close aria-label="మూసివేయి">×</button>
+      <b>${esc(t.te)}</b><span class="cat">${esc(t.cat)}</span>
+      <p>${esc(t.def)}</p>
+      <a href="#/padakosham">పదకోశము అంతా చూడండి</a>`;
+    el.hidden = false;
+  });
+
+  function padakosham(){
+    if(!GL) return notfound();
+    document.title = `${GL.title} — ${P.site.title}`;
+    const cats = [];
+    GL.terms.forEach(t => { if(!cats.includes(t.cat)) cats.push(t.cat); });
+    $.innerHTML = `
+      <div class="measure">
+        <div class="page-head"><h1>${esc(GL.title)}</h1>${GL.intro.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+        <div class="gcats">${cats.map(c => `<a href="#gc-${encodeURIComponent(c)}">${esc(c)}</a>`).join('')}</div>
+        ${cats.map(c => `
+          <h2 class="sec" id="gc-${encodeURIComponent(c)}">${esc(c)}</h2>
+          <dl class="gloss">
+            ${GL.terms.filter(t => t.cat === c).map(t =>
+              `<dt>${esc(t.te)}</dt><dd>${esc(t.def)}</dd>`).join('')}
+          </dl>`).join('')}
+      </div>`;
+  }
+
   // మూల పద్యము — the Kavitrayam's own verse, where the source preserves a line
   // of it. Prose is the door; this is what stands on the other side.
   function padyamBox(e){
@@ -131,7 +195,7 @@
         </div>
         <figure><img src="${img(e.image)}" alt="${esc(e.caption)}"><figcaption>${esc(e.caption)}</figcaption></figure>
         <div class="chars-box"><b>ముఖ్య పాత్రలు</b><div class="chips">${e.characters.map(charChip).join('')}</div></div>
-        <div class="story">${e.paras.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+        <div class="story">${(()=>{const used=new Set();return e.paras.map(t => `<p>${glossify(esc(t), used)}</p>`).join('');})()}</div>
         ${padyamBox(e)}
         ${learnBox(e)}
         ${sourceBox(e)}
@@ -368,6 +432,7 @@
     else if(h[0] === 'parinamam') evolution();
     else if(h[0] === 'moolam') moolam();
     else if(h[0] === 'vamsham') vamsha();
+    else if(h[0] === 'padakosham') padakosham();
     else home();
     window.scrollTo(0,0);
   }

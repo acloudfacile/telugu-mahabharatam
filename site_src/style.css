@@ -425,3 +425,39 @@ a,button{-webkit-tap-highlight-color:rgba(217,162,27,.2)}
   main{padding:0 28px 64px}
   .parvas{column-gap:36px}
 }
+
+/* ── పదకోశము ──────────────────────────────────────────────────────────── */
+/* a marked word in the prose: a dotted rule under it, nothing more */
+button.gl{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;
+  border-bottom:1px dotted var(--turmeric);text-underline-offset:3px}
+button.gl:hover{border-bottom-style:solid;color:var(--madder)}
+
+/* the panel: a sheet on a phone, a card on a desk */
+.gpanel{position:fixed;z-index:40;background:var(--cloth-2);color:var(--ink);
+  border:1px solid var(--line);border-top:3px solid var(--turmeric);
+  box-shadow:0 -8px 40px rgba(0,0,0,.28);padding:20px 22px 22px}
+.gpanel b{font-family:var(--display);font-size:var(--step-1);color:var(--heading);display:inline-block}
+.gpanel .cat{margin-left:10px;font-size:var(--step--1);color:var(--muted)}
+.gpanel p{margin:10px 0 12px;font-size:var(--step-0);line-height:1.8}
+.gpanel a{font-size:var(--step--1)}
+.gpanel .x{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--muted);
+  font-size:1.6rem;line-height:1;cursor:pointer;width:44px;height:44px}
+@media(max-width:700px){
+  .gpanel{left:0;right:0;bottom:0;border-radius:14px 14px 0 0;border-bottom:0}
+}
+@media(min-width:701px){
+  .gpanel{right:28px;bottom:28px;width:24rem;border-radius:4px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .gpanel:not([hidden]){animation:gup .22s ease}
+  @keyframes gup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+
+/* the glossary page */
+.gcats{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.gcats a{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:var(--step--1);color:var(--muted)}
+.gcats a:hover{text-decoration:none;border-color:var(--turmeric);color:var(--madder)}
+dl.gloss{margin:0}
+dl.gloss dt{font-family:var(--display);font-size:var(--step-1);color:var(--heading);margin:22px 0 4px}
+dl.gloss dd{margin:0;color:var(--ink);line-height:1.85}
+dl.gloss dd + dt{border-top:1px solid var(--line);padding-top:20px}
