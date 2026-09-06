@@ -87,6 +87,16 @@ figcaption{text-align:center;color:var(--muted);font-size:.92rem;margin-top:12px
 .story p{margin:0 0 1.35em;text-align:justify;text-indent:1.6em;font-size:1.05rem;line-height:1.95}
 .story p:first-of-type{text-indent:0}
 .story p:first-of-type::first-letter{font-family:var(--display);font-size:2.4em;color:var(--madder);float:left;line-height:.9;padding:6px 8px 0 0}
+/* మూల పద్యము — the Kavitrayam's verse itself, set apart from the prose */
+.padyam{margin:44px 0 0;padding:24px 28px;background:var(--indigo);color:var(--cloth);border-radius:3px}
+.padyam b{display:block;font-family:var(--display);color:var(--turmeric);font-size:1.05rem;margin-bottom:14px}
+.padyam blockquote{margin:0;font-family:var(--display);font-size:1.22rem;line-height:2.05}
+.padyam blockquote span{display:block}
+.padyam cite{display:block;margin-top:10px;font-style:normal;color:var(--turmeric);font-size:.9rem}
+.padyam .gloss{margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(243,237,223,.28);
+  font-size:.96rem;line-height:1.8;color:#E7DFCC}
+@media(max-width:640px){.padyam{padding:18px 20px}.padyam blockquote{font-size:1.08rem}}
+
 /* నేర్చుకున్నది — the reflection a child reads after the story */
 .learn{margin:44px 0 0;padding:20px 24px;background:var(--cloth-2);border-left:4px solid var(--turmeric);border-radius:3px}
 .learn b{display:block;font-family:var(--display);color:var(--madder);font-size:1.1rem;margin-bottom:8px}

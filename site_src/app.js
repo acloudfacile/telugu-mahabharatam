@@ -81,6 +81,18 @@
       </ol>`;
   }
 
+  // మూల పద్యము — the Kavitrayam's own verse, where the source preserves a line
+  // of it. Prose is the door; this is what stands on the other side.
+  function padyamBox(e){
+    const p = e.padyam; if(!p) return '';
+    return `<aside class="padyam">
+      <b>మూల పద్యము</b>
+      <blockquote>${p.text.split('\n').map(l => `<span>${esc(l)}</span>`).join('')}</blockquote>
+      <cite>— ${esc(p.poet || 'నన్నయ')}</cite>
+      ${p.gloss ? `<p class="gloss">${esc(p.gloss)}</p>` : ''}
+    </aside>`;
+  }
+
   // నేర్చుకున్నది — a short reflection for a child finishing the story.
   function learnBox(e){
     if(!e.learning) return '';
@@ -120,6 +132,7 @@
         <figure><img src="${img(e.image)}" alt="${esc(e.caption)}"><figcaption>${esc(e.caption)}</figcaption></figure>
         <div class="chars-box"><b>ముఖ్య పాత్రలు</b><div class="chips">${e.characters.map(charChip).join('')}</div></div>
         <div class="story">${e.paras.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+        ${padyamBox(e)}
         ${learnBox(e)}
         ${sourceBox(e)}
         <nav class="pager">
