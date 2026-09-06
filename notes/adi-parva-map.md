@@ -25,12 +25,15 @@ Episodes ౧౪–౨౦ are the old compressed chapters and are being replaced
 | batch | āśvāsa | episodes | status |
 |---|---|---|---|
 | one | ౧–౨ | ౧–౧౩ | done |
-| two | ౩ | ~6 | in progress |
-| three | ౪ | ~7 | |
-| four | ౫ | ~6 | |
-| five | ౬ | ~5 | |
-| six | ౭ | ~6 | |
-| seven | ౮ | ~6 | |
+| two | ౩ | ౧౪–౧౯ | done |
+| three | ౪ | ౨౦–౨౬ | done |
+| four | ౫ + start of ౬ | ౨౭–౩౩ | done |
+| five | ౬ | ~5 | Drupada's defeat · Yudhishthira made yuvaraja · Varanavata and the lac house · Hidimba · Baka. Replaces episode ౩౪. |
+| six | ౭ | ~6 | Angaraparna · Tapati · Vasishtha & Vishvamitra · Draupadi's svayamvara · the marriage · the five Indras. Replaces episode ౩౫. |
+| seven | ౮ | ~6 | Viduragamana · Indraprastha · Sunda–Upasunda · Arjuna's tirthayatra · Subhadra · Khandava. Replaces episode ౩౬. |
+
+Episodes ౩౪–౩౬ are the last of the old compressed chapters, each still
+standing in for a whole āśvāsa. They are what batches five to seven replace.
 
 ## Working method
 
