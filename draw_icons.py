@@ -227,3 +227,58 @@ for n,k in EMB.items():
     t = t.crop((S-56-40,S-56-40,S-56+40,S-56+40)).resize((180,180),Image.LANCZOS)
     im.alpha_composite(t,(38,38)); im.save(f"{OUT}/parva_{n:02d}.png", optimize=True)
 print(len(CHARS),"characters,",len(EMB),"emblems")
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Real portraits override the drawn ones.
+#
+# Drop a painting at site_src/portraits/<id>.png (or .jpg/.jpeg/.webp) and it
+# replaces that character's drawn icon. Everything else keeps its drawn icon,
+# so the art can arrive one character at a time over months and the site
+# improves each time without a single code change.
+#
+# Whatever comes in gets the same treatment as the drawn icons — square
+# cover-crop, 256px, circular mask, and the side-coloured ring — so a set that
+# is half painted and half drawn still reads as one series.
+# ═══════════════════════════════════════════════════════════════════════════
+PORTRAITS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site_src", "portraits")
+EXTS = ('.png', '.jpg', '.jpeg', '.webp')
+
+def _find_portrait(cid):
+    for e in EXTS:
+        f = os.path.join(PORTRAITS, cid + e)
+        if os.path.exists(f):
+            return f
+    return None
+
+def apply_real_portraits(chars):
+    if not os.path.isdir(PORTRAITS):
+        return [], [c[0] for c in chars]
+    done, drawn = [], []
+    for cid, name, al, role, side, *_rest in chars:
+        f = _find_portrait(cid)
+        if not f:
+            drawn.append(cid); continue
+        im = Image.open(f).convert("RGBA")
+        # cover-crop to a square on the subject's centre-top, where a face sits
+        w, h = im.size
+        side_len = min(w, h)
+        left = (w - side_len) // 2
+        top = int((h - side_len) * 0.28)
+        im = im.crop((left, top, left + side_len, top + side_len)).resize((S, S), Image.LANCZOS)
+        out = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+        out.alpha_composite(im)
+        d = ImageDraw.Draw(out)
+        # the side ring, so the colour coding survives
+        d.ellipse([2, 2, S - 3, S - 3], outline=SIDE_RING[side], width=10)
+        d.ellipse([12, 12, S - 13, S - 13], outline=GOLD, width=3)
+        mask = Image.new("L", (S, S), 0)
+        ImageDraw.Draw(mask).ellipse([0, 0, S, S], fill=255)
+        out.putalpha(mask)
+        out.save(f"{OUT}/{cid}.png", optimize=True)
+        done.append(cid)
+    return done, drawn
+
+_real, _drawn = apply_real_portraits(CHARS)
+if _real:
+    print(f"real portraits applied: {len(_real)} -> {', '.join(_real)}")
+print(f"still drawn: {len(_drawn)} of {len(CHARS)}")
