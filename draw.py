@@ -2299,10 +2299,20 @@ SPECS = {
  "vidura_mission": ("court", [(0.3,"king","cream"),(0.52,"king","violet"),(0.66,"blue","gold"),(0.82,"king","indigo")], []),
 }
 
+SABHA_SPECS = {
+ "digvijaya_south_west": ("fire", [(0.5,"sage","cream",1.0),(0.84,"king","green",0.9)], [("chariot",0.24,0.92,0.8)]),
+ "vidura_sent": ("court", [(0.36,"king","cream"),(0.62,"king","indigo"),(0.8,"warrior","green",1.1)], []),
+ "draupadi_staked": ("interior", [(0.24,"sage","violet",1.0),(0.5,"king","indigo",1.0),(0.76,"warrior","green",1.2)], [("dice",0.38,0.72,1.2),("dice",0.42,0.76,1.2)]),
+ "dharma_debate": ("interior", [(0.26,"king","madder"),(0.5,"woman","red"),(0.76,"warrior","gold")], []),
+ "anudyuta": ("interior", [(0.26,"sage","violet"),(0.74,"king","indigo",1.0)], [("dice",0.5,0.76,1.3)]),
+}
+
 
 def composed():
     for key, (bg, figs, props) in SPECS.items():
         compose("a_" + key, bg, figs, props)
+    for key, (bg, figs, props) in SABHA_SPECS.items():
+        compose("s_" + key, bg, figs, props)
 
 
 SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamejaya,

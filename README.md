@@ -15,9 +15,9 @@ copy sits on the family shelf. It does not claim to replace any of them.
 
 | | |
 |---|---|
-| **Published** | ఆది పర్వము (58 episodes), సభా పర్వము (19 episodes) — both complete |
+| **Published** | ఆది పర్వము (110 episodes), సభా పర్వము (24 episodes) — audited page by page against the prose book |
 | **Next** | అరణ్య పర్వము |
-| **Characters** | 127, each with a portrait, a role and a list of appearances |
+| **Characters** | 212, each with a portrait, a role and a list of appearances |
 | **Also** | మూల నిర్మాణము (the 100 upa-parvas and the source's own count tables), గురు పరంపర, పరిణామం |
 
 Every episode carries two things besides the story itself:
