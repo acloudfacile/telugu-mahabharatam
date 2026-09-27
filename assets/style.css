@@ -107,6 +107,8 @@ figcaption{text-align:center;color:var(--muted);font-size:.92rem;margin-top:12px
 .learn{margin:44px 0 0;padding:20px 24px;background:var(--cloth-2);border-left:4px solid var(--turmeric);border-radius:3px}
 .learn b{display:block;font-family:var(--display);color:var(--madder);font-size:1.1rem;margin-bottom:8px}
 .learn p{margin:0;font-size:1.02rem;line-height:1.85}
+.learn p + b{margin-top:18px}
+.learn .own{font-size:.8rem;letter-spacing:.02em;color:var(--muted);text-transform:none;margin:0 0 12px;padding-bottom:8px;border-bottom:1px dashed var(--line)}
 
 /* మూలంలో — the source chain, quiet enough to skip, precise enough to follow */
 .source{margin:24px 0 0;padding:18px 24px;border:1px solid var(--line);border-radius:3px;font-size:.92rem;color:var(--muted)}

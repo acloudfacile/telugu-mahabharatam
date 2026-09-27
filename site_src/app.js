@@ -158,9 +158,15 @@
   }
 
   // నేర్చుకున్నది — a short reflection for a child finishing the story.
+  // The site's own voice — kept apart from the story so no reader takes it for
+  // the Mahabharata's words.
   function learnBox(e){
-    if(!e.learning) return '';
-    return `<aside class="learn"><b>నేర్చుకున్నది</b><p>${esc(e.learning)}</p></aside>`;
+    if(!e.reflection && !e.learning) return '';
+    return `<aside class="learn">
+      <div class="own">ఈ సైటు వ్యాఖ్య — మూల కథలో భాగం కాదు</div>
+      ${e.reflection ? `<b>ఆలోచన</b><p>${esc(e.reflection)}</p>` : ''}
+      ${e.learning ? `<b>నేర్చుకున్నది</b><p>${esc(e.learning)}</p>` : ''}
+    </aside>`;
   }
 
   // మూలంలో — where this episode sits in Vyasa's text, and where to find it in
