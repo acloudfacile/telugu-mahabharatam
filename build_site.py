@@ -61,7 +61,7 @@ def shell(head, scripts, img_mode, favicon='<link rel="icon" href="favicon.svg" 
       <button type="button" id="themebtn" class="theme-btn" aria-label="రాత్రి రూపము" title="రాత్రి రూపము"></button>
       <button type="button" id="navbtn" class="nav-btn" aria-expanded="false" aria-controls="sitenav" aria-label="మెనూ">☰</button>
     </div>
-    <nav id="sitenav"><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/padakosham">పదకోశము</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/vamsham">వంశ వృక్షము</a><a href="#/moolam">మూల నిర్మాణము</a><a href="#/parinamam">పరిణామం</a></nav>
+    <nav id="sitenav"><a href="#/">పర్వాలు</a><a href="#/patralu">పాత్రలు</a><a href="#/padakosham">పదకోశము</a><a href="#/guruvulu">గురు పరంపర</a><a href="#/vamsham">వంశ వృక్షము</a><a href="#/moolam">మూల నిర్మాణము</a><a href="#/parinamam">పరిణామం</a><a href="#/gurinchi">ఈ సైటు గురించి</a></nav>
   </div>
   <div class="frieze"></div>
 </header>
