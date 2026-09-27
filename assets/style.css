@@ -268,6 +268,8 @@ mark{background:#FBE7A1;color:var(--ink);padding:0 2px}
 .timeline .td{display:block;color:var(--madder);font-size:.9rem}
 .evo{margin:0}
 .evo p{text-align:justify;line-height:1.95;margin:0 0 1.2em}
+/* Telugu has no hyphenation, so on a narrow column justify opens wide gaps between words */
+@media(max-width:640px){.story p,.evo p{text-align:start}}
 .sources{padding-left:1.3em;color:var(--muted);font-size:.92rem;line-height:1.8}
 @media (max-width:820px){.timeline{grid-template-columns:1fr 1fr}.timeline li:nth-child(2n){border-right:0}.timeline li{border-right:1px solid var(--line)}}
 

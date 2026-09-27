@@ -15,9 +15,9 @@ copy sits on the family shelf. It does not claim to replace any of them.
 
 | | |
 |---|---|
-| **Published** | ఆది పర్వము — 20 episodes |
-| **Next** | ఆది పర్వము batch two (Śakuntalā, Yayāti) |
-| **Characters** | 76, each with a portrait, a role and a list of appearances |
+| **Published** | ఆది పర్వము — complete, 58 episodes |
+| **Next** | సభా పర్వము |
+| **Characters** | 117, each with a portrait, a role and a list of appearances |
 | **Also** | మూల నిర్మాణము (the 100 upa-parvas and the source's own count tables), గురు పరంపర, పరిణామం |
 
 Every episode carries two things besides the story itself:
@@ -185,15 +185,13 @@ in batches, right rather than fast.
       including the Andhra Mahabharatam's own Nannaya frame and the Sarama
       curse that opens the hundred upa-parvas
 - [x] **మూల నిర్మాణము** — the 100 upa-parvas and the source's count tables
-- [ ] **Adi Parva, batch two** — Adivamshavatarana and Sambhava in full:
-      Dushyanta and Shakuntala, Yayati and Puru, Vasishtha, Kacha and
-      Devayani. These currently sit compressed inside episode ౧౪.
-      Source pages 25–109 of the PDF (āśvāsas 2–3).
-- [ ] **Adi Parva, batch three** — Sambhava through Khandava expanded;
-      episodes ౧౫–౨౦ rewritten at the same density as batch one
+- [x] **Adi Parva, batches two to seven** — āśvāsas 3–8 at full density,
+      episodes ౧౪–౫౮, from Uparicara Vasu to Maya spared at Khandava. Where
+      the Telugu prose and Vyasa differ, the episode follows Vyasa and its
+      `మూలంలో` note names the difference.
 - [ ] Sabha Parva
-- [ ] A glossary of names and terms
-- [ ] A family tree that grows as characters appear
+- [x] A glossary of names and terms
+- [x] A family tree that grows as characters appear
 - [ ] Plain-text and printable PDF of every story
 - [ ] Read-aloud audio
 - [ ] Transliteration alongside the Telugu, for children who speak the

@@ -150,6 +150,29 @@ source in `notes/portrait-credits.md` as you go.
 | `subhadra` | సుభద్ర | Pandava | ☐ |
 | `agni` | అగ్నిదేవుడు | divine | ☐ |
 | `maya` | మయుడు | other | ☐ |
+| `yaja` | యాజుడు | sage/teacher | ☐ |
+| `angaraparna` | అంగారపర్ణుడు | other | ☐ |
+| `surya` | సూర్యుడు | divine | ☐ |
+| `tapati` | తపతి | divine | ☐ |
+| `samvarana` | సంవరణుడు | Kuru elder | ☐ |
+| `kalmashapada` | కల్మాషపాదుడు | other | ☐ |
+| `shakti` | శక్తి | sage/teacher | ☐ |
+| `adrushyanti` | అదృశ్యంతి | sage/teacher | ☐ |
+| `aurva` | ఔర్వుడు | sage/teacher | ☐ |
+| `balarama` | బలరాముడు | divine | ☐ |
+| `shalya` | శల్యుడు | other | ☐ |
+| `shiva` | శివుడు | divine | ☐ |
+| `brahma` | బ్రహ్మదేవుడు | divine | ☐ |
+| `narada` | నారదుడు | sage/teacher | ☐ |
+| `sunda` | సుందుడు | other | ☐ |
+| `upasunda` | ఉపసుందుడు | other | ☐ |
+| `tilottama` | తిలోత్తమ | divine | ☐ |
+| `iravan` | ఇరావంతుడు | Pandava | ☐ |
+| `babhruvahana` | బభ్రువాహనుడు | Pandava | ☐ |
+| `abhimanyu` | అభిమన్యుడు | Pandava | ☐ |
+| `varuna` | వరుణుడు | divine | ☐ |
+| `ashvasena` | అశ్వసేనుడు | other | ☐ |
+| `mandapala` | మందపాలుడు | sage/teacher | ☐ |
 
 ---
 
@@ -2033,4 +2056,464 @@ Subject: Maya, an asura master-architect.
 Appearance: a wound cloth turban.
 Holding/marked by: a thunderbolt (vajra).
 Ring colour: forest-green ring (other).
+```
+
+### `yaja` — యాజుడు
+
+*ద్రుపదుని యజ్ఞము జరిపించిన మహర్షి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Yaja, sage/teacher.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash; full beard, dark.
+Holding/marked by: a ritual flame rising from one palm.
+Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `angaraparna` — అంగారపర్ణుడు
+
+*గంధర్వ రాజు, అర్జునునితో ఓడి మిత్రుడైనవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Angaraparna, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a thunderbolt (vajra).
+Ring colour: forest-green ring (other).
+```
+
+### `surya` — సూర్యుడు
+
+*సూర్య దేవుడు, తపతి తండ్రి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Surya, divine.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a solar disc glowing behind the head.
+Ring colour: bright gold ring (divine).
+```
+
+### `tapati` — తపతి
+
+*సూర్యుని కుమార్తె, సంవరణుని భార్య, కురువు తల్లి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Tapati, divine.
+Appearance: long dark hair, centre-parted, gold ornaments and a bindi.
+Holding/marked by: a solar disc glowing behind the head.
+Ring colour: bright gold ring (divine).
+```
+
+### `samvarana` — సంవరణుడు
+
+*పూరు వంశపు రాజు, కురువు తండ్రి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Samvarana, Kuru elder.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a solar disc glowing behind the head.
+Ring colour: muted violet ring (Kuru elder).
+```
+
+### `kalmashapada` — కల్మాషపాదుడు
+
+*ఇక్ష్వాకు రాజు, శాపంతో రాక్షసుడైనవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Kalmashapada, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a ritual flame rising from one palm.
+Ring colour: forest-green ring (other).
+```
+
+### `shakti` — శక్తి
+
+*వసిష్ఠుని పెద్ద కుమారుడు, పరాశరుని తండ్రి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Shakti, sage/teacher.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash.
+Holding/marked by: a palm-leaf manuscript bundle.
+Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `adrushyanti` — అదృశ్యంతి
+
+*శక్తి భార్య, పరాశరుని తల్లి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Adrushyanti, sage/teacher.
+Appearance: long dark hair, centre-parted, gold ornaments and a bindi.
+Holding/marked by: a lotus bloom held at the breast.
+Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `aurva` — ఔర్వుడు
+
+*భృగు వంశపు ముని, తన కోపాన్ని సముద్రంలో విడిచినవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Aurva, sage/teacher.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash.
+Holding/marked by: water streaming from cupped hands.
+Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `balarama` — బలరాముడు
+
+*శ్రీకృష్ణుని అన్న, నాగలి ఆయుధముగా గలవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Balarama, divine.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a heavy iron mace resting on the shoulder.
+Ring colour: bright gold ring (divine).
+```
+
+### `shalya` — శల్యుడు
+
+*మద్ర రాజు, మాద్రి సోదరుడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Shalya, other.
+Appearance: a jewelled crown or royal headdress; full beard, dark.
+Holding/marked by: a heavy iron mace resting on the shoulder.
+Ring colour: forest-green ring (other).
+```
+
+### `shiva` — శివుడు
+
+*మహాదేవుడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Shiva, divine.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash.
+Holding/marked by: a hooded serpent coiled at the shoulder.
+Ring colour: bright gold ring (divine).
+```
+
+### `brahma` — బ్రహ్మదేవుడు
+
+*సృష్టికర్త*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Brahma, divine.
+Appearance: a jewelled crown or royal headdress; full beard, dark.
+Holding/marked by: a lotus bloom held at the breast.
+Ring colour: bright gold ring (divine).
+```
+
+### `narada` — నారదుడు
+
+*దేవర్షి, లోకాలు తిరిగే మహాముని*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Narada, sage/teacher.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash.
+Holding/marked by: a palm-leaf manuscript bundle.
+Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `sunda` — సుందుడు
+
+*నికుంభుని కుమారుడు, ఉపసుందుని అన్న*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Sunda, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a heavy iron mace resting on the shoulder.
+Ring colour: forest-green ring (other).
+```
+
+### `upasunda` — ఉపసుందుడు
+
+*నికుంభుని కుమారుడు, సుందుని తమ్ముడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Upasunda, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a heavy iron mace resting on the shoulder.
+Ring colour: forest-green ring (other).
+```
+
+### `tilottama` — తిలోత్తమ
+
+*విశ్వకర్మ సృష్టించిన అప్సరస*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Tilottama, divine.
+Appearance: long dark hair, centre-parted, gold ornaments and a bindi.
+Holding/marked by: a thunderbolt (vajra).
+Ring colour: bright gold ring (divine).
+```
+
+### `iravan` — ఇరావంతుడు
+
+*అర్జున ఉలూపుల కుమారుడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Iravan, Pandava.
+Appearance: plain cropped hair, no crown.
+Holding/marked by: a hooded serpent coiled at the shoulder.
+Ring colour: deep indigo ring (Pandava).
+```
+
+### `babhruvahana` — బభ్రువాహనుడు
+
+*అర్జున చిత్రాంగదల కుమారుడు, మణిపూర రాజు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Babhruvahana, Pandava.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a longbow held upright.
+Ring colour: deep indigo ring (Pandava).
+```
+
+### `abhimanyu` — అభిమన్యుడు
+
+*అర్జున సుభద్రల కుమారుడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Abhimanyu, Pandava.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a longbow held upright.
+Ring colour: deep indigo ring (Pandava).
+```
+
+### `varuna` — వరుణుడు
+
+*జలాధిపతి, గాండీవము ఇచ్చినవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Varuna, divine.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: water streaming from cupped hands.
+Ring colour: bright gold ring (divine).
+```
+
+### `ashvasena` — అశ్వసేనుడు
+
+*తక్షకుని కుమారుడు, ఖాండవము నుండి తప్పించుకున్న నాగుడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Ashvasena, other.
+Appearance: plain cropped hair, no crown.
+Holding/marked by: a hooded serpent coiled at the shoulder.
+Ring colour: forest-green ring (other).
+```
+
+### `mandapala` — మందపాలుడు
+
+*శార్ఙ్గక పక్షిగా జన్మించిన ముని*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Mandapala, sage/teacher.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash; full beard, dark.
+Holding/marked by: great outspread feathered wings.
+Ring colour: turmeric-gold ring (sage/teacher).
 ```
