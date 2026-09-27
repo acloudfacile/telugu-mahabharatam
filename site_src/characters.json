@@ -501,7 +501,9 @@
  {
   "id": "bhima",
   "name": "భీముడు",
-  "aliases": [],
+  "aliases": [
+   "భీమసేనుడు"
+  ],
   "role": "వాయు పుత్రుడు, పది వేల ఏనుగుల బలుడు",
   "side": "pandava"
  },
@@ -939,5 +941,632 @@
   ],
   "role": "దుర్యోధనుని సారథి కుమారుడు, ద్రౌపదిని పిలవడానికి వెళ్ళిన దూత",
   "side": "kaurava"
+ },
+ {
+  "id": "pramati",
+  "name": "ప్రమతి",
+  "aliases": [],
+  "role": "చ్యవనుని కుమారుడు, రురువు తండ్రి",
+  "side": "guru"
+ },
+ {
+  "id": "ambika",
+  "name": "అంబిక",
+  "aliases": [],
+  "role": "కాశీ రాజకుమార్తె, విచిత్రవీర్యుని భార్య, ధృతరాష్ట్రుని తల్లి",
+  "side": "kuru"
+ },
+ {
+  "id": "ambalika",
+  "name": "అంబాలిక",
+  "aliases": [],
+  "role": "కాశీ రాజకుమార్తె, విచిత్రవీర్యుని భార్య, పాండురాజు తల్లి",
+  "side": "kuru"
+ },
+ {
+  "id": "veda",
+  "name": "వేదుడు",
+  "aliases": [],
+  "role": "ఆయోదధౌమ్యుని శిష్యుడు, ఉదంకుని గురువు",
+  "side": "guru"
+ },
+ {
+  "id": "yama",
+  "name": "యమధర్మరాజు",
+  "aliases": [
+   "యముడు",
+   "ధర్మదేవత"
+  ],
+  "role": "మృత్యు దేవత, ధర్మరాజు; విదురునిగా జన్మించినవాడు",
+  "side": "deva"
+ },
+ {
+  "id": "vishnu",
+  "name": "విష్ణువు",
+  "aliases": [
+   "నారాయణుడు"
+  ],
+  "role": "జగత్పాలకుడు",
+  "side": "deva"
+ },
+ {
+  "id": "shesha",
+  "name": "శేషుడు",
+  "aliases": [
+   "అనంతుడు"
+  ],
+  "role": "కద్రువ పెద్ద కుమారుడు, భూమిని మోసే నాగరాజు",
+  "side": "other"
+ },
+ {
+  "id": "bali",
+  "name": "బలి",
+  "aliases": [],
+  "role": "అసుర చక్రవర్తి",
+  "side": "other"
+ },
+ {
+  "id": "kashyapa",
+  "name": "కశ్యపుడు",
+  "aliases": [],
+  "role": "ప్రజాపతి, కద్రువ వినతల భర్త",
+  "side": "guru"
+ },
+ {
+  "id": "turvasu",
+  "name": "తుర్వసుడు",
+  "aliases": [],
+  "role": "యయాతి దేవయానుల రెండవ కుమారుడు",
+  "side": "other"
+ },
+ {
+  "id": "druhyu",
+  "name": "ద్రుహ్యుడు",
+  "aliases": [],
+  "role": "యయాతి శర్మిష్ఠల కుమారుడు",
+  "side": "other"
+ },
+ {
+  "id": "anu",
+  "name": "అనువు",
+  "aliases": [],
+  "role": "యయాతి శర్మిష్ఠల కుమారుడు",
+  "side": "other"
+ },
+ {
+  "id": "prabhasa",
+  "name": "ప్రభాసుడు",
+  "aliases": [
+   "ద్యౌ"
+  ],
+  "role": "ఎనిమిదవ వసువు, వసిష్ఠుని ఆవును దొంగిలించినవాడు; భీష్మునిగా పుట్టినవాడు",
+  "side": "deva"
+ },
+ {
+  "id": "mahabhisha",
+  "name": "మహాభిషుడు",
+  "aliases": [],
+  "role": "ఇక్ష్వాకు రాజు; శాపంతో శంతనునిగా పుట్టినవాడు",
+  "side": "kuru"
+ },
+ {
+  "id": "kripi",
+  "name": "కృపి",
+  "aliases": [],
+  "role": "కృపుని చెల్లెలు, ద్రోణుని భార్య, అశ్వత్థామ తల్లి",
+  "side": "guru"
+ },
+ {
+  "id": "kauravas",
+  "name": "కౌరవులు",
+  "aliases": [
+   "ధార్తరాష్ట్రులు"
+  ],
+  "role": "ధృతరాష్ట్రుని నూరుగురు కుమారులు",
+  "side": "kaurava"
+ },
+ {
+  "id": "jaimini",
+  "name": "జైమిని",
+  "aliases": [],
+  "role": "వ్యాసుని శిష్యుడు — సామవేదము",
+  "side": "guru"
+ },
+ {
+  "id": "sumantu",
+  "name": "సుమంతుడు",
+  "aliases": [],
+  "role": "వ్యాసుని శిష్యుడు — అథర్వవేదము",
+  "side": "guru"
+ },
+ {
+  "id": "devala",
+  "name": "దేవలుడు",
+  "aliases": [
+   "అసిత దేవలుడు"
+  ],
+  "role": "మహర్షి, ధౌమ్యుని అన్న",
+  "side": "guru"
+ },
+ {
+  "id": "sanjaya",
+  "name": "సంజయుడు",
+  "aliases": [],
+  "role": "ధృతరాష్ట్రుని సారథి, మంత్రి",
+  "side": "kaurava"
+ },
+ {
+  "id": "jamadagni",
+  "name": "జమదగ్ని",
+  "aliases": [],
+  "role": "పరశురాముని తండ్రి",
+  "side": "guru"
+ },
+ {
+  "id": "sarameya",
+  "name": "సారమేయుడు",
+  "aliases": [],
+  "role": "సరమ కుమారుడు",
+  "side": "other"
+ },
+ {
+  "id": "shrutasena",
+  "name": "శ్రుతసేనుడు",
+  "aliases": [],
+  "role": "పరీక్షిత్తు కుమారుడు, జనమేజయుని తమ్ముడు",
+  "side": "pandava"
+ },
+ {
+  "id": "ugrasena-j",
+  "name": "ఉగ్రసేనుడు",
+  "aliases": [],
+  "role": "పరీక్షిత్తు కుమారుడు, జనమేజయుని తమ్ముడు",
+  "side": "pandava"
+ },
+ {
+  "id": "shrutashravas",
+  "name": "శ్రుతశ్రవసుడు",
+  "aliases": [],
+  "role": "సోమశ్రవసుని తండ్రి అయిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "somashravas",
+  "name": "సోమశ్రవసుడు",
+  "aliases": [],
+  "role": "నాగకన్య కుమారుడు, జనమేజయుని పురోహితుడు",
+  "side": "guru"
+ },
+ {
+  "id": "ayodadhaumya",
+  "name": "ఆయోదధౌమ్యుడు",
+  "aliases": [],
+  "role": "ఆరుణి, ఉపమన్యువు, వేదుల గురువు",
+  "side": "guru"
+ },
+ {
+  "id": "aruni",
+  "name": "ఉద్దాలకుడు",
+  "aliases": [
+   "ఆరుణి",
+   "ఆరుణి (ఉద్దాలకుడు)"
+  ],
+  "role": "గురువు ఆజ్ఞకు పొలం గట్టుకు అడ్డుపడిన శిష్యుడు, శ్వేతకేతుని తండ్రి",
+  "side": "guru"
+ },
+ {
+  "id": "upamanyu",
+  "name": "ఉపమన్యువు",
+  "aliases": [],
+  "role": "అశ్వినీ దేవతలను స్తుతించి చూపు పొందిన శిష్యుడు",
+  "side": "guru"
+ },
+ {
+  "id": "ashvins",
+  "name": "అశ్వినీ దేవతలు",
+  "aliases": [
+   "అశ్వినులు"
+  ],
+  "role": "దేవ వైద్యులైన కవలలు, నకుల సహదేవుల తండ్రులు",
+  "side": "deva"
+ },
+ {
+  "id": "parjanya",
+  "name": "పర్జన్యుడు",
+  "aliases": [],
+  "role": "మేఘాల దేవత",
+  "side": "deva"
+ },
+ {
+  "id": "puloma-r",
+  "name": "పులోముడు",
+  "aliases": [],
+  "role": "పులోమను ఎత్తుకుపోయిన రాక్షసుడు",
+  "side": "other"
+ },
+ {
+  "id": "sukanya",
+  "name": "సుకన్య",
+  "aliases": [],
+  "role": "శర్యాతి కుమార్తె, చ్యవనుని భార్య",
+  "side": "guru"
+ },
+ {
+  "id": "ghritachi",
+  "name": "ఘృతాచి",
+  "aliases": [],
+  "role": "అప్సరస, ప్రమతి భార్య, రురువు తల్లి",
+  "side": "deva"
+ },
+ {
+  "id": "sthulakesha",
+  "name": "స్థూలకేశుడు",
+  "aliases": [],
+  "role": "ప్రమద్వరను పెంచిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "vishvavasu",
+  "name": "విశ్వావసువు",
+  "aliases": [],
+  "role": "గంధర్వ రాజు, ప్రమద్వర తండ్రి",
+  "side": "other"
+ },
+ {
+  "id": "sahasrapada",
+  "name": "సహస్రపాదుడు",
+  "aliases": [
+   "సహస్రపాత్తు"
+  ],
+  "role": "డుండుభ సర్ప రూపంలో శాపం అనుభవించిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "khagama",
+  "name": "ఖగముడు",
+  "aliases": [],
+  "role": "సహస్రపాదుని స్నేహితుడు, శపించిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "rahu",
+  "name": "రాహువు",
+  "aliases": [],
+  "role": "అమృతం తాగి తల తెగిన అసురుడు",
+  "side": "other"
+ },
+ {
+  "id": "nara",
+  "name": "నరుడు",
+  "aliases": [],
+  "role": "ప్రాచీన ఋషి — అర్జునునిగా జన్మించినవాడు",
+  "side": "guru"
+ },
+ {
+  "id": "karkotaka",
+  "name": "కర్కోటకుడు",
+  "aliases": [],
+  "role": "ఉచ్చైఃశ్రవసు తోకను నల్లగా చేసిన నాగుడు",
+  "side": "other"
+ },
+ {
+  "id": "vibhavasu",
+  "name": "విభావసుడు",
+  "aliases": [],
+  "role": "ఏనుగుగా పుట్టిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "supratika",
+  "name": "సుప్రతీకుడు",
+  "aliases": [],
+  "role": "తాబేలుగా పుట్టిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "valakhilyas",
+  "name": "వాలఖిల్యులు",
+  "aliases": [],
+  "role": "బొటనవేలంత ఋషులు",
+  "side": "guru"
+ },
+ {
+  "id": "elapatra",
+  "name": "ఏలాపత్రుడు",
+  "aliases": [],
+  "role": "బ్రహ్మ మాట విన్న నాగుడు",
+  "side": "other"
+ },
+ {
+  "id": "krisha",
+  "name": "కృశుడు",
+  "aliases": [],
+  "role": "శృంగికి మిత్రుడైన ముని బాలుడు",
+  "side": "guru"
+ },
+ {
+  "id": "gauramukha",
+  "name": "గౌరముఖుడు",
+  "aliases": [],
+  "role": "శమీకుని శిష్యుడు",
+  "side": "guru"
+ },
+ {
+  "id": "vapushtama",
+  "name": "వపుష్టమ",
+  "aliases": [],
+  "role": "కాశీ రాజకుమార్తె, జనమేజయుని రాణి",
+  "side": "pandava"
+ },
+ {
+  "id": "girika",
+  "name": "గిరిక",
+  "aliases": [],
+  "role": "ఉపరిచర వసువు భార్య",
+  "side": "other"
+ },
+ {
+  "id": "pururavas",
+  "name": "పురూరవుడు",
+  "aliases": [],
+  "role": "చంద్ర వంశపు రాజు, ఊర్వశి భర్త",
+  "side": "kuru"
+ },
+ {
+  "id": "sanatkumara",
+  "name": "సనత్కుమారుడు",
+  "aliases": [],
+  "role": "బ్రహ్మ మానస పుత్రుడు",
+  "side": "guru"
+ },
+ {
+  "id": "urvashi",
+  "name": "ఊర్వశి",
+  "aliases": [],
+  "role": "అప్సరస, పురూరవుని భార్య",
+  "side": "deva"
+ },
+ {
+  "id": "ayu",
+  "name": "ఆయువు",
+  "aliases": [],
+  "role": "పురూరవ ఊర్వశుల కుమారుడు",
+  "side": "kuru"
+ },
+ {
+  "id": "nahusha",
+  "name": "నహుషుడు",
+  "aliases": [],
+  "role": "ఆయువు కుమారుడు, యయాతి తండ్రి",
+  "side": "kuru"
+ },
+ {
+  "id": "ghurnika",
+  "name": "ఘూర్ణిక",
+  "aliases": [],
+  "role": "శుక్రునికి వార్త చెప్పిన దాసి",
+  "side": "other"
+ },
+ {
+  "id": "ashtaka",
+  "name": "అష్టకుడు",
+  "aliases": [],
+  "role": "యయాతి దౌహిత్రుడైన రాజు",
+  "side": "kuru"
+ },
+ {
+  "id": "matinara",
+  "name": "మతినారుడు",
+  "aliases": [],
+  "role": "పూరు వంశపు రాజు, సరస్వతి నదిని వివాహమాడినవాడు",
+  "side": "kuru"
+ },
+ {
+  "id": "sarasvati-r",
+  "name": "సరస్వతి",
+  "aliases": [],
+  "role": "నదీ దేవత",
+  "side": "deva"
+ },
+ {
+  "id": "hasti",
+  "name": "హస్తి",
+  "aliases": [],
+  "role": "హస్తినాపురానికి పేరు ఇచ్చిన రాజు",
+  "side": "kuru"
+ },
+ {
+  "id": "kuru",
+  "name": "కురువు",
+  "aliases": [],
+  "role": "సంవరణ తపతుల కుమారుడు",
+  "side": "kuru"
+ },
+ {
+  "id": "jitavati",
+  "name": "జితవతి",
+  "aliases": [],
+  "role": "ఉశీనర రాజకుమార్తె",
+  "side": "other"
+ },
+ {
+  "id": "sunanda",
+  "name": "సునంద",
+  "aliases": [],
+  "role": "ప్రతీపుని రాణి, శంతనుని తల్లి",
+  "side": "kuru"
+ },
+ {
+  "id": "shalva",
+  "name": "శాల్వుడు",
+  "aliases": [],
+  "role": "సౌభ దేశపు రాజు, అంబ మనసు పడినవాడు",
+  "side": "other"
+ },
+ {
+  "id": "utathya",
+  "name": "ఉతథ్యుడు",
+  "aliases": [],
+  "role": "మహర్షి, మమత భర్త",
+  "side": "guru"
+ },
+ {
+  "id": "mamata",
+  "name": "మమత",
+  "aliases": [],
+  "role": "ఉతథ్యుని భార్య, దీర్ఘతముని తల్లి",
+  "side": "guru"
+ },
+ {
+  "id": "dirghatamas",
+  "name": "దీర్ఘతముడు",
+  "aliases": [
+   "దీర్ఘతమసుడు"
+  ],
+  "role": "పుట్టు అంధుడైన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "pradveshini",
+  "name": "ప్రద్వేషిణి",
+  "aliases": [],
+  "role": "దీర్ఘతముని భార్య",
+  "side": "guru"
+ },
+ {
+  "id": "sudeshna-b",
+  "name": "సుదేష్ణ",
+  "aliases": [],
+  "role": "బలి రాణి",
+  "side": "other"
+ },
+ {
+  "id": "mandavya",
+  "name": "మాండవ్యుడు",
+  "aliases": [
+   "అణి మాండవ్యుడు"
+  ],
+  "role": "యమునికి శాపమిచ్చిన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "subala",
+  "name": "సుబలుడు",
+  "aliases": [],
+  "role": "గాంధార రాజు, గాంధారి శకునుల తండ్రి",
+  "side": "kaurava"
+ },
+ {
+  "id": "durvasa",
+  "name": "దుర్వాసుడు",
+  "aliases": [],
+  "role": "కుంతికి మంత్రం ఇచ్చిన మహర్షి",
+  "side": "guru"
+ },
+ {
+  "id": "adhiratha",
+  "name": "అధిరథుడు",
+  "aliases": [],
+  "role": "కర్ణుని పెంచిన సూతుడు",
+  "side": "other"
+ },
+ {
+  "id": "radha",
+  "name": "రాధ",
+  "aliases": [],
+  "role": "కర్ణుని పెంచిన తల్లి",
+  "side": "other"
+ },
+ {
+  "id": "kuntibhoja",
+  "name": "కుంతిభోజుడు",
+  "aliases": [],
+  "role": "కుంతిని పెంచిన రాజు",
+  "side": "other"
+ },
+ {
+  "id": "kindama",
+  "name": "కిందముడు",
+  "aliases": [],
+  "role": "జింక రూపంలో పాండురాజు బాణానికి బలైన ముని",
+  "side": "guru"
+ },
+ {
+  "id": "vyushitashva",
+  "name": "వ్యుషితాశ్వుడు",
+  "aliases": [],
+  "role": "పూరు వంశపు ప్రాచీన రాజు",
+  "side": "kuru"
+ },
+ {
+  "id": "shvetaketu",
+  "name": "శ్వేతకేతుడు",
+  "aliases": [],
+  "role": "ఉద్దాలకుని కుమారుడు",
+  "side": "guru"
+ },
+ {
+  "id": "yuyutsu",
+  "name": "యుయుత్సుడు",
+  "aliases": [
+   "యుయుత్సు"
+  ],
+  "role": "ధృతరాష్ట్రునికి వైశ్య స్త్రీ వల్ల పుట్టిన కుమారుడు",
+  "side": "kaurava"
+ },
+ {
+  "id": "dushala",
+  "name": "దుస్సల",
+  "aliases": [
+   "దుశ్శల"
+  ],
+  "role": "ధృతరాష్ట్ర గాంధారుల కుమార్తె",
+  "side": "kaurava"
+ },
+ {
+  "id": "aryaka",
+  "name": "ఆర్యకుడు",
+  "aliases": [],
+  "role": "నాగలోకంలో భీముని గుర్తించిన వృద్ధ నాగుడు",
+  "side": "other"
+ },
+ {
+  "id": "sharadvan",
+  "name": "శరద్వంతుడు",
+  "aliases": [
+   "శరద్వానుడు"
+  ],
+  "role": "గౌతమ ముని, కృప కృపిల తండ్రి",
+  "side": "guru"
+ },
+ {
+  "id": "bharadvaja",
+  "name": "భరద్వాజుడు",
+  "aliases": [],
+  "role": "మహర్షి, ద్రోణుని తండ్రి",
+  "side": "guru"
+ },
+ {
+  "id": "prishata",
+  "name": "పృషతుడు",
+  "aliases": [],
+  "role": "పాంచాల రాజు, ద్రుపదుని తండ్రి",
+  "side": "pandava"
+ },
+ {
+  "id": "kanika",
+  "name": "కణికుడు",
+  "aliases": [],
+  "role": "ధృతరాష్ట్రుని మంత్రి",
+  "side": "kaurava"
+ },
+ {
+  "id": "hidimba",
+  "name": "హిడింబుడు",
+  "aliases": [
+   "హిడింబాసురుడు"
+  ],
+  "role": "నరభక్షక రాక్షసుడు, హిడింబి అన్న",
+  "side": "other"
  }
 ]

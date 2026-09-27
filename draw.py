@@ -303,9 +303,6 @@ def swayamvara():
         d.line([(wx, wy), (wx + 105 * math.cos(a), wy + 105 * math.sin(a))], fill=DGOLD, width=5)
     d.polygon([(wx - 60, wy), (wx - 10, wy - 30), (wx + 40, wy - 10), (wx + 70, wy - 30), (wx + 70, wy + 30), (wx + 40, wy + 10), (wx - 10, wy + 30)], fill=(230, 180, 60), outline=INK)
     d.ellipse([wx - 45, wy - 8, wx - 35, wy + 2], fill=INK)
-    # pool
-    d.ellipse([W * 0.3, H * 0.62, W * 0.7, H * 0.8], fill=WATER2, outline=(60, 110, 150), width=6)
-    d.ellipse([wx - 60, H * 0.685, wx + 60, H * 0.735], fill=(200, 220, 240))
     # archer
     figure(d, W * 0.22, H * 0.78, 330, robe=(60, 90, 170), skin=(190, 140, 95))
     bow(d, W * 0.24, H * 0.5, 120, DGOLD, arrow=True)
@@ -2084,6 +2081,230 @@ def s_vanavasa():
     save(img, "s19_vanavasa")
 
 
+# ---------------------------------------------------------------------------
+# compose() — a scene from a short spec, for the many episodes added in the
+# full retelling. Same palette and primitives as the hand-drawn scenes above.
+#   bg:    day | dusk | night | interior | court | forest | river | sea | mountain | ashram | fire | sky
+#   figs:  (x, kind, colour-name, size)  kind: king queen woman sage warrior boy baby demon blue deity
+#   props: (name, x, y, size)
+# ---------------------------------------------------------------------------
+ROBES = {"indigo": (27, 37, 64), "madder": (150, 40, 40), "saffron": SAFF, "gold": GOLD, "green": (52, 92, 62),
+         "blue": (60, 90, 170), "white": (240, 235, 225), "maroon": MAROON, "violet": (120, 60, 110),
+         "pink": (220, 120, 150), "grey": (130, 120, 120), "brown": (110, 80, 60), "dark": (40, 35, 50),
+         "cream": (240, 225, 190), "teal": (40, 110, 120), "red": (180, 30, 50)}
+SKINS = {"king": (200, 150, 100), "queen": (215, 165, 115), "woman": (210, 160, 110), "sage": (190, 140, 95),
+         "warrior": (200, 150, 100), "boy": (215, 165, 115), "baby": (225, 175, 125), "demon": (110, 80, 80),
+         "blue": (70, 110, 190), "deity": (235, 190, 130)}
+
+
+def _bg(d, bg):
+    if bg in ("day", "ashram", "forest", "river", "mountain", "sea"):
+        gradient(d, (190, 215, 235), (235, 230, 205), 0, int(H * 0.62))
+    elif bg == "dusk":
+        gradient(d, (240, 170, 110), (120, 70, 90), 0, int(H * 0.62))
+    elif bg in ("night",):
+        gradient(d, (14, 18, 46), (40, 36, 70), 0, int(H * 0.62)); stars(d, 120, H * 0.5)
+        d.ellipse([W * 0.84 - 46, H * 0.12 - 46, W * 0.84 + 46, H * 0.12 + 46], fill=(236, 232, 210))
+    elif bg == "fire":
+        gradient(d, (60, 40, 50), (200, 100, 50), 0, int(H * 0.62))
+    elif bg == "sky":
+        gradient(d, (40, 60, 130), (200, 180, 230), 0, H); stars(d, 60, H * 0.5); return
+    elif bg in ("interior", "court"):
+        warm = bg == "court"
+        hall(d, (240, 215, 170) if warm else (120, 50, 50), (210, 170, 120) if warm else (60, 25, 30),
+             (190, 150, 105) if warm else (90, 60, 50)); return
+    ground = {"forest": (80, 120, 70), "river": (120, 150, 90), "sea": (230, 210, 160), "mountain": (120, 110, 100),
+              "ashram": (140, 160, 100), "fire": (70, 40, 30), "night": (50, 50, 60), "dusk": (140, 120, 90)}.get(bg, (150, 160, 110))
+    d.rectangle([0, H * 0.62, W, H], fill=ground)
+    if bg == "forest":
+        for x, hh in ((0.03, 460), (0.14, 380), (0.88, 440), (0.98, 400)):
+            tree(d, W * x, H * 0.68, hh)
+    if bg == "ashram":
+        d.polygon([(W * 0.04, H * 0.64), (W * 0.13, H * 0.46), (W * 0.22, H * 0.64)], fill=(170, 130, 70))
+        d.rectangle([W * 0.06, H * 0.64, W * 0.20, H * 0.78], fill=(200, 170, 120))
+        tree(d, W * 0.93, H * 0.70, 420)
+    if bg == "river":
+        d.polygon([(0, H * 0.70), (W, H * 0.64), (W, H * 0.80), (0, H * 0.86)], fill=WATER)
+    if bg == "sea":
+        gradient(d, (40, 110, 150), (70, 150, 180), int(H * 0.46), int(H * 0.66))
+    if bg == "mountain":
+        d.polygon([(0, H * 0.66), (W * 0.28, H * 0.16), (W * 0.52, H * 0.60), (W * 0.76, H * 0.22), (W, H * 0.64)], fill=(130, 125, 145))
+        for px, py in ((0.28, 0.16), (0.76, 0.22)):
+            d.polygon([(W * px, H * py), (W * px - 40, H * py + 60), (W * px + 40, H * py + 60)], fill=WHITE)
+    if bg == "fire":
+        for x in (0.04, 0.14, 0.86, 0.96):
+            flame(d, W * x, H * 0.86, 300, 90)
+
+
+def _fig(d, x, kind, col, size):
+    h = {"baby": 90, "boy": 200}.get(kind, 300) * size
+    base = H * 0.96
+    robe = ROBES.get(col, col) if isinstance(col, str) else col
+    skin = SKINS.get(kind, (200, 150, 100))
+    if kind == "baby":
+        d.ellipse([W * x - 50 * size, base - 70 * size, W * x + 50 * size, base], fill=robe)
+        d.ellipse([W * x - 28 * size, base - 120 * size, W * x + 28 * size, base - 64 * size], fill=skin); return
+    seated = kind == "sage"
+    figure(d, W * x, base, h, robe=robe, skin=skin, seated=seated)
+    top = base - h * (0.92 if seated else 0.86)
+    if kind in ("king", "warrior", "blue", "deity"):
+        crown_on(d, W * x, top, 44 * h / 300)
+    if kind == "queen":
+        crown_on(d, W * x, top, 34 * h / 300, col=(250, 210, 120))
+    if kind in ("woman", "queen"):
+        d.chord([W * x - 38 * h / 300, top - 4, W * x + 38 * h / 300, top + 70 * h / 300], 180, 360, fill=(35, 25, 25))
+    if kind == "sage":
+        d.chord([W * x - 26 * h / 300, top + 60 * h / 300, W * x + 26 * h / 300, top + 110 * h / 300], 0, 180, fill=(230, 230, 230))
+        d.ellipse([W * x - 26 * h / 300, top - 26 * h / 300, W * x + 26 * h / 300, top + 10 * h / 300], fill=(90, 70, 50))
+    if kind == "demon":
+        for s in (-1, 1):
+            d.polygon([(W * x + s * 14 * h / 300, top + 4), (W * x + s * 30 * h / 300, top - 30 * h / 300), (W * x + s * 34 * h / 300, top + 10)], fill=(230, 220, 200))
+    if kind == "warrior":
+        bow(d, W * x + 40 * h / 300, base - h * 0.62, 50 * h / 300, DGOLD, arrow=False)
+    if kind == "deity":
+        for r in (1.1, 1.3):
+            d.ellipse([W * x - 60 * h / 300 * r, top - 40 * r, W * x + 60 * h / 300 * r, top + 80 * r], outline=(255, 225, 150), width=3)
+
+
+def _prop(d, name, x, y, s):
+    X, Y = W * x, H * y
+    if name == "fire_altar":
+        d.polygon([(X - 150 * s, Y), (X + 150 * s, Y), (X + 120 * s, Y - 80 * s), (X - 120 * s, Y - 80 * s)], fill=(160, 110, 70), outline=INK)
+        flame(d, X, Y - 70 * s, 240 * s, 110 * s)
+    elif name == "flame": flame(d, X, Y, 300 * s, 100 * s)
+    elif name == "tree": tree(d, X, Y, 400 * s)
+    elif name == "sun": sun(d, X, Y, 70 * s)
+    elif name == "moon": d.ellipse([X - 46 * s, Y - 46 * s, X + 46 * s, Y + 46 * s], fill=(236, 232, 210))
+    elif name == "lotus": lotus(d, X, Y, 24 * s)
+    elif name == "cow": cow(d, X, Y, 120 * s)
+    elif name == "horse": horse(d, X, Y, s)
+    elif name == "chariot": chariot(d, X, Y, s)
+    elif name == "pot": pot(d, X, Y, 34 * s)
+    elif name == "pots":
+        for k in range(5): pot(d, X - 160 * s + k * 80 * s, Y, 28 * s, col=(200, 170, 90))
+    elif name == "bird": bird(d, X, Y, 30 * s)
+    elif name == "eagle": bird(d, X, Y, 70 * s, col=(200, 140, 40))
+    elif name == "bow": bow(d, X, Y, 70 * s, DGOLD)
+    elif name == "dice": dice(d, X, Y, 18 * s)
+    elif name == "mace":
+        d.line([(X, Y), (X + 40 * s, Y - 120 * s)], fill=INK, width=int(10 * s))
+        d.ellipse([X + 20 * s, Y - 170 * s, X + 70 * s, Y - 110 * s], fill=(120, 120, 130), outline=INK)
+    elif name == "snake":
+        pts = [(X - 150 * s + k * 20 * s, Y + 16 * s * math.sin(k * 0.9)) for k in range(16)]
+        d.line(pts, fill=(80, 120, 60), width=int(18 * s))
+        d.ellipse([pts[-1][0] - 20 * s, pts[-1][1] - 16 * s, pts[-1][0] + 24 * s, pts[-1][1] + 14 * s], fill=(80, 120, 60))
+    elif name == "hood":
+        d.ellipse([X - 70 * s, Y - 120 * s, X + 70 * s, Y], fill=(70, 110, 60))
+        d.rectangle([X - 22 * s, Y - 20 * s, X + 22 * s, Y + 120 * s], fill=(70, 110, 60))
+    elif name == "well":
+        d.ellipse([X - 110 * s, Y - 30 * s, X + 110 * s, Y + 30 * s], fill=(40, 40, 50), outline=(120, 110, 100), width=int(12 * s))
+    elif name == "throne":
+        d.rectangle([X - 70 * s, Y - 260 * s, X + 70 * s, Y], fill=(200, 150, 60), outline=DGOLD, width=5)
+    elif name == "house":
+        d.rectangle([X - 160 * s, Y - 200 * s, X + 160 * s, Y], fill=(200, 160, 110), outline=(120, 80, 50), width=4)
+        d.polygon([(X - 190 * s, Y - 200 * s), (X, Y - 320 * s), (X + 190 * s, Y - 200 * s)], fill=(150, 90, 50))
+    elif name == "pyre":
+        for k in range(4): d.rectangle([X - 160 * s, Y - k * 26 * s, X + 160 * s, Y - k * 26 * s + 18 * s], fill=BROWN)
+        flame(d, X, Y - 90 * s, 260 * s, 140 * s)
+    elif name == "boat":
+        d.chord([X - 180 * s, Y - 60 * s, X + 180 * s, Y + 60 * s], 0, 180, fill=BROWN)
+    elif name == "cave":
+        d.chord([X - 200 * s, Y - 260 * s, X + 200 * s, Y + 20 * s], 180, 360, fill=(40, 34, 40))
+    elif name == "elephant":
+        d.ellipse([X - 150 * s, Y - 200 * s, X + 150 * s, Y - 40 * s], fill=(130, 130, 140))
+        for dx in (-100, -40, 40, 100): d.rectangle([X + dx * s - 18 * s, Y - 70 * s, X + dx * s + 18 * s, Y], fill=(130, 130, 140))
+        d.ellipse([X + 110 * s, Y - 220 * s, X + 200 * s, Y - 120 * s], fill=(130, 130, 140))
+        d.line([(X + 190 * s, Y - 140 * s), (X + 210 * s, Y - 40 * s)], fill=(130, 130, 140), width=int(22 * s))
+    elif name == "tortoise":
+        d.ellipse([X - 140 * s, Y - 90 * s, X + 140 * s, Y + 10 * s], fill=(90, 110, 70), outline=(60, 80, 50), width=5)
+    elif name == "mountain_churn":
+        d.polygon([(X - 90 * s, Y), (X, Y - 380 * s), (X + 90 * s, Y)], fill=(120, 110, 100))
+        d.line([(X - 300 * s, Y - 180 * s), (X + 300 * s, Y - 140 * s)], fill=(80, 120, 60), width=int(20 * s))
+    elif name == "arrows":
+        for k in range(7): d.line([(X - 180 * s + k * 60 * s, Y), (X - 160 * s + k * 60 * s, Y - 160 * s)], fill=INK, width=4)
+    elif name == "halo":
+        for r in (120, 90): d.ellipse([X - r * s, Y - r * s, X + r * s, Y + r * s], outline=(255, 225, 150), width=4)
+    elif name == "stake":
+        d.line([(X, Y), (X, Y - 360 * s)], fill=BROWN, width=int(16 * s))
+    elif name == "rope":
+        d.line([(X - 120 * s, Y), (X + 120 * s, Y - 20 * s)], fill=(200, 180, 120), width=int(6 * s))
+
+
+def compose(name, bg, figs=(), props=()):
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    _bg(d, bg)
+    for p in props:
+        if p[0] in ("sun", "moon", "eagle", "bird", "halo", "mountain_churn", "cave", "house", "throne", "tree"):
+            _prop(d, *p)
+    for f in sorted(figs, key=lambda f: f[3] if len(f) > 3 else 1):
+        _fig(d, f[0], f[1], f[2], f[3] if len(f) > 3 else 1)
+    for p in props:
+        if p[0] not in ("sun", "moon", "eagle", "bird", "halo", "mountain_churn", "cave", "house", "throne", "tree"):
+            _prop(d, *p)
+    save(img, name)
+
+
+SPECS = {
+ "dhritarashtra_vilapa": ("interior", [(0.5,"king","madder"),(0.76,"sage","cream",0.8)], [("throne",0.5,0.9,1.2)]),
+ "samantapanchaka": ("dusk", [(0.46,"sage","saffron",1.1)], [("pots",0.5,0.9,1.6),("sun",0.8,0.2,0.8)]),
+ "dhaumya_shishyulu": ("dusk", [(0.3,"sage","saffron",0.9),(0.62,"boy","saffron"),(0.82,"boy","cream")], [("rope",0.62,0.9,1.4)]),
+ "udanka_nagaloka": ("night", [(0.18,"woman","white",0.9),(0.3,"woman","dark",0.9),(0.72,"king","gold"),(0.88,"boy","saffron")], [("horse",0.52,0.9,1.0)]),
+ "agni_shapa": ("sky", [(0.3,"deity","red",1.1),(0.62,"king","gold",1.1)], [("flame",0.3,0.7,0.5),("lotus",0.62,0.97,2)]),
+ "sahasrapada": ("forest", [(0.28,"boy","cream",1.3),(0.72,"sage","saffron",0.9)], [("snake",0.62,0.9,1.1)]),
+ "samudra_mathanam": ("sea", [(0.1,"deity","gold",0.8),(0.2,"deity","gold",0.8),(0.8,"demon","dark",0.8),(0.9,"demon","dark",0.8)], [("mountain_churn",0.5,0.7,1.2),("tortoise",0.5,0.8,1.3)]),
+ "uchchaisravas_wager": ("sea", [(0.72,"woman","violet"),(0.86,"woman","green")], [("horse",0.36,0.92,1.5),("snake",0.28,0.8,0.6)]),
+ "garuda_elephant_tortoise": ("mountain", [], [("eagle",0.5,0.3,2.2),("elephant",0.3,0.92,0.9),("tortoise",0.72,0.9,1.0)]),
+ "garuda_amritam": ("sky", [(0.2,"blue","gold",1.1),(0.84,"king","gold",1.0)], [("eagle",0.52,0.4,2.0),("pot",0.56,0.62,1.2)]),
+ "jaratkaru_marriage": ("dusk", [(0.36,"sage","saffron"),(0.56,"woman","green")], [("sun",0.84,0.5,0.8)]),
+ "takshaka_kashyapa": ("forest", [(0.3,"sage","saffron"),(0.74,"boy","brown")], [("tree",0.52,0.92,0.9)]),
+ "sarpa_yagam": ("fire", [(0.16,"sage","dark",0.9),(0.84,"king","indigo")], [("fire_altar",0.5,0.94,1.3),("snake",0.46,0.35,0.9),("snake",0.58,0.25,0.7)]),
+ "astika_stops_yaga": ("court", [(0.3,"boy","saffron",1.1),(0.78,"king","indigo")], [("fire_altar",0.54,0.94,1.1),("snake",0.54,0.3,1.0)]),
+ "satyavati_parashara": ("river", [(0.4,"woman","teal",0.9),(0.58,"sage","saffron",0.8)], [("boat",0.5,0.86,1.4)]),
+ "srishti_vamshalu": ("sky", [(0.5,"deity","red",1.1),(0.2,"sage","cream",0.7),(0.8,"sage","cream",0.7)], [("lotus",0.5,0.97,2.5)]),
+ "amshavatarana": ("sky", [(0.2,"deity","gold",0.8),(0.8,"demon","dark",0.8),(0.36,"blue","gold",0.9),(0.5,"warrior","indigo",0.9),(0.64,"king","madder",0.9)], []),
+ "chandra_vamsha": ("court", [(0.3,"king","violet",1.1),(0.68,"sage","cream",0.9),(0.84,"sage","cream",0.9)], [("throne",0.3,0.94,1.1)]),
+ "kacha_devayani_shapa": ("ashram", [(0.36,"boy","cream",1.3),(0.66,"woman","pink")], []),
+ "yayati_devayani_wedding": ("forest", [(0.3,"sage","saffron",1.0),(0.5,"woman","pink"),(0.66,"king","violet"),(0.84,"woman","maroon",0.9)], []),
+ "yayati_fall_ashtaka": ("sky", [(0.36,"king","violet"),(0.64,"king","gold",0.9),(0.78,"king","gold",0.9)], [("halo",0.36,0.4,1.4)]),
+ "shakuntala_gandharva": ("ashram", [(0.5,"boy","saffron"),(0.8,"sage","saffron")], [("elephant",0.36,0.92,0.8)]),
+ "shakuntala_sabha": ("court", [(0.3,"king","violet"),(0.66,"woman","white"),(0.74,"boy","saffron")], [("throne",0.3,0.94,1.0)]),
+ "mahabhisha_ganga_vasus": ("sky", [(0.3,"woman","teal"),(0.6,"king","violet"),(0.8,"deity","red",0.9)], []),
+ "pratipa_right_thigh": ("river", [(0.4,"sage","cream",1.1),(0.6,"woman","teal")], []),
+ "devavrata_arrows_satyavati": ("river", [(0.3,"warrior","white"),(0.72,"king","violet")], [("arrows",0.5,0.84,1.2)]),
+ "dirghatamas": ("river", [(0.8,"king","madder")], [("boat",0.4,0.84,0.9),("rope",0.4,0.8,0.8)]),
+ "ani_mandavya": ("night", [(0.24,"king","madder",0.8)], [("stake",0.56,0.96,1.0),("bird",0.4,0.3,1),("bird",0.7,0.28,1)]),
+ "gandhari_vivaham": ("court", [(0.46,"woman","maroon"),(0.7,"king","brown"),(0.84,"king","brown",0.9)], []),
+ "pandu_vivaham_digvijaya": ("court", [(0.4,"king","indigo"),(0.58,"woman","gold"),(0.8,"king","green",0.9)], []),
+ "pandu_kunti_samvadam": ("mountain", [(0.36,"king","white"),(0.6,"woman","gold"),(0.8,"woman","green",0.9)], []),
+ "bhima_duryodhana_janana": ("mountain", [(0.3,"woman","gold"),(0.7,"queen","maroon")], [("pots",0.7,0.97,0.9)]),
+ "pandu_death": ("dusk", [(0.2,"woman","white"),(0.78,"woman","green")], [("pyre",0.5,0.94,1.2)]),
+ "hastina_return": ("day", [(0.24,"sage","saffron",0.8),(0.4,"woman","white"),(0.52,"boy","indigo"),(0.6,"boy","green"),(0.68,"boy","blue"),(0.76,"boy","cream",0.8),(0.84,"boy","cream",0.8)], [("house",0.9,0.62,0.8)]),
+ "bhima_poison": ("sea", [(0.46,"boy","green",1.3),(0.76,"king","green")], [("pots",0.46,0.96,1.1),("snake",0.2,0.7,0.9)]),
+ "drona_insult": ("day", [(0.34,"sage","dark"),(0.58,"boy","indigo"),(0.72,"boy","madder")], [("well",0.5,0.9,1.0),("arrows",0.5,0.8,0.5)]),
+ "drona_school": ("night", [(0.4,"warrior","blue"),(0.74,"sage","dark",0.9)], []),
+ "bird_crocodile": ("forest", [(0.3,"warrior","blue"),(0.76,"sage","dark",0.9)], [("tree",0.56,0.92,1.2),("bird",0.56,0.26,0.8)]),
+ "karna_anga": ("day", [(0.3,"warrior","gold"),(0.7,"warrior","blue")], [("sun",0.24,0.18,0.7),("halo",0.3,0.6,1.3)]),
+ "sutaputra": ("dusk", [(0.36,"warrior","gold"),(0.56,"sage","brown",0.9),(0.8,"warrior","green")], []),
+ "kanika_niti": ("forest", [(0.7,"king","madder",0.8)], [("bird",0.3,0.4,1)]),
+ "dhritarashtra_sammati": ("interior", [(0.44,"king","madder"),(0.66,"king","red",0.9)], [("throne",0.44,0.94,1.1)]),
+ "vidura_hechcharika": ("day", [(0.3,"king","cream"),(0.46,"king","indigo"),(0.72,"woman","white"),(0.84,"boy","green",1.3)], []),
+ "khanakudu": ("night", [(0.3,"sage","brown",0.8),(0.6,"warrior","green")], [("flame",0.36,0.88,0.3)]),
+ "hidimbi_ghatotkacha": ("ashram", [(0.36,"demon","dark",1.2),(0.64,"woman","white"),(0.8,"woman","maroon")], []),
+ "kunti_nishchayam": ("interior", [(0.36,"woman","white"),(0.56,"king","indigo"),(0.78,"warrior","green",1.2)], []),
+ "baka_vadha": ("river", [(0.4,"warrior","green",1.1),(0.78,"demon","dark",1.4)], [("pots",0.36,0.97,1.2)]),
+ "parashara_aurva": ("fire", [(0.3,"sage","saffron"),(0.76,"sage","cream")], [("fire_altar",0.52,0.94,1.3)]),
+ "svayamvara_sabha": ("court", [(0.14,"king","madder",0.8),(0.26,"king","gold",0.8),(0.5,"woman","maroon"),(0.74,"king","green",0.8),(0.86,"king","violet",0.8)], [("bird",0.5,0.25,1.2)]),
+ "svayamvara_fight": ("court", [(0.3,"warrior","green",1.2),(0.44,"warrior","cream"),(0.76,"king","madder"),(0.88,"king","gold")], [("tree",0.24,0.8,0.5)]),
+ "indrasena": ("ashram", [(0.4,"sage","grey"),(0.6,"woman","pink")], []),
+ "vidura_mission": ("court", [(0.3,"king","cream"),(0.52,"king","violet"),(0.66,"blue","gold"),(0.82,"king","indigo")], []),
+}
+
+
+def composed():
+    for key, (bg, figs, props) in SPECS.items():
+        compose("a_" + key, bg, figs, props)
+
+
 SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamejaya,
           pauloma, ruru, kadru_vinata, garuda, parikshit, sarpa,
           uparichara, bhubharam, kacha, devayani, yayati, puru,
@@ -2099,7 +2320,8 @@ SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamej
           # Sabha Parva
           s_mayasabha, s_narada, s_lokapala, s_mantra, s_jara, s_girivraja, s_mallayuddha,
           s_digvijaya, s_rajasuya, s_agrapuja, s_shishupala_janana, s_sudarshana,
-          s_duryodhana_sabha, s_shakuni, s_dyutam, s_draupadi_prashna, s_vastra, s_varalu, s_vanavasa]
+          s_duryodhana_sabha, s_shakuni, s_dyutam, s_draupadi_prashna, s_vastra, s_varalu, s_vanavasa,
+          composed]
 for f in SCENES:
     f()
 print(len(SCENES), 'illustrations ->', OUT)

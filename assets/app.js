@@ -354,6 +354,12 @@
         <div class="tblwrap"><table class="counts chain">
           <tbody>${ML.chain.rows.map(([a,b]) => `<tr><td class="pn">${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody>
         </table></div>
+        ${(ML.tables || []).map(tb => `
+        <h2 class="sec">${esc(tb.title)}</h2>
+        ${tb.note ? `<p class="note">${esc(tb.note)}</p>` : ''}
+        <div class="tblwrap"><table class="counts chain">
+          <tbody>${tb.rows.map(([a,b]) => `<tr><td class="pn">${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody>
+        </table></div>`).join('')}
       </div>`;
   }
 
