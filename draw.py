@@ -1714,6 +1714,376 @@ def maya_scene():
     save(img, "58_maya")
 
 
+# ---------------------------------------------------------------------------
+# Sabha Parva — two halls: the one Maya built, and the one built for dice.
+# ---------------------------------------------------------------------------
+
+def hall(d, top=(120, 40, 40), bottom=(60, 20, 30), floor=(90, 60, 50), cols=(0.1, 0.3, 0.7, 0.9)):
+    gradient(d, top, bottom)
+    d.rectangle([0, H * 0.78, W, H], fill=floor)
+    for x in cols:
+        d.rectangle([W * x - 20, H * 0.05, W * x + 20, H * 0.78], fill=(150, 90, 60), outline=DGOLD, width=3)
+
+
+def dice(d, cx, cy, s=22):
+    d.rectangle([cx - s, cy - s, cx + s, cy + s], fill=WHITE, outline=INK, width=3)
+    for dx, dy in ((-0.45, -0.45), (0, 0), (0.45, 0.45)):
+        d.ellipse([cx + dx * s - 5, cy + dy * s - 5, cx + dx * s + 5, cy + dy * s + 5], fill=INK)
+
+
+def king(d, x, base, h, robe, skin=(200, 150, 100), seated=False):
+    figure(d, x, base, h, robe=robe, skin=skin, seated=seated)
+    crown_on(d, x, base - h * (0.92 if seated else 0.86), 40 * h / 280)
+
+
+# S1. Maya's hall — the pool of sapphires
+def s_mayasabha():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 240, 220), (230, 210, 170))
+    for k in range(7):
+        x = W * (0.06 + k * 0.148)
+        d.rectangle([x - 22, H * 0.06, x + 22, H * 0.62], fill=(240, 230, 210), outline=GOLD, width=4)
+        d.ellipse([x - 30, H * 0.04, x + 30, H * 0.10], fill=GOLD)
+    d.rectangle([0, H * 0.62, W, H], fill=(236, 226, 206))
+    # the pool that is not water
+    d.ellipse([W * 0.2, H * 0.68, W * 0.8, H * 0.96], fill=(40, 70, 150), outline=GOLD, width=6)
+    for x, c in ((0.3, (200, 40, 60)), (0.42, (240, 240, 250)), (0.56, (200, 40, 60)), (0.68, (240, 240, 250))):
+        lotus(d, W * x, H * 0.82, 22, fill=c, outline=DGOLD)
+    for x in (0.36, 0.5, 0.62):
+        d.polygon([(W * x, H * 0.88), (W * x + 40, H * 0.86), (W * x + 40, H * 0.90)], fill=(220, 230, 250))
+    bird(d, W * 0.25, H * 0.66, 22, col=WHITE, wings=False)
+    bird(d, W * 0.74, H * 0.66, 22, col=WHITE, wings=False)
+    save(img, "s01_mayasabha")
+
+
+# S2. Narada's questions
+def s_narada():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (246, 232, 200), (230, 200, 150), (200, 170, 120))
+    king(d, W * 0.62, H * 0.90, 300, (27, 37, 64), seated=True)
+    figure(d, W * 0.34, H * 0.95, 320, robe=(240, 225, 190), skin=(214, 164, 104))
+    d.ellipse([W * 0.34 - 30, H * 0.95 - 320 * 0.98, W * 0.34 + 30, H * 0.95 - 320 * 0.84], fill=(90, 70, 50))
+    # the vina
+    d.line([(W * 0.26, H * 0.40), (W * 0.40, H * 0.80)], fill=BROWN, width=10)
+    d.ellipse([W * 0.24, H * 0.34, W * 0.30, H * 0.44], fill=(150, 90, 50))
+    d.ellipse([W * 0.37, H * 0.76, W * 0.44, H * 0.86], fill=(150, 90, 50))
+    for k in range(4):
+        d.line([(W * 0.46 + k * 30, H * 0.30 + k * 8), (W * 0.50 + k * 30, H * 0.30 + k * 8)], fill=DGOLD, width=4)
+    save(img, "s02_narada")
+
+
+# S3. The halls of the world-guardians; Pandu in Yama's hall
+def s_lokapala():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (30, 40, 90), (120, 100, 160))
+    stars(d, 100, H * 0.4)
+    for k, (x, c) in enumerate(((0.12, (230, 190, 90)), (0.31, (90, 60, 120)), (0.5, (60, 120, 170)), (0.69, (200, 170, 60)), (0.88, (240, 150, 150)))):
+        y = H * (0.36 if k % 2 else 0.30)
+        d.ellipse([W * x - 110, y + 70, W * x + 110, y + 110], fill=(240, 240, 250))
+        d.rectangle([W * x - 80, y - 60, W * x + 80, y + 90], fill=c, outline=GOLD, width=4)
+        d.polygon([(W * x - 90, y - 60), (W * x, y - 120), (W * x + 90, y - 60)], fill=GOLD)
+    # Pandu, small, in Yama's hall
+    figure(d, W * 0.31, H * 0.36 + 80, 110, robe=(27, 37, 64), skin=(200, 150, 100))
+    d.rectangle([0, H * 0.8, W, H], fill=(60, 50, 80))
+    figure(d, W * 0.5, H * 0.98, 220, robe=(240, 225, 190), skin=(214, 164, 104))
+    save(img, "s03_lokapala")
+
+
+# S4. Krishna's counsel
+def s_mantra():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (240, 220, 180), (210, 170, 120), (180, 140, 100))
+    figure(d, W * 0.50, H * 0.92, 320, robe=GOLD, skin=(70, 110, 190))
+    crown_on(d, W * 0.50, H * 0.92 - 320 * 0.86)
+    king(d, W * 0.28, H * 0.92, 290, (27, 37, 64), seated=True)
+    figure(d, W * 0.70, H * 0.95, 360, robe=(52, 92, 62), skin=(206, 156, 106))
+    figure(d, W * 0.82, H * 0.95, 320, robe=(60, 90, 170), skin=(200, 150, 100))
+    bow(d, W * 0.86, H * 0.52, 60, DGOLD, arrow=False)
+    save(img, "s04_mantra")
+
+
+# S5. Jara joins the two halves at the crossroads
+def s_jara():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (14, 18, 46), (40, 36, 70))
+    stars(d, 120, H * 0.55)
+    d.ellipse([W * 0.84 - 46, H * 0.12 - 46, W * 0.84 + 46, H * 0.12 + 46], fill=(236, 232, 210))
+    d.rectangle([0, H * 0.62, W, H], fill=(70, 60, 60))
+    d.polygon([(W * 0.44, H * 0.62), (W * 0.56, H * 0.62), (W * 0.9, H), (W * 0.1, H)], fill=(110, 95, 80))
+    d.polygon([(0, H * 0.78), (W, H * 0.74), (W, H * 0.84), (0, H * 0.88)], fill=(110, 95, 80))
+    # the child, whole
+    d.ellipse([W * 0.47, H * 0.76, W * 0.53, H * 0.86], fill=(220, 170, 120))
+    d.ellipse([W * 0.475, H * 0.70, W * 0.525, H * 0.77], fill=(220, 170, 120))
+    for r in (80, 60):
+        d.ellipse([W * 0.5 - r, H * 0.78 - r, W * 0.5 + r, H * 0.78 + r], outline=(250, 220, 140), width=3)
+    # Jara bending over it
+    figure(d, W * 0.62, H * 0.96, 330, robe=(90, 70, 80), skin=(150, 110, 90))
+    d.line([(W * 0.60, H * 0.72), (W * 0.54, H * 0.78)], fill=(150, 110, 90), width=14)
+    # the palace behind
+    d.rectangle([W * 0.04, H * 0.30, W * 0.30, H * 0.62], fill=(60, 50, 70), outline=DGOLD)
+    d.rectangle([W * 0.14, H * 0.44, W * 0.20, H * 0.54], fill=(250, 200, 100))
+    save(img, "s05_jara")
+
+
+# S6. Girivraja — the drums on Chaityaka
+def s_girivraja():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (230, 200, 160), (200, 150, 110), 0, int(H * 0.6))
+    for x0, x1, h in ((0, 0.3, 0.3), (0.2, 0.55, 0.22), (0.45, 0.8, 0.34), (0.7, 1.0, 0.26)):
+        d.polygon([(W * x0, H * 0.8), (W * (x0 + x1) / 2, H * h), (W * x1, H * 0.8)], fill=(130, 100, 80))
+    d.rectangle([0, H * 0.8, W, H], fill=(150, 120, 80))
+    # three drums, broken
+    for k, x in enumerate((0.48, 0.56, 0.64)):
+        d.ellipse([W * x - 44, H * 0.30, W * x + 44, H * 0.40], fill=(140, 90, 50), outline=INK, width=3)
+        d.rectangle([W * x - 44, H * 0.35, W * x + 44, H * 0.46], fill=(150, 100, 60))
+        d.line([(W * x - 30, H * 0.32), (W * x + 20, H * 0.44)], fill=INK, width=4)
+    figure(d, W * 0.40, H * 0.62, 220, robe=(52, 92, 62), skin=(206, 156, 106))
+    d.line([(W * 0.42, H * 0.46), (W * 0.47, H * 0.36)], fill=(206, 156, 106), width=14)
+    figure(d, W * 0.72, H * 0.62, 200, robe=(60, 90, 170), skin=(200, 150, 100))
+    figure(d, W * 0.80, H * 0.64, 200, robe=GOLD, skin=(70, 110, 190))
+    save(img, "s06_girivraja")
+
+
+# S7. The wrestling — Bhima lifts Jarasandha
+def s_mallayuddha():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (240, 200, 150), (210, 150, 100))
+    d.ellipse([W * 0.1, H * 0.74, W * 0.9, H * 1.05], fill=(190, 150, 100), outline=(150, 110, 70), width=5)
+    for k in range(10):
+        x = W * (0.05 + k * 0.1)
+        figure(d, x, H * 0.80 + (k % 2) * 10, 130, robe=[(150, 90, 60), (90, 110, 70), (120, 70, 110)][k % 3], skin=(200, 150, 100))
+    # Bhima, arms up
+    figure(d, W * 0.5, H * 0.96, 380, robe=(52, 92, 62), skin=(206, 156, 106))
+    d.line([(W * 0.47, H * 0.70), (W * 0.44, H * 0.44)], fill=(206, 156, 106), width=22)
+    d.line([(W * 0.53, H * 0.70), (W * 0.56, H * 0.44)], fill=(206, 156, 106), width=22)
+    # Jarasandha, lifted overhead
+    d.ellipse([W * 0.34, H * 0.30, W * 0.66, H * 0.44], fill=(120, 50, 40))
+    d.ellipse([W * 0.64, H * 0.30, W * 0.70, H * 0.40], fill=(190, 140, 95))
+    # motion arcs
+    for r in (300, 340):
+        d.arc([W * 0.5 - r, H * 0.37 - r * 0.35, W * 0.5 + r, H * 0.37 + r * 0.35], 200, 340, fill=WHITE, width=3)
+    save(img, "s07_mallayuddha")
+
+
+# S8. Digvijaya — four chariots to four quarters
+def s_digvijaya():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (200, 220, 240), (240, 230, 200))
+    d.rectangle([0, H * 0.6, W, H], fill=(170, 170, 110))
+    # the city at the centre
+    d.rectangle([W * 0.42, H * 0.46, W * 0.58, H * 0.64], fill=(246, 242, 230), outline=DGOLD, width=3)
+    d.polygon([(W * 0.46, H * 0.46), (W * 0.5, H * 0.36), (W * 0.54, H * 0.46)], fill=GOLD)
+    # four roads, four chariots
+    for (x, y), c in (((0.14, 0.66), (60, 90, 170)), ((0.86, 0.66), (52, 92, 62)), ((0.30, 0.90), (120, 110, 60)), ((0.70, 0.90), (120, 110, 60))):
+        d.line([(W * 0.5, H * 0.64), (W * x, H * y)], fill=(210, 190, 140), width=26)
+        chariot(d, W * x, H * y, 0.7, body=c)
+    for x, y in ((0.06, 0.22), (0.94, 0.22)):
+        d.polygon([(W * x - 60, H * 0.6), (W * x, H * y), (W * x + 60, H * 0.6)], fill=(150, 150, 170))
+    save(img, "s08_digvijaya")
+
+
+# S9. The Rajasuya
+def s_rajasuya():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (250, 220, 170), (230, 180, 120), (200, 160, 110), cols=(0.05, 0.95))
+    d.rectangle([0, H * 0.05, W, H * 0.1], fill=RED)
+    d.polygon([(W * 0.40, H * 0.84), (W * 0.60, H * 0.84), (W * 0.57, H * 0.74), (W * 0.43, H * 0.74)], fill=(160, 110, 70), outline=INK)
+    flame(d, W * 0.5, H * 0.76, 220, 100)
+    king(d, W * 0.5, H * 0.98, 200, (27, 37, 64), seated=True)
+    for x in (0.18, 0.28, 0.72, 0.82):
+        figure(d, W * x, H * 0.92, 230, robe=(232, 120, 40), skin=(190, 140, 95), seated=True)
+    # the heaps of tribute
+    for x in (0.10, 0.90):
+        for k in range(4):
+            d.ellipse([W * x - 60 + k * 10, H * 0.70 - k * 22, W * x + 60 - k * 10, H * 0.78 - k * 22], fill=GOLD, outline=DGOLD)
+    save(img, "s09_rajasuya")
+
+
+# S10. Agra-puja — the first honour
+def s_agrapuja():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (250, 225, 180), (225, 185, 130), (200, 160, 110))
+    figure(d, W * 0.40, H * 0.95, 320, robe=GOLD, skin=(70, 110, 190))
+    crown_on(d, W * 0.40, H * 0.95 - 320 * 0.86)
+    king(d, W * 0.56, H * 0.95, 290, (27, 37, 64))
+    d.ellipse([W * 0.47, H * 0.64, W * 0.51, H * 0.68], fill=GOLD, outline=DGOLD)
+    # Shishupala, standing up in protest
+    king(d, W * 0.84, H * 0.95, 320, (150, 40, 60))
+    d.line([(W * 0.82, H * 0.70), (W * 0.74, H * 0.60)], fill=(200, 150, 100), width=14)
+    for x in (0.14, 0.22):
+        figure(d, W * x, H * 0.90, 200, robe=(220, 210, 200), skin=(200, 150, 100), seated=True)
+    save(img, "s10_agrapuja")
+
+
+# S11. Shishupala's birth — the extra arms fall away in Krishna's lap
+def s_shishupala_janana():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (240, 210, 170), (200, 160, 120), (170, 130, 90), cols=(0.06, 0.94))
+    figure(d, W * 0.44, H * 0.92, 300, robe=GOLD, skin=(70, 110, 190), seated=True)
+    # the baby in his lap
+    d.ellipse([W * 0.41, H * 0.70, W * 0.49, H * 0.76], fill=(220, 170, 120))
+    d.ellipse([W * 0.48, H * 0.68, W * 0.52, H * 0.74], fill=(220, 170, 120))
+    # two small arms falling away
+    for dx in (-0.03, 0.05):
+        d.line([(W * (0.45 + dx), H * 0.80), (W * (0.45 + dx) + 10, H * 0.88)], fill=(220, 170, 120), width=8)
+    # the mother, afraid
+    figure(d, W * 0.66, H * 0.96, 300, robe=(120, 60, 110), skin=(210, 160, 110))
+    d.line([(W * 0.63, H * 0.70), (W * 0.56, H * 0.66)], fill=(210, 160, 110), width=12)
+    figure(d, W * 0.24, H * 0.96, 300, robe=(60, 90, 160), skin=(220, 180, 140))
+    crown_on(d, W * 0.24, H * 0.96 - 300 * 0.86)
+    save(img, "s11_shishupala_janana")
+
+
+# S12. The discus
+def s_sudarshana():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (140, 60, 50), (80, 30, 30), (90, 60, 50))
+    figure(d, W * 0.28, H * 0.95, 340, robe=GOLD, skin=(70, 110, 190))
+    crown_on(d, W * 0.28, H * 0.95 - 340 * 0.86)
+    d.line([(W * 0.31, H * 0.70), (W * 0.38, H * 0.56)], fill=(70, 110, 190), width=14)
+    # the discus in flight
+    cx, cy = W * 0.58, H * 0.48
+    for r, c in ((70, GOLD), (54, (255, 230, 150)), (20, DGOLD)):
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=c, width=8)
+    for k in range(12):
+        a = k * math.pi / 6
+        d.line([(cx + 20 * math.cos(a), cy + 20 * math.sin(a)), (cx + 70 * math.cos(a), cy + 70 * math.sin(a))], fill=GOLD, width=4)
+    for k in range(5):
+        d.line([(W * 0.40 + k * 20, H * 0.54 - k * 2), (W * 0.46 + k * 20, H * 0.52 - k * 2)], fill=(255, 230, 150), width=3)
+    king(d, W * 0.82, H * 0.95, 330, (150, 40, 60))
+    save(img, "s12_sudarshana")
+
+
+# S13. Duryodhana in Maya's hall
+def s_duryodhana_sabha():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (250, 240, 220), (230, 210, 170))
+    for k in range(5):
+        x = W * (0.08 + k * 0.21)
+        d.rectangle([x - 22, H * 0.06, x + 22, H * 0.62], fill=(240, 230, 210), outline=GOLD, width=4)
+    d.rectangle([0, H * 0.62, W, H], fill=(236, 226, 206))
+    d.ellipse([W * 0.26, H * 0.70, W * 0.74, H * 0.98], fill=(60, 110, 170), outline=GOLD, width=6)
+    # Duryodhana, soaked, climbing out
+    king(d, W * 0.50, H * 0.90, 280, (170, 40, 30))
+    for k in range(6):
+        d.line([(W * 0.46 + k * 14, H * 0.66), (W * 0.46 + k * 14, H * 0.72)], fill=(120, 170, 230), width=3)
+    # laughter at the edge
+    figure(d, W * 0.84, H * 0.96, 340, robe=(52, 92, 62), skin=(206, 156, 106))
+    figure(d, W * 0.93, H * 0.96, 240, robe=(150, 130, 100), skin=(200, 150, 100))
+    figure(d, W * 0.12, H * 0.96, 240, robe=(150, 130, 100), skin=(200, 150, 100))
+    save(img, "s13_duryodhana_sabha")
+
+
+# S14. Shakuni shows the dice
+def s_shakuni():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (100, 40, 50), (50, 20, 30), (80, 50, 40))
+    d.rectangle([W * 0.44, H * 0.40, W * 0.56, H * 0.80], fill=(200, 150, 60), outline=DGOLD, width=6)
+    king(d, W * 0.50, H * 0.82, 280, (140, 40, 40), seated=True)
+    d.rectangle([W * 0.50 - 34, H * 0.82 - 280 * 0.82, W * 0.50 + 34, H * 0.82 - 280 * 0.77], fill=INK)
+    figure(d, W * 0.30, H * 0.96, 310, robe=(80, 60, 90), skin=(200, 150, 100))
+    d.line([(W * 0.33, H * 0.72), (W * 0.40, H * 0.64)], fill=(200, 150, 100), width=12)
+    dice(d, W * 0.41, H * 0.62, 18)
+    dice(d, W * 0.44, H * 0.66, 18)
+    king(d, W * 0.72, H * 0.96, 290, (170, 40, 30))
+    save(img, "s14_shakuni")
+
+
+# S15. The game
+def s_dyutam():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (110, 40, 45), (60, 20, 30), (100, 70, 55))
+    d.rectangle([W * 0.30, H * 0.74, W * 0.70, H * 0.82], fill=(170, 120, 70), outline=DGOLD, width=4)
+    for k in range(6):
+        d.line([(W * 0.32 + k * W * 0.065, H * 0.745), (W * 0.32 + k * W * 0.065, H * 0.815)], fill=DGOLD, width=2)
+    for x, y in ((0.46, 0.70), (0.52, 0.68), (0.56, 0.71)):
+        dice(d, W * x, H * y, 16)
+    figure(d, W * 0.22, H * 0.94, 300, robe=(80, 60, 90), skin=(200, 150, 100), seated=True)
+    king(d, W * 0.78, H * 0.94, 300, (27, 37, 64), seated=True)
+    # the watchers, heavy
+    for x, robe in ((0.08, (220, 210, 200)), (0.92, (240, 225, 190))):
+        figure(d, W * x, H * 0.96, 260, robe=robe, skin=(200, 150, 100))
+    save(img, "s15_dyutam")
+
+
+# S16. Draupadi's question
+def s_draupadi_prashna():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (110, 40, 45), (60, 20, 30), (100, 70, 55))
+    figure(d, W * 0.50, H * 0.96, 360, robe=(170, 30, 60), skin=(150, 110, 90))
+    # loosened hair
+    d.polygon([(W * 0.50 - 40, H * 0.96 - 360 * 0.82), (W * 0.50 + 40, H * 0.96 - 360 * 0.82),
+               (W * 0.50 + 60, H * 0.96 - 360 * 0.40), (W * 0.50 - 60, H * 0.96 - 360 * 0.40)], fill=(30, 20, 20))
+    d.ellipse([W * 0.50 - 40, H * 0.96 - 360 * 0.86, W * 0.50 + 40, H * 0.96 - 360 * 0.64], fill=(150, 110, 90))
+    d.line([(W * 0.53, H * 0.70), (W * 0.60, H * 0.56)], fill=(150, 110, 90), width=14)
+    for x in (0.16, 0.26):
+        figure(d, W * x, H * 0.92, 240, robe=(220, 210, 200), skin=(200, 150, 100), seated=True)
+    for x in (0.74, 0.82, 0.90):
+        figure(d, W * x, H * 0.92, 230, robe=(27, 37, 64), skin=(200, 150, 100), seated=True)
+    save(img, "s16_draupadi_prashna")
+
+
+# S17. The endless cloth
+def s_vastra():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (110, 40, 45), (60, 20, 30), (100, 70, 55))
+    for r in (230, 190, 150):
+        d.ellipse([W * 0.36 - r * 0.6, H * 0.58 - r, W * 0.36 + r * 0.6, H * 0.58 + r], outline=(255, 220, 150), width=3)
+    figure(d, W * 0.36, H * 0.96, 360, robe=(230, 150, 40), skin=(150, 110, 90))
+    # the heap of cloth, many colours
+    cols = [(200, 40, 60), (240, 200, 60), (60, 140, 90), (60, 90, 170), (240, 240, 230), (160, 60, 140)]
+    for k in range(14):
+        c = cols[k % len(cols)]
+        y = H * 0.94 - k * 16
+        d.ellipse([W * 0.50 + (k % 3) * 20, y - 20, W * 0.72 - (k % 2) * 20, y + 10], fill=c)
+    # a long band still coming off her
+    d.line([(W * 0.40, H * 0.72), (W * 0.52, H * 0.66), (W * 0.62, H * 0.70)], fill=(240, 200, 60), width=18)
+    # Dushasana, slumped
+    figure(d, W * 0.84, H * 0.96, 260, robe=(170, 40, 30), skin=(200, 150, 100), seated=True)
+    save(img, "s17_vastra")
+
+
+# S18. The boons — omens over the hall
+def s_varalu():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    hall(d, (70, 40, 60), (40, 20, 30), (80, 55, 45))
+    king(d, W * 0.46, H * 0.90, 290, (140, 40, 40), seated=True)
+    d.rectangle([W * 0.46 - 34, H * 0.90 - 290 * 0.82, W * 0.46 + 34, H * 0.90 - 290 * 0.77], fill=INK)
+    figure(d, W * 0.60, H * 0.95, 280, robe=(90, 60, 90), skin=(210, 160, 110))
+    d.rectangle([W * 0.60 - 28, H * 0.95 - 280 * 0.80, W * 0.60 + 28, H * 0.95 - 280 * 0.74], fill=WHITE)
+    figure(d, W * 0.28, H * 0.96, 320, robe=(170, 30, 60), skin=(150, 110, 90))
+    figure(d, W * 0.76, H * 0.96, 270, robe=(240, 225, 190), skin=(200, 150, 100))
+    # the jackal at the window
+    d.rectangle([W * 0.84, H * 0.16, W * 0.96, H * 0.36], fill=(30, 20, 40), outline=DGOLD)
+    d.polygon([(W * 0.86, H * 0.34), (W * 0.90, H * 0.24), (W * 0.93, H * 0.30), (W * 0.95, H * 0.34)], fill=(150, 110, 70))
+    save(img, "s18_varalu")
+
+
+# S19. Into the forest
+def s_vanavasa():
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    gradient(d, (120, 110, 130), (200, 170, 140), 0, int(H * 0.6))
+    d.rectangle([0, H * 0.6, W, H], fill=(140, 130, 90))
+    for x, hh in ((0.72, 380), (0.82, 440), (0.92, 400), (0.99, 360)):
+        tree(d, W * x, H * 0.66, hh, canopy=(50, 80, 55))
+    # Hastinapura behind, on the left
+    d.rectangle([0, H * 0.36, W * 0.16, H * 0.60], fill=(220, 210, 190), outline=DGOLD)
+    d.polygon([(W * 0.04, H * 0.36), (W * 0.08, H * 0.24), (W * 0.12, H * 0.36)], fill=GOLD)
+    # the procession — Dhaumya ahead with grass in hand
+    walkers = [(0.66, 250, (232, 120, 40)), (0.56, 280, (190, 160, 110)), (0.49, 340, (190, 160, 110)),
+               (0.42, 300, (190, 160, 110)), (0.35, 260, (190, 160, 110)), (0.29, 260, (190, 160, 110)),
+               (0.22, 270, (140, 20, 40))]
+    for x, hh, robe in walkers:
+        figure(d, W * x, H * 0.95, hh, robe=robe, skin=(200, 150, 100))
+    d.line([(W * 0.68, H * 0.72), (W * 0.72, H * 0.62)], fill=(140, 170, 80), width=5)
+    d.rectangle([W * 0.56 - 24, H * 0.95 - 280 * 0.86, W * 0.56 + 24, H * 0.95 - 280 * 0.70], fill=(240, 235, 225))
+    # her hair loose
+    d.polygon([(W * 0.22 - 26, H * 0.95 - 270 * 0.80), (W * 0.22 + 26, H * 0.95 - 270 * 0.80),
+               (W * 0.22 + 38, H * 0.95 - 270 * 0.45), (W * 0.22 - 38, H * 0.95 - 270 * 0.45)], fill=(30, 20, 20))
+    d.ellipse([W * 0.22 - 24, H * 0.95 - 270 * 0.86, W * 0.22 + 24, H * 0.95 - 270 * 0.64], fill=(150, 110, 90))
+    save(img, "s19_vanavasa")
+
+
 SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamejaya,
           pauloma, ruru, kadru_vinata, garuda, parikshit, sarpa,
           uparichara, bhubharam, kacha, devayani, yayati, puru,
@@ -1725,7 +2095,11 @@ SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamej
           yajnasena, angaraparna, tapati, nandini, vipasha, swayamvara,
           bhiksha, pariksha, five_indras,
           vidura_sabha, indraprastha, tilottama, varga, subhadra_scene, harana,
-          gandiva, khandava, sharngaka, maya_scene]
+          gandiva, khandava, sharngaka, maya_scene,
+          # Sabha Parva
+          s_mayasabha, s_narada, s_lokapala, s_mantra, s_jara, s_girivraja, s_mallayuddha,
+          s_digvijaya, s_rajasuya, s_agrapuja, s_shishupala_janana, s_sudarshana,
+          s_duryodhana_sabha, s_shakuni, s_dyutam, s_draupadi_prashna, s_vastra, s_varalu, s_vanavasa]
 for f in SCENES:
     f()
 print(len(SCENES), 'illustrations ->', OUT)

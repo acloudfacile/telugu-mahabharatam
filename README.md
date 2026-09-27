@@ -15,9 +15,9 @@ copy sits on the family shelf. It does not claim to replace any of them.
 
 | | |
 |---|---|
-| **Published** | ఆది పర్వము — complete, 58 episodes |
-| **Next** | సభా పర్వము |
-| **Characters** | 117, each with a portrait, a role and a list of appearances |
+| **Published** | ఆది పర్వము (58 episodes), సభా పర్వము (19 episodes) — both complete |
+| **Next** | అరణ్య పర్వము |
+| **Characters** | 127, each with a portrait, a role and a list of appearances |
 | **Also** | మూల నిర్మాణము (the 100 upa-parvas and the source's own count tables), గురు పరంపర, పరిణామం |
 
 Every episode carries two things besides the story itself:
@@ -189,7 +189,10 @@ in batches, right rather than fast.
       episodes ౧౪–౫౮, from Uparicara Vasu to Maya spared at Khandava. Where
       the Telugu prose and Vyasa differ, the episode follows Vyasa and its
       `మూలంలో` note names the difference.
-- [ ] Sabha Parva
+- [x] **Sabha Parva** — both āśvāsas, ౧౯ episodes, Maya's hall to the exile.
+      Told in full: the dice hall is not softened, because this is read by
+      parents and grandparents as much as by children.
+- [ ] Aranya Parva
 - [x] A glossary of names and terms
 - [x] A family tree that grows as characters appear
 - [ ] Plain-text and printable PDF of every story

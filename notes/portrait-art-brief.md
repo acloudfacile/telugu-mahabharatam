@@ -173,6 +173,16 @@ source in `notes/portrait-credits.md` as you go.
 | `varuna` | వరుణుడు | divine | ☐ |
 | `ashvasena` | అశ్వసేనుడు | other | ☐ |
 | `mandapala` | మందపాలుడు | sage/teacher | ☐ |
+| `jarasandha` | జరాసంధుడు | other | ☐ |
+| `brihadratha` | బృహద్రథుడు | other | ☐ |
+| `chandakaushika` | చండకౌశికుడు | sage/teacher | ☐ |
+| `jara` | జర | other | ☐ |
+| `shishupala` | శిశుపాలుడు | other | ☐ |
+| `bhagadatta` | భగదత్తుడు | other | ☐ |
+| `vibhishana` | విభీషణుడు | other | ☐ |
+| `harishchandra` | హరిశ్చంద్రుడు | other | ☐ |
+| `vikarna` | వికర్ణుడు | Kaurava | ☐ |
+| `pratikami` | ప్రాతికామి | Kaurava | ☐ |
 
 ---
 
@@ -2516,4 +2526,204 @@ Subject: Mandapala, sage/teacher.
 Appearance: matted ascetic jata coiled on the head, forehead marked with ash; full beard, dark.
 Holding/marked by: great outspread feathered wings.
 Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `jarasandha` — జరాసంధుడు
+
+*మగధ రాజు, జర కలిపిన రెండు సగాల బిడ్డ, భీముని చేతిలో మరణించినవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Jarasandha, other.
+Appearance: a jewelled crown or royal headdress; full beard, dark.
+Holding/marked by: a heavy iron mace resting on the shoulder.
+Ring colour: forest-green ring (other).
+```
+
+### `brihadratha` — బృహద్రథుడు
+
+*మగధ రాజు, జరాసంధుని తండ్రి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Brihadratha, other.
+Appearance: a jewelled crown or royal headdress; full beard, dark.
+Holding/marked by: a raised sceptre.
+Ring colour: forest-green ring (other).
+```
+
+### `chandakaushika` — చండకౌశికుడు
+
+*బృహద్రథునికి మామిడి పండు ఇచ్చిన మహర్షి*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Chandakaushika, sage/teacher.
+Appearance: matted ascetic jata coiled on the head, forehead marked with ash; full beard, dark.
+Holding/marked by: a lotus bloom held at the breast.
+Ring colour: turmeric-gold ring (sage/teacher).
+```
+
+### `jara` — జర
+
+*జరాసంధుని రెండు సగాలను కలిపిన రాక్షసి, మగధ గృహదేవత*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Jara, other.
+Appearance: long dark hair, centre-parted, gold ornaments and a bindi.
+Holding/marked by: a thunderbolt (vajra).
+Ring colour: forest-green ring (other).
+```
+
+### `shishupala` — శిశుపాలుడు
+
+*చేది రాజు, కృష్ణుని మేనత్త కొడుకు, సుదర్శనానికి బలైనవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Shishupala, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a solar disc glowing behind the head.
+Ring colour: forest-green ring (other).
+```
+
+### `bhagadatta` — భగదత్తుడు
+
+*ప్రాగ్జ్యోతిషపుర రాజు, ఇంద్రుని మిత్రుడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Bhagadatta, other.
+Appearance: a jewelled crown or royal headdress; full beard, dark.
+Holding/marked by: a heavy iron mace resting on the shoulder.
+Ring colour: forest-green ring (other).
+```
+
+### `vibhishana` — విభీషణుడు
+
+*లంకాధిపతి, రాజసూయానికి కప్పం పంపినవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Vibhishana, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a thunderbolt (vajra).
+Ring colour: forest-green ring (other).
+```
+
+### `harishchandra` — హరిశ్చంద్రుడు
+
+*త్రిశంకుని కుమారుడు, రాజసూయం చేసి ఇంద్రసభ చేరిన రాజు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Harishchandra, other.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a solar disc glowing behind the head.
+Ring colour: forest-green ring (other).
+```
+
+### `vikarna` — వికర్ణుడు
+
+*దుర్యోధనుని తమ్ముడు, సభలో ద్రౌపది పక్షాన మాట్లాడినవాడు*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Vikarna, Kaurava.
+Appearance: a jewelled crown or royal headdress.
+Holding/marked by: a palm-leaf manuscript bundle.
+Ring colour: madder-red ring (Kaurava).
+```
+
+### `pratikami` — ప్రాతికామి
+
+*దుర్యోధనుని సారథి కుమారుడు, ద్రౌపదిని పిలవడానికి వెళ్ళిన దూత*
+
+```
+Circular medallion bust portrait, tight double gold ring border with a small
+lotus at the base of the ring, fully transparent outside the circle.
+Painted digital illustration in the manner of a classical Indian oleograph —
+warm saturated colour, soft modelled light, visible brushwork, ornate detail.
+Three-quarter view, shoulders and head only, eyes turned slightly off camera.
+Background inside the circle: open sky, distant fort or temple silhouette,
+tall cloth banners. Square image, 1024x1024, centred, head in the upper half.
+No text, no lettering, no signature, no watermark, no border outside the ring.
+
+Subject: Pratikami, Kaurava.
+Appearance: a wound cloth turban.
+Holding/marked by: great outspread feathered wings.
+Ring colour: madder-red ring (Kaurava).
 ```
