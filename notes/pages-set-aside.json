@@ -1,0 +1,188 @@
+[
+ {
+  "page": "glossary",
+  "where": "terms[0] ఇతిహాసము",
+  "text": "ఇతి-హ-ఆస — 'ఇలా జరిగింది' అని అర్థము.",
+  "why": "none of our sources gives this etymology"
+ },
+ {
+  "page": "glossary",
+  "where": "terms[1] పర్వము",
+  "text": "వెదురు కణుపును కూడా పర్వము అంటారు — కణుపు నుండి కణుపుకు పెరిగినట్టు కథ పర్వం నుండి పర్వానికి పెరుగుతుంది.",
+  "why": "not in any source we hold"
+ },
+ {
+  "page": "glossary",
+  "where": "terms[3] ఆశ్వాసము",
+  "text": "'ఆశ్వాసము' అంటే ఊపిరి తీసుకోవడం; ఒక భాగం చదివి కాసేపు ఆగడం.",
+  "why": "etymology not in any source we hold"
+ },
+ {
+  "page": "glossary",
+  "where": "terms[7] కవిత్రయము",
+  "text": "వీరు ముగ్గురూ కలిసి, మూడు వందల సంవత్సరాలలో, మహాభారతమును తెలుగులోకి తెచ్చారు.",
+  "why": "'three centuries' is not in TTD v1 preface pages checked earlier (t1b notes p60–p66) nor in Nannaya, Modali or the episodes. TTD only says ~950 years since the Telugu Bharatam (adi 1)."
+ },
+ {
+  "page": "glossary",
+  "where": "terms[64] త్రిదండము",
+  "text": "మూడు కర్రలను కలిపి కట్టిన దండము. సన్యాసులు చేతిలో పట్టుకుని తిరుగుతారు.",
+  "why": "adi 105 note: 'కాషాయ వస్త్రాలు, జడలు, త్రిదండం నన్నయలో లేవు'. No episode text uses the word; nothing we hold defines it."
+ },
+ {
+  "page": "evolution",
+  "where": "timeline[6]",
+  "text": "క్రీ.శ. ౧౯౧౯–౧౯౬౬ — భండార్కర్ సంస్థ విమర్శనాత్మక సంపుటం — ౧,౨౫౯ తాళపత్ర ప్రతులు, ౮౯,౦౦౦+ శ్లోకాలు",
+  "why": "none held (BORI figures; brief lists these as unsourced)"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[0] (పంచమ వేదం అంటే ఏమిటి?).p[1] s1",
+  "text": "ఈ ఆలోచన కొత్తది కాదు. ఛాందోగ్యోపనిషత్తులో నారదుడు సనత్కుమారునితో ... 'ఇతిహాస పురాణం పంచమం' ... అని అంటాడు.",
+  "why": "Chandogya Upanishad — not held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[0] (పంచమ వేదం అంటే ఏమిటి?).p[2]",
+  "text": "పంచమ వేదం అనే బిరుదు ఒక్క మహాభారతానికే కాదు — నాట్యశాస్త్రం, తమిళ తిరుక్కురళ్ వంటి గ్రంథాలకూ ... కానీ దీన్ని అత్యంత విస్తారంగా, నిలకడగా అందుకున్నది మహాభారతమే.",
+  "why": "none held (Natyashastra/Tirukkural claim from web/Quora)"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[1] (జయం, భారతం, మహాభారతం).p[3] s2",
+  "text": "జాన్ బ్రాకింగ్టన్ వంటి కొందరు ఆధునిక పండితులు 'జయం', 'భారతం' ఒకే గ్రంథానికి పేర్లనీ, ౮,౮౦౦ శ్లోకాల ఆలోచన ... తప్పుగా చదవడం వల్ల వచ్చిందనీ అభిప్రాయపడతారు.",
+  "why": "modern scholar (Brockington) via Wikipedia — not held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[0] s1",
+  "text": "శతాబ్దాలుగా మహాభారతం చేతితో రాసిన తాళపత్ర ప్రతులలో దేశమంతటా వ్యాపించింది.",
+  "why": "none held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[0] s2",
+  "text": "ఉత్తర భారత పాఠం, దక్షిణ భారత పాఠం, కాశ్మీర, బెంగాల్, తెలుగు, గ్రంథ లిపి ప్రతులు — ఒక్కో ప్రాంతంలో ఒక్కో మార్పు, ఒక్కో చేర్పు.",
+  "why": "none held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[0] s3",
+  "text": "నీలకంఠ వ్యాఖ్యానంతో ఉన్న 'వల్గేట్' పాఠం, కుంభకోణం ముద్రణ ఇలా పలు ముద్రిత సంపుటాలు వచ్చాయి.",
+  "why": "none held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[1] s1",
+  "text": "... పూణేలోని భండార్కర్ ఓరియంటల్ రీసెర్చ్ ఇన్‌స్టిట్యూట్ ౧౯౧౯ ఏప్రిల్‌లో పని మొదలుపెట్టింది.",
+  "why": "BORI history — not held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[1] s2",
+  "text": "వి.ఎస్. సుక్తంకర్ నేతృత్వంలో పండితులు ౧,౨౫౯ తాళపత్ర ప్రతులను ... ౧౯౬౬ సెప్టెంబరు ౨౨న ౧౯ సంపుటాల విమర్శనాత్మక సంపుటాన్ని విడుదల చేశారు.",
+  "why": "BORI figures — not held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[1] s3",
+  "text": "ఇందులో ౮౯,౦౦౦ పైచిలుకు శ్లోకాలు మూల పాఠంగా, మిగిలినవి అనుబంధాలుగా ఉన్నాయి.",
+  "why": "BORI figures — not held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] (ప్రాంతీయ పాఠాలు, భండార్కర్).p[1] s4",
+  "text": "ఈనాడు ప్రపంచంలో మహాభారత పరిశోధనకు ఇదే ప్రామాణిక ఆధారం.",
+  "why": "none held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[4] (ఆంధ్ర మహాభారతం — కవిత్రయం).p[1] s3",
+  "text": "ఆయనకు 'కవిబ్రహ్మ', 'ఉభయ కవిమిత్రుడు' అనే బిరుదులు.",
+  "why": "none held"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[4] (ఆంధ్ర మహాభారతం — కవిత్రయం).p[2] s2",
+  "text": "ఆయన నన్నయ శైలిలో మొదలుపెట్టి క్రమంగా తిక్కన శైలికి మారుతూ, రెండు కవుల మధ్య అతుకు కనిపించకుండా రచించడం తెలుగు సాహిత్యంలో ఒక అద్భుతం.",
+  "why": "none held (TTD v1 p32 only says నన్నయ వస్తుధ్వని, తిక్కన రసధ్వని, ఎఱ్ఱన అలంకార ధ్వని పోషించారు)"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[5] (ఈ సైటు ఎక్కడ నిలుస్తుంది).p[0] s2",
+  "text": "అందుకే ఇరవయ్యవ శతాబ్దం నుంచి ఎందరో పండితులు దాన్ని తేట తెలుగు వచనంలోకి తెచ్చారు.",
+  "why": "none held"
+ },
+ {
+  "page": "gurus",
+  "where": "gurus[bhishma].disciples → pandavas",
+  "text": "భీష్ముడు → పాండవులు",
+  "why": "మన మూలాలలో భీష్ముడు రాకుమారులకు విద్య నేర్పలేదు — వారిని కృపునికి, ద్రోణునికి అప్పగించాడు (adi 66, adi 68). ధర్మబోధ యుధిష్ఠిరునికి మాత్రమే (adi 5)"
+ },
+ {
+  "page": "gurus",
+  "where": "gurus[bhishma].disciples → duryodhana",
+  "text": "భీష్ముడు → దుర్యోధనుడు",
+  "why": "అదే — adi 66, adi 68 ప్రకారం దుర్యోధనుని గురువులు కృప ద్రోణులు"
+ },
+ {
+  "page": "gurus",
+  "where": "gurus[bhishma].note (3)",
+  "text": "— విష్ణు సహస్రనామం ఆ బోధలో భాగం.",
+  "why": "అనుశాసనిక పర్వపు Ganguli గానీ, ఈ సంగతి చెప్పే ఇతర మూలం గానీ మన దగ్గర లేదు"
+ },
+ {
+  "page": "gurus",
+  "where": "gurus[kripa].note (5)",
+  "text": "చిరంజీవి — తరువాత పరీక్షిత్తుకు గురువయ్యాడు.",
+  "why": "మన మూలాలలో (adi/sabha, TTD, మొదలి, మన దగ్గరున్న Ganguli పర్వాలు) లేదు"
+ },
+ {
+  "page": "gurus",
+  "where": "gurus[krishna].disciples → uddhava",
+  "text": "కృష్ణుడు → ఉద్ధవుడు",
+  "why": "ఉద్ధవుడు మన మూలాలలో యాదవులలో ఒకడుగా మాత్రమే (adi 105; Ganguli, Sabha) — కృష్ణుని శిష్యునిగా కాదు"
+ },
+ {
+  "page": "gurus",
+  "where": "gurus[krishna].note (1)",
+  "text": "సాందీపని మహర్షి శిష్యుడు.",
+  "why": "మన మూలాలలో ఎక్కడా లేదు (Ganguli పర్వాలలో 'Sandipani' లేదు)"
+ },
+ {
+  "page": "evolution",
+  "where": "sections[3] whole section",
+  "text": "{\"h\": \"ప్రాంతీయ పాఠాలు, భండార్కర్ విమర్శనాత్మక సంపుటం\", \"p\": [\"  \", \"ఈ గందరగోళాన్ని ఒక ప్రామాణిక రూపంలోకి తేవడానికి పూణేలోని భండార్కర్ ఓరియంటల్ రీసెర్చ్ ఇన్‌స్టిట్యూట్ ౧౯౧౯ ఏప్రిల్‌లో పని మొదలుపెట్టింది. వి.ఎస్. సుక్తంకర్ నేతృత్వంలో పండితులు ౧,౨౫౯ తాళపత్ర ప్రతులను శ్లోకం శ్లోకంగా పోల్చి, నలభై ఏడు సంవత్సరాల తరువాత ౧౯౬౬ సెప్టెంబరు ౨౨న ౧౯ సంపుటాల విమర్శనాత్మక సంపుటాన్ని విడుదల చేశారు.  \"]}",
+  "why": "Bhandarkar edition figures — no source we hold"
+ },
+ {
+  "page": "evolution",
+  "where": "timeline Bhandarkar row",
+  "text": "{\"when\": \"క్రీ.శ. ౧౯౧౯–౧౯౬౬\", \"what\": \"భండార్కర్ సంస్థ విమర్శనాత్మక సంపుటం\", \"detail\": \"౧,౨౫౯ తాళపత్ర ప్రతులు, ౮౯,౦౦౦+ శ్లోకాలు\"}",
+  "why": "no source we hold"
+ },
+ {
+  "page": "evolution",
+  "where": "sources (web links)",
+  "text": "[{\"t\": \"Mahabharata — Wikipedia (three redactions: Jaya 8,800 / Bharata 24,000 / Mahabharata 100,000; Brockington's dissent)\", \"u\": \"https://en.wikipedia.org/wiki/Mahabharata\"}, {\"t\": \"Three-stage evolution of Mahabharata — jayam, bharatam, mahabharatam (varnam)\", \"u\": \"https://varnam.substack.com/p/three-stage-evolution-of-mahabharata\"}, {\"t\": \"The growth of the Mahabharata from 8,800 to 100,000 verses (Hindu Perspective)\", \"u\": \"https://hinduperspective.com/2013/05/29/the-growth-of-the-mahabharata-from-8800-verses-to-100000-verses/\"}, {\"t\": \"Vyasa the literary genius of ancient India (Ithihas) — Vyasa's five disciples, Bharatacharyas\", \"u\": \"https://ithihas.wordpress.com/2020/07/02/vyasa-the-literary-genius-of-ancient-india/\"}, {\"t\": \"Bhandarkar Oriental Research Institute — The Critical Edition of the Mahabharata (1919–1966, 1,259 manuscripts, 89,000+ verses)\", \"u\": \"https://bori.ac.in/?p=318\"}, {\"t\": \"Andhra Mahabharatam — Wikipedia (Kavitrayam, 21,507 poems)\", \"u\": \"https://en.wikipedia.org/wiki/Andhra_Mahabharatam\"}, {\"t\": \"Nannayya — Wikipedia\", \"u\": \"https://en.wikipedia.org/wiki/Nannayya\"}, {\"t\": \"Tikkana — Wikipedia\", \"u\": \"https://en.wikipedia.org/wiki/Tikkana\"}, {\"t\": \"Kavitrayam — Wikipedia\", \"u\": \"https://en.wikipedia.org/wiki/Kavitrayam\"}, {\"t\": \"Which Indian text is considered the fifth Veda? (Quora)\", \"u\": \"https://www.quora.com/Which-Indian-text-is-considered-as-the-fifth-Veda\"}]",
+  "why": "web pages, not sources we hold"
+ },
+ {
+  "page": "gurus",
+  "where": "భీష్ముడు → పాండవులు",
+  "text": "భీష్ముడు → పాండవులు",
+  "why": "no source has this teacher–disciple link"
+ },
+ {
+  "page": "gurus",
+  "where": "భీష్ముడు → దుర్యోధనుడు",
+  "text": "భీష్ముడు → దుర్యోధనుడు",
+  "why": "no source has this teacher–disciple link"
+ },
+ {
+  "page": "gurus",
+  "where": "కృష్ణుడు → ఉద్ధవుడు",
+  "text": "కృష్ణుడు → ఉద్ధవుడు",
+  "why": "no source has this teacher–disciple link"
+ }
+]

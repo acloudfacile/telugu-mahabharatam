@@ -1,7 +1,7 @@
 # Adi Parva — source map
 
 Page numbers are PDF page indices in the Modali Venkata Subrahmanyam
-*శ్రీమదాంధ్ర మహాభారతము (తేట తెలుగు భాషలో)*, the Kavitrayam rendered into modern
+*శ్రీమదాంధ్ర మహా భారతము (తేట తెలుగు వచనం లో)*, the Kavitrayam rendered into modern
 Telugu prose. Each āśvāsa opens with a title page; content starts the page after.
 Verified by reading, not inferred.
 
