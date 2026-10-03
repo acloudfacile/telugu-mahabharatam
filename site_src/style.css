@@ -247,10 +247,10 @@ header.top nav{align-items:center}
 .pill.side-deva{background:#E6B43C;color:var(--indigo);border-color:#E6B43C}
 .pill.side-kuru{background:#6E5078;color:var(--cloth);border-color:#6E5078}
 .pill.side-other{background:var(--indigo-2);color:var(--cloth);border-color:var(--indigo-2)}
-h2.sub{font-size:1.4rem;color:var(--indigo);margin:36px 0 12px}
+h2.sub{font-size:1.4rem;color:var(--heading);margin:36px 0 12px}
 .ep-links{list-style:none;padding:0;margin:0}
 .ep-links li{padding:12px 0;border-bottom:1px solid var(--line)}
-.ep-links a{font-family:var(--display);font-size:1.15rem;color:var(--indigo)}
+.ep-links a{font-family:var(--display);font-size:1.15rem;color:var(--heading)}
 .ep-links .n{color:var(--madder);margin-right:10px}
 .ep-links small{display:inline-block;margin-left:10px;font-family:var(--body);color:var(--muted);font-size:.85rem}
 .ep-links .snip{color:var(--muted);font-size:.92rem;line-height:1.7;margin-top:4px}
@@ -258,8 +258,8 @@ mark{background:#FBE7A1;color:var(--ink);padding:0 2px}
 .guru-list{display:grid;gap:18px;margin-top:8px}
 .guru{display:grid;grid-template-columns:110px 1fr;gap:26px;padding:26px 28px;background:var(--cloth-2);border-radius:6px;border-left:5px solid var(--turmeric)}
 .guru .gt{color:var(--madder);font-size:.9rem}
-.guru h2{font-size:1.7rem;color:var(--indigo)}
-.guru h2 a{color:var(--indigo)}
+.guru h2{font-size:1.7rem;color:var(--heading)}
+.guru h2 a{color:var(--heading)}
 .guru .taught{color:var(--muted);font-size:.92rem;margin:4px 0 10px}
 .guru p{margin:0 0 10px;color:var(--ink)}
 .search-big{display:flex;gap:8px;margin-top:20px;max-width:34rem}
@@ -278,7 +278,7 @@ mark{background:#FBE7A1;color:var(--ink);padding:0 2px}
 .timeline li:nth-child(4n){border-right:0}
 .timeline li::before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;border-radius:50%;background:var(--madder);border:3px solid var(--cloth)}
 .timeline .tw{display:block;color:var(--muted);font-size:.85rem}
-.timeline .tt{display:block;font-family:var(--display);font-size:1.15rem;color:var(--indigo);margin:4px 0}
+.timeline .tt{display:block;font-family:var(--display);font-size:1.15rem;color:var(--heading);margin:4px 0}
 .timeline .td{display:block;color:var(--madder);font-size:.9rem}
 .evo{margin:0}
 .evo p{text-align:justify;line-height:1.95;margin:0 0 1.2em}
