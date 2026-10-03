@@ -43,5 +43,14 @@ generation — nothing softened, nothing assumed, every statement traceable.
 - [ ] Print / PDF per parva; read-aloud audio
 - [ ] Real artwork; a map of places then and now; a timeline
 
+## Parked (waiting on the owner)
+- [ ] **Own domain + Google Search Console** — parked 2026-10-04 until a domain
+      is bought. When it is: add a `CNAME` file with the domain at the repo
+      root, set the custom domain in GitHub Pages settings (enforce HTTPS),
+      change `SITE_URL` in build_site.py (canonical, og:url/og:image,
+      sitemap.xml, robots.txt all use it), rebuild, publish, then verify the
+      domain in Search Console and submit `sitemap.xml`. The old github.io
+      address keeps redirecting.
+
 ## Later
 - [ ] Other languages — only once the Telugu is complete
