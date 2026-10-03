@@ -3452,9 +3452,10 @@
    },
    {
     "text": "అర్జునుడు మొదట కుళింద రాజులను (తెలుగు వచనంలో పుళింద రాజు), ఆనర్తులను, కాలకూటులను జయించాడు. ప్రతివింధ్యుడు అనే రాజును, ద్వీపాల అధిపతులను ఓడించాడు. తరువాత ప్రాగ్జ్యోతిషపురం మీదకు వెళ్ళాడు. అక్కడి రాజు భగదత్తుడు — కిరాతులతో, చీనులతో, సముద్ర తీరపు యోధులతో కూడిన పెద్ద సైన్యానికి అధిపతి. ఇద్దరి మధ్య ఎనిమిది రోజులు యుద్ధం జరిగింది.",
-    "result": "not_found",
-    "ref": "",
-    "why": "Ganguli's printed Section XXV has a gap: it jumps from Yudhishthira staying in Khandavaprastha (l.2515) straight to 'Bhagadatta, hearing this, said' (l.2517). Kulindas, Anartas, Kalakutas, Prativindhya, island kings, Bhagadatta's army of Kiratas/Chinas, 8-day battle are not in the text. grep kulinda|anarta|prativindhya|eight days: only unrelated hits (l.852, 1471, 2003)."
+    "result": "confirmed",
+    "ref": "Ganguli, Sabha Parva, Section XXVI",
+    "why": "Re-checked 2026-10-03 against the printed Ganguli (Toronto scan, archive.org mahabharataofkri02roypuoft, pp. 64–65, Section XXVI); the Gutenberg e-text omits this passage. Kulindas, Anarttas, Kalakutas, Sumandala, Sakala island, Prativindhya, Bhagadatta with Kiratas and Chins, eight days — all confirmed.",
+    "resweep": true
    },
    {
     "text": "దరదులను జయించాడు. హిమాలయాలు దాటి, కింపురుషుల దేశం, హాటక దేశం దాటి, మానస సరోవరం చూసి, మేరు పర్వతం దర్శించాడు. మేరు దాటాక ఉత్తర కురు దేశం.",
@@ -3506,9 +3507,10 @@
    },
    {
     "text": "భగదత్తుడు తెలుగు వచనంలో 'మనిద్దరమూ ఇంద్రుని కుమారులమే' అంటాడు; వ్యాసుని మూలంలో 'ఇంద్రుని మిత్రుడను' అంటాడు.",
-    "result": "not_found",
-    "ref": "",
-    "why": "Telugu clause: Modali text, not a Vyasa claim. Vyasa clause not in Ganguli: Bhagadatta's speech is lost in the gap in Section XXV; only 'as thou art to me, so is Yudhishthira also' survives (l.2517). grep 'friend of Indra' hits only Bhishmaka (l.1459) and others."
+    "result": "partly",
+    "ref": "Ganguli, Sabha Parva, Section XXVI",
+    "why": "Re-checked 2026-10-03 against the printed Ganguli (Toronto scan, archive.org mahabharataofkri02roypuoft, pp. 64–65, Section XXVI); the Gutenberg e-text omits this passage. Telugu clause (Modali) not a Vyasa claim; Vyasa clause confirmed: \"I am the friend of Indra\".",
+    "resweep": true
    },
    {
     "text": "ఉత్తర కురు ద్వారపాలకుల మాటలు వ్యాసుని మూలము నుండి; తెలుగు వచనంలో అర్జునుడు ఉత్తర కురువులను యుద్ధంలో ఓడించి రత్నాలు తీసుకుంటాడు.",
