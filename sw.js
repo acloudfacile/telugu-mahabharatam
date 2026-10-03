@@ -7,7 +7,7 @@
      navigations  network first, cache as backup  (so a new parva shows up)
      everything else  cache first, refresh behind (so reading is instant)
    The cache name carries a build stamp; a new build drops the old cache. */
-const VERSION = 'f271db5fca9f';
+const VERSION = '296ed1ef3a7d';
 const CACHE = 'mb-' + VERSION;
 const ASSETS = [
 "./",
@@ -97,6 +97,7 @@ const ASSETS = [
 "./img/a_dirghatamas.jpg",
 "./img/a_drona_insult.jpg",
 "./img/a_drona_school.jpg",
+"./img/a_dushyanta_kanva_ashrama.jpg",
 "./img/a_gandhari_vivaham.jpg",
 "./img/a_garuda_amritam.jpg",
 "./img/a_garuda_elephant_tortoise.jpg",

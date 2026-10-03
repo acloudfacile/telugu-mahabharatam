@@ -2266,7 +2266,6 @@ SPECS = {
  "kacha_devayani_shapa": ("ashram", [(0.36,"boy","cream",1.3),(0.66,"woman","pink")], []),
  "yayati_devayani_wedding": ("forest", [(0.3,"sage","saffron",1.0),(0.5,"woman","pink"),(0.66,"king","violet"),(0.84,"woman","maroon",0.9)], []),
  "yayati_fall_ashtaka": ("sky", [(0.36,"king","violet"),(0.64,"king","gold",0.9),(0.78,"king","gold",0.9)], [("halo",0.36,0.4,1.4)]),
- "shakuntala_gandharva": ("ashram", [(0.5,"boy","saffron"),(0.8,"sage","saffron")], [("elephant",0.36,0.92,0.8)]),
  "shakuntala_sabha": ("court", [(0.3,"king","violet"),(0.66,"woman","white"),(0.74,"boy","saffron")], [("throne",0.3,0.94,1.0)]),
  "mahabhisha_ganga_vasus": ("sky", [(0.3,"woman","teal"),(0.6,"king","violet"),(0.8,"deity","red",0.9)], []),
  "pratipa_right_thigh": ("river", [(0.4,"sage","cream",1.1),(0.6,"woman","teal")], []),
@@ -2315,6 +2314,76 @@ def composed():
         compose("s_" + key, bg, figs, props)
 
 
+# Wild animals for the Shakuntala scenes (Nannaya ఆది. 4.17–4.18, 4.59).
+def lion(d, X, Y, s, lying=False):
+    body, mane = (206, 160, 80), (150, 95, 40)
+    if lying:
+        d.ellipse([X - 130 * s, Y - 70 * s, X + 110 * s, Y], fill=body)
+        d.ellipse([X + 70 * s, Y - 120 * s, X + 170 * s, Y - 20 * s], fill=mane)
+        d.ellipse([X + 95 * s, Y - 98 * s, X + 155 * s, Y - 40 * s], fill=body)
+        d.line([(X - 130 * s, Y - 30 * s), (X - 190 * s, Y - 10 * s)], fill=body, width=int(10 * s))
+        return
+    d.ellipse([X - 120 * s, Y - 150 * s, X + 90 * s, Y - 60 * s], fill=body)
+    for dx in (-90, -50, 30, 70): d.rectangle([X + dx * s - 12 * s, Y - 80 * s, X + dx * s + 12 * s, Y], fill=body)
+    d.ellipse([X + 50 * s, Y - 200 * s, X + 160 * s, Y - 90 * s], fill=mane)
+    d.ellipse([X + 75 * s, Y - 175 * s, X + 140 * s, Y - 112 * s], fill=body)
+
+def tiger(d, X, Y, s):
+    body = (220, 130, 40)
+    d.ellipse([X - 130 * s, Y - 140 * s, X + 100 * s, Y - 60 * s], fill=body)
+    for dx in (-100, -60, 40, 75): d.rectangle([X + dx * s - 11 * s, Y - 80 * s, X + dx * s + 11 * s, Y], fill=body)
+    d.ellipse([X + 70 * s, Y - 170 * s, X + 150 * s, Y - 95 * s], fill=body)
+    for k in range(6): d.line([(X - 100 * s + k * 35 * s, Y - 138 * s), (X - 88 * s + k * 35 * s, Y - 70 * s)], fill=INK, width=int(7 * s))
+
+def boar(d, X, Y, s):
+    body = (80, 62, 50)
+    d.ellipse([X - 110 * s, Y - 120 * s, X + 90 * s, Y - 40 * s], fill=body)
+    for dx in (-80, -45, 30, 60): d.rectangle([X + dx * s - 10 * s, Y - 60 * s, X + dx * s + 10 * s, Y], fill=body)
+    d.polygon([(X + 70 * s, Y - 115 * s), (X + 150 * s, Y - 80 * s), (X + 70 * s, Y - 50 * s)], fill=body)
+    d.line([(X + 120 * s, Y - 72 * s), (X + 132 * s, Y - 100 * s)], fill=CREAM, width=int(6 * s))
+
+def tether(d, X, Y, tx, ty):
+    d.line([(X, Y), (tx, ty)], fill=(200, 180, 120), width=4)
+
+def elephant_big(d, X, Y, s, col=(120, 120, 132)):
+    d.ellipse([X - 150 * s, Y - 200 * s, X + 150 * s, Y - 40 * s], fill=col)
+    for dx in (-100, -40, 40, 100): d.rectangle([X + dx * s - 18 * s, Y - 70 * s, X + dx * s + 18 * s, Y], fill=col)
+    d.ellipse([X + 110 * s, Y - 220 * s, X + 200 * s, Y - 120 * s], fill=col)
+    d.line([(X + 190 * s, Y - 140 * s), (X + 210 * s, Y - 40 * s)], fill=col, width=int(22 * s))
+
+
+def dushyanta_ashrama():
+    """ఆది. 4: Dushyanta comes alone into Kanva's ashrama; lions rest in the
+    shade of elephants; Shakuntala receives him as a guest."""
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    _bg(d, "ashram")
+    elephant_big(d, W * 0.16, H * 0.90, 0.75)
+    lion(d, W * 0.20, H * 0.95, 0.55, lying=True)
+    elephant_big(d, W * 0.86, H * 0.86, 0.5)
+    lion(d, W * 0.84, H * 0.92, 0.38, lying=True)
+    _fig(d, 0.62, "king", "violet", 1.05)
+    _fig(d, 0.44, "woman", (198, 84, 118), 1.0)
+    pot(d, W * 0.505, H * 0.84, 26)
+    save(img, "a_dushyanta_kanva_ashrama")
+
+
+def bharata_wild():
+    """ఆది. 4: the boy Sarvadamana rides a rutting elephant; tigers, boars and
+    other beasts he has caught are tied to the trees; Shakuntala and the sages watch."""
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    _bg(d, "ashram")
+    for tx in (0.10, 0.80):
+        tree(d, W * tx, H * 0.80, 360)
+    tiger(d, W * 0.20, H * 0.94, 0.6); tether(d, W * 0.24, H * 0.86, W * 0.11, H * 0.62)
+    boar(d, W * 0.76, H * 0.95, 0.6); tether(d, W * 0.74, H * 0.88, W * 0.80, H * 0.62)
+    tiger(d, W * 0.88, H * 0.97, 0.45); tether(d, W * 0.90, H * 0.90, W * 0.81, H * 0.66)
+    elephant_big(d, W * 0.42, H * 0.93, 0.9, col=(108, 108, 120))
+    figure(d, W * 0.41, H * 0.76, 170, robe=GOLD, skin=(206, 156, 106), seated=True)
+    _fig(d, 0.25, "woman", (198, 84, 118), 0.85)
+    _fig(d, 0.615, "sage", "saffron", 0.62)
+    save(img, "a_shakuntala_gandharva")
+
+
 SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamejaya,
           pauloma, ruru, kadru_vinata, garuda, parikshit, sarpa,
           uparichara, bhubharam, kacha, devayani, yayati, puru,
@@ -2331,7 +2400,7 @@ SCENES = [nannaya, naimisharanya, cover, parva_sangraha, sarama, udanka, janamej
           s_mayasabha, s_narada, s_lokapala, s_mantra, s_jara, s_girivraja, s_mallayuddha,
           s_digvijaya, s_rajasuya, s_agrapuja, s_shishupala_janana, s_sudarshana,
           s_duryodhana_sabha, s_shakuni, s_dyutam, s_draupadi_prashna, s_vastra, s_varalu, s_vanavasa,
-          composed]
+          composed, dushyanta_ashrama, bharata_wild]
 for f in SCENES:
     f()
 print(len(SCENES), 'illustrations ->', OUT)
