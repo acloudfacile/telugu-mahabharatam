@@ -1,5 +1,5 @@
 (function(){
-  const P = window.MB_PARVAS, C = window.MB_CONTENT || {}, CH = window.MB_CHARS || [], G = window.MB_GURUS || {gurus:[]};
+  const P = window.MB_PARVAS, C = (window.MB_CONTENT = window.MB_CONTENT || {}), CH = window.MB_CHARS || [], G = window.MB_GURUS || {gurus:[]};
   const IMG = window.MB_IMG || 'img/', ICO = window.MB_ICO || 'icons/', EV = window.MB_EVOLUTION || null;
   const ML = window.MB_MOOLAM || null;
   const VM = window.MB_VAMSHA || null;
@@ -17,8 +17,23 @@
   CH.forEach(c => { byName[c.name] = c; c.aliases.forEach(a => byName[a] = c); byName[c.name.replace(/ \(.*\)$/,'')] = c; });
   const findChar = n => byName[n] || byName[n.replace(/\s*\(.*\)$/,'')] || null;
   const findCharById = id => CH.find(c => c.id === id);
+  // Each parva's text is loaded only when it is opened; this small index of
+  // titles and characters is always here, so lists and character pages work.
+  const IX = window.MB_INDEX || Object.fromEntries(Object.keys(C).map(pid => [pid, C[pid].episodes]));
+  const loading = {};
+  function loadParva(pid){
+    if(C[pid]) return Promise.resolve(C[pid]);
+    if(!IX[pid]) return Promise.resolve(null);
+    return loading[pid] = loading[pid] || new Promise(res => {
+      const s = document.createElement('script');
+      s.src = 'data/parva/' + pid + '.js';
+      s.onload = () => res(C[pid] || null);
+      s.onerror = () => { delete loading[pid]; res(null); };
+      document.head.appendChild(s);
+    });
+  }
   const appearances = {};
-  Object.keys(C).forEach(pid => C[pid].episodes.forEach(e => e.characters.forEach(n => {
+  Object.keys(IX).forEach(pid => IX[pid].forEach(e => e.characters.forEach(n => {
     const c = findChar(n); if(!c) return;
     (appearances[c.id] = appearances[c.id] || []).push({pid, num:e.num, title:e.title});
   })));
@@ -56,7 +71,7 @@
             <div>
               <div class="name"><span class="num sm">${tnum(p.num)}</span>${p.status === 'published' ? `<a href="#/parva/${p.id}">${esc(p.te)}</a>` : esc(p.te)}<span class="en">${esc(p.en)}</span></div>
               <div class="sum">${esc(p.summary)}</div>
-              <span class="pill ${p.status}">${statusText[p.status]}${p.status==='published' && C[p.id] ? ' · ' + tnum(C[p.id].episodes.length) + ' కథలు' : ''}</span>
+              <span class="pill ${p.status}">${statusText[p.status]}${p.status==='published' && IX[p.id] ? ' · ' + tnum(IX[p.id].length) + ' కథలు' : ''}</span>
             </div>
           </li>`).join('')}
       </ol>`;
@@ -240,12 +255,22 @@
         ${vyasaBox(e)}
         ${learnBox(e)}
         ${sourceBox(e)}
+        <div class="share"><button type="button" id="sharebtn">ఈ కథను పంచుకోండి</button></div>
         <nav class="pager">
           ${prev ? `<a href="#/parva/${id}/${prev.num}"><small>మునుపటి కథ</small>${esc(prev.title)}</a>` : ''}
           ${next ? `<a class="next" href="#/parva/${id}/${next.num}"><small>తరువాతి కథ</small>${esc(next.title)}</a>` : ''}
         </nav>
         ${!next ? `<div class="closing"><p>${esc(c.closing)}</p><a href="#/">అన్ని పర్వాలు</a></div>` : ''}
       </div>`;
+    // the shareable link is the episode's own page, so a preview shows its title and picture
+    const url = new URL(`${id}/${e.num}/`, new URL('.', document.baseURI)).href;
+    const sb = document.getElementById('sharebtn');
+    sb.addEventListener('click', async () => {
+      try {
+        if(navigator.share) { await navigator.share({title: e.title, url}); return; }
+        await navigator.clipboard.writeText(url); sb.textContent = 'లింకు కాపీ అయింది ✓';
+      } catch(err) { if(err && err.name !== 'AbortError') prompt('ఈ లింకును కాపీ చేసుకోండి', url); }
+    });
   }
 
   function characters(filter){
@@ -301,6 +326,12 @@
 
   function search(q){
     q = (q||'').trim();
+    const need = Object.keys(IX).filter(pid => !C[pid]);
+    if(q && need.length){
+      $.innerHTML = `<p class="empty">వెతుకుతున్నాము…</p>`;
+      Promise.all(need.map(loadParva)).then(() => search(q));
+      return;
+    }
     document.title = `వెతుకు — ${P.site.title}`;
     const chars = q ? CH.filter(c => (c.name + ' ' + c.aliases.join(' ') + ' ' + c.role).includes(q)) : [];
     const eps = [];
@@ -504,7 +535,13 @@
   }
 
   function route(){
-    const h = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+    const raw = location.hash ? location.hash : (window.MB_START ? '#/' + window.MB_START : '');
+    const h = raw.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+    if(h[0] === 'parva' && h[1] && IX[h[1]] && !C[h[1]]){
+      $.innerHTML = `<p class="empty">కథ వస్తోంది…</p>`;
+      loadParva(h[1]).then(c => { if(c) route(); else notfound(); });
+      return;
+    }
     if(h[0] === 'parva' && h[1] && h[2]) episode(h[1], h[2]);
     else if(h[0] === 'parva' && h[1]) parva(h[1]);
     else if(h[0] === 'patralu') characters(h[1]);

@@ -16,11 +16,11 @@ generation — nothing softened, nothing assumed, every statement traceable.
 - [x] "About this site": a retelling, its sources, how differences are shown
 - [x] Report-an-error link on every episode
 - [x] Review status per episode (checked against sources / reviewed by a person)
-- [ ] Independent fidelity check per episode, then human review
+- [~] Independent fidelity check per episode (done: TTD, Modali, Ganguli; supporting pages checked), then human review (pending)
 
 ## Foundations
-- [ ] Load each parva's text only when it is opened
-- [ ] A real page per episode (search engines, link previews)
+- [x] Load each parva's text only when it is opened
+- [x] A real page per episode (search engines, link previews) — /adi/5/ etc., sitemap.xml, share button
 
 ## Content
 - [ ] The remaining 16 parvas, same method (Modali + TTD, audited page by page)

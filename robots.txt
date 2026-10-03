@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://acloudfacile.github.io/telugu-mahabharatam/sitemap.xml
