@@ -8,7 +8,7 @@ Verified by reading, not inferred.
 | āśvāsa | pages | contents |
 |---|---|---|
 | ౧ ప్రథమ | 3–24 | Nannaya frame · Naimiśāraṇya · Vyāsa & Gaṇapati · parva saṅgraha · Saramā · Udaṅka/Pauṣya · Paulōma (Bhṛgu, Cyavana, Ruru) |
-| ౨ ద్వితీయ | 26–59 | Āstīka — Kadru & Vinatā · Garuḍa · Parīkṣit · sarpayāga · Āstīka |
+| ౨ ద్వితీయ | 26–60 | Āstīka — Kadru & Vinatā · Garuḍa · Parīkṣit · sarpayāga · Āstīka |
 | ౩ తృతీయ | 61–109 | Ādivaṁśāvataraṇa — Uparicara Vasu, Satyavatī, Vyāsa's birth · bhū-bhāra and the descent of the gods · creation genealogy · Kaca & Devayānī · Devayānī & Śarmiṣṭhā · Yayāti & Pūru |
 | ౪ చతుర్థ | 111–156 | Duṣyanta & Śakuntalā · Bharata · Pratīpa · Śantanu & Gaṅgā · the eight Vasus cursed by Vasiṣṭha · Bhīṣma's vow · Satyavatī · Vicitravīrya · Ambā · niyoga |
 | ౫ పంచమ | 158–203 | Dhṛtarāṣṭra, Pāṇḍu, Vidura · Kuntī's boon and Karṇa's birth · Pāṇḍu's curse · births of the Pāṇḍavas and the hundred · Kṛpa · Droṇa · Ekalavya |
