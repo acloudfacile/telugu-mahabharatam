@@ -147,13 +147,31 @@
 
   // మూల పద్యము — the Kavitrayam's own verse, where the source preserves a line
   // of it. Prose is the door; this is what stands on the other side.
+  // The Kavitrayam's own verse, quoted exactly, each with its number in the
+  // TTD edition so a reader can find it in the book.
   function padyamBox(e){
-    const p = e.padyam; if(!p) return '';
+    const list = (e.padyams || []).concat(e.padyam ? [e.padyam] : []);
+    if(!list.length) return '';
     return `<aside class="padyam">
-      <b>మూల పద్యము</b>
-      <blockquote>${p.text.split('\n').map(l => `<span>${esc(l)}</span>`).join('')}</blockquote>
-      <cite>— ${esc(p.poet || 'నన్నయ')}</cite>
-      ${p.gloss ? `<p class="gloss">${esc(p.gloss)}</p>` : ''}
+      <b>మూల పద్య${list.length > 1 ? 'ములు' : 'ము'}</b>
+      ${list.map(p => `<div class="pd">
+        <blockquote>${p.text.split('\n').map(l => `<span>${esc(l)}</span>`).join('')}</blockquote>
+        <cite>— ${esc(p.poet || 'నన్నయ')}${p.verse ? ` · ${esc(p.verse)}` : ''}</cite>
+        ${p.gloss ? `<p class="gloss">${esc(p.gloss)}</p>` : ''}
+      </div>`).join('')}
+    </aside>`;
+  }
+
+  // What Vyasa's Sanskrit text adds or tells differently. Shown only once each
+  // item has been checked against a printed translation, with its section, so
+  // nothing from memory reaches a reader.
+  function vyasaBox(e){
+    const list = e.vyasa || [];
+    if(!list.length) return '';
+    return `<aside class="vyasa">
+      <b>వ్యాసుని సంస్కృత భారతంలో</b>
+      <p class="vnote">నన్నయ తెలుగు భారతంలో లేని, లేదా భిన్నంగా ఉన్న విషయాలు — కె. ఎం. గంగూలీ ఆంగ్ల అనువాదంతో (1883–96) సరిచూసినవి మాత్రమే.</p>
+      <ul>${list.map(v => `<li>${esc(v.text)}<cite>${esc(v.ref)}</cite></li>`).join('')}</ul>
     </aside>`;
   }
 
@@ -176,7 +194,8 @@
     const rows = [
       ['మూల ఘట్టము', s.ref],
       ['అధ్యాయములు', s.adhyaya],
-      ['కవిత్రయ ఆంధ్ర మహాభారతము', s.kavitrayam]
+      ['కవిత్రయ ఆంధ్ర మహాభారతము', s.kavitrayam],
+      ['పద్య సంఖ్యలు (తి.తి.దే. ప్రతి)', s.verses]
     ].filter(r => r[1]);
     if(!rows.length) return '';
     return `<aside class="source"><b>మూలంలో</b><dl>${
@@ -218,6 +237,7 @@
         <div class="chars-box"><b>ముఖ్య పాత్రలు</b><div class="chips">${e.characters.map(charChip).join('')}</div></div>
         <div class="story">${(()=>{const used=new Set();return e.paras.map(t => `<p>${glossify(esc(t), used)}</p>`).join('');})()}</div>
         ${padyamBox(e)}
+        ${vyasaBox(e)}
         ${learnBox(e)}
         ${sourceBox(e)}
         <nav class="pager">
@@ -469,10 +489,11 @@
       ${sec('మూలాలు', [
         '<b>మొదలి వెంకట సుబ్రహ్మణ్యం</b> — శ్రీమదాంధ్ర మహాభారతము (తేట తెలుగు భాషలో): కవిత్రయపు ఆంధ్ర మహాభారతానికి ఆధునిక వచన రూపం. ప్రతి కథను ఈ గ్రంథంతో పుట పుటగా సరిచూశాము.',
         '<b>తిరుమల తిరుపతి దేవస్థానములు</b> — శ్రీమదాంధ్ర మహాభారతము, సరళ వ్యాఖ్యాన సహితం (2013): నన్నయ, తిక్కన, ఎఱ్ఱనల పద్యములు. ప్రతి కథను ఈ పాఠంతో సరిచూడడం జరుగుతోంది; పూర్తయిన కథల కింద పద్య సంఖ్యలతో సహా చూపుతాము.',
-        '<b>వ్యాస మహాభారతము</b> (సంస్కృతము) — తెలుగు గ్రంథాలలో లేని, లేదా భిన్నంగా ఉన్న విషయాలు. ఇవి ప్రతి కథ కింద \'మూలంలో\' గమనికలో \'వ్యాసుని మూలంలో…\' అని వేరుగా చూపబడతాయి. ఇటువంటి ప్రతి వాక్యాన్నీ ఒక ముద్రిత ప్రతితో సరిచూస్తున్నాము; ఆధారం దొరకనిది తొలగిస్తాము.'])}
+        '<b>వ్యాస మహాభారతము</b> (సంస్కృతము) — నన్నయ తెలుగు భారతంలో లేని, లేదా భిన్నంగా ఉన్న విషయాలు ప్రతి కథ కింద \'వ్యాసుని సంస్కృత భారతంలో\' అనే వేరు పెట్టెలో ఉంటాయి. వాటిలో ప్రతి ఒక్కటీ కె. ఎం. గంగూలీ ఆంగ్ల అనువాదంతో (The Mahabharata of Krishna-Dwaipayana Vyasa, 1883–96) సరిచూసి, ఆ అనువాదపు సెక్షన్ సంఖ్యతో చూపుతాము. ఆధారం దొరకనిది చూపము.'])}
       ${sec('ఒక కథ పేజీని ఎలా చదవాలి', [
         '<b>కథ</b> — మూల గ్రంథాలలో ఉన్నది మాత్రమే.',
         '<b>ఈ సైటు వ్యాఖ్య (ఆలోచన, నేర్చుకున్నది)</b> — మా స్వంత మాటలు. మూల కథలో భాగం కాదు; వేరే పెట్టెలో, స్పష్టంగా గుర్తించి ఇచ్చాము.',
+        '<b>వ్యాసుని సంస్కృత భారతంలో</b> — వ్యాసుని మూలంలో అదనంగా లేదా భిన్నంగా ఉన్నది; ప్రతి అంశం పక్కన గంగూలీ అనువాదపు సెక్షన్ సంఖ్య.',
         '<b>మూలంలో</b> — ఈ కథ ఏ ఉప పర్వములో, కవిత్రయపు ఏ ఆశ్వాసములో ఉందో; మూలాల మధ్య తేడాలు ఏమిటో.',
         '<b>ఎంతవరకు సరిచూశాము</b> — ప్రతి కథ కింద నిజాయితీగా: ఏ గ్రంథంతో సరిచూశామో, ఇంకా ఏది మిగిలి ఉందో.'])}
       ${sec('తప్పు కనిపిస్తే', [

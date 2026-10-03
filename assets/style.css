@@ -98,12 +98,19 @@ figcaption{text-align:center;color:var(--muted);font-size:.92rem;margin-top:12px
 .padyam b{display:block;font-family:var(--display);color:var(--turmeric);font-size:1.05rem;margin-bottom:14px}
 .padyam blockquote{margin:0;font-family:var(--display);font-size:1.22rem;line-height:2.05}
 .padyam blockquote span{display:block}
+.padyam .pd + .pd{margin-top:22px;padding-top:20px;border-top:1px solid rgba(243,237,223,.22)}
 .padyam cite{display:block;margin-top:10px;font-style:normal;color:var(--turmeric);font-size:.9rem}
 .padyam .gloss{margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(243,237,223,.28);
   font-size:.96rem;line-height:1.8;color:#E7DFCC}
 @media(max-width:640px){.padyam{padding:18px 20px}.padyam blockquote{font-size:1.08rem}}
 
 /* నేర్చుకున్నది — the reflection a child reads after the story */
+.vyasa{margin:44px 0 0;padding:20px 24px;border:1px solid var(--rule,#d8cdb4);border-left:4px solid var(--madder);border-radius:3px}
+.vyasa b{display:block;font-family:var(--display);color:var(--madder);font-size:1.1rem;margin-bottom:6px}
+.vyasa .vnote{margin:0 0 12px;font-size:.88rem;opacity:.8}
+.vyasa ul{margin:0;padding-left:1.2em}
+.vyasa li{margin:0 0 12px;line-height:1.85}
+.vyasa cite{display:block;font-style:normal;font-size:.82rem;opacity:.75;font-family:system-ui,sans-serif}
 .learn{margin:44px 0 0;padding:20px 24px;background:var(--cloth-2);border-left:4px solid var(--turmeric);border-radius:3px}
 .learn b{display:block;font-family:var(--display);color:var(--madder);font-size:1.1rem;margin-bottom:8px}
 .learn p{margin:0;font-size:1.02rem;line-height:1.85}
