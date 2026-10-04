@@ -14,7 +14,9 @@
   const sideText = {pandava:'పాండవ పక్షం', kaurava:'కౌరవ పక్షం', guru:'గురువులు, మునులు', deva:'దేవతలు', kuru:'కురు వంశ పూర్వీకులు', other:'ఇతరులు'};
 
   const byName = {};
-  CH.forEach(c => { byName[c.name] = c; c.aliases.forEach(a => byName[a] = c); byName[c.name.replace(/ \(.*\)$/,'')] = c; });
+  CH.forEach(c => { byName[c.name] = c; c.aliases.forEach(a => byName[a] = c); });
+  // a name without its gloss ('బలి' from 'బలి (రాజు)') only fills a gap — it never takes over another person
+  CH.forEach(c => { const bare = c.name.replace(/ \(.*\)$/,''); if(!byName[bare]) byName[bare] = c; });
   const findChar = n => byName[n] || byName[n.replace(/\s*\(.*\)$/,'')] || null;
   const findCharById = id => CH.find(c => c.id === id);
   // Each parva's text is loaded only when it is opened; this small index of
