@@ -158,6 +158,8 @@ import hashlib, time
 build = hashlib.sha1(
     (css + js + json.dumps(parvas, ensure_ascii=False) + json.dumps(content, ensure_ascii=False)
      + open(f'{SRC}/sw.js', encoding='utf8').read() + json.dumps(chars, ensure_ascii=False)
+     # pictures and icons too, so a new portrait replaces the old one for returning readers
+     + ''.join(f'{d}/{f}:{os.path.getsize(f"{SRC}/{d}/{f}")}' for d in ('img', 'icons') for f in sorted(os.listdir(f'{SRC}/{d}')))
      ).encode('utf8')).hexdigest()[:12]
 assets = ['./', './index.html', './assets/style.css', './assets/app.js',
           './data/parvas.js', './data/index.js', './data/characters.js',
