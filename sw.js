@@ -9,7 +9,7 @@
      everything else  cache first, refresh behind (so reading is instant) —
                   pictures, icons and each parva's text are kept once read
    The cache name carries a build stamp; a new build drops the old cache. */
-const VERSION = '6a330ae66566';
+const VERSION = '25792ac710fd';
 const CACHE = 'mb-' + VERSION;
 const ASSETS = [
 "./",

@@ -539,7 +539,10 @@ def apply_real_portraits(chars):
         mask = Image.new("L", (S, S), 0)
         ImageDraw.Draw(mask).ellipse([0, 0, S, S], fill=255)
         out.putalpha(mask)
-        out.save(f"{OUT}/{cid}.png", optimize=True)
+        # 256 colours look the same at icon size and are a fifth of the bytes —
+        # the characters page shows every icon at once, so this matters on a phone
+        out.quantize(colors=256, method=Image.Quantize.FASTOCTREE,
+                     dither=Image.Dither.FLOYDSTEINBERG).save(f"{OUT}/{cid}.png", optimize=True)
         done.append(cid)
     return done, drawn
 
